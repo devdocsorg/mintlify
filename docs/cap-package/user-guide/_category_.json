@@ -1,0 +1,10 @@
+{
+  "label": "User Guide",
+  "position": 30,
+  "collapsed": true,
+  "link": {
+    "type": "generated-index",
+    "description": "User Guide Material for the Complaints and Adverse Events Reporting Package (CAP)",
+    "slug": "/packages/cap/user-guide"
+  }
+}

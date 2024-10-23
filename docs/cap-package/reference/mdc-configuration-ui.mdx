@@ -1,0 +1,97 @@
+---
+sidebar_position: 2
+slug: /packages/cap/reference/mdc-configuration-ui
+---
+
+import { Screenshot } from "/snippets/Screenshot/Screenshot";
+
+# MDC Configuration UI
+
+## New -> "New Record"
+
+This screen is for creating a new MDC configuration, defining which objects and their related child objects are included in MDC reports.
+
+![Screenshot](/mdc-configuration-ui-01-new-record.jpg)
+
+### 1) Select Object
+
+Choose the object for the configuration and see <a href="#is-default-parent">Is Default Parent</a>
+
+### 2) Is Default Parent
+
+This checkbox is critical and can be confusing.
+
+**Checked**: The selected object is the primary object for the MDC report. The configuration will always be applied.
+
+**Unchecked**: The selected object is a child object in a more complex MDC configuration. The configuration will ONLY apply when the object is queried as a child of another object in the report.
+
+#### Notes
+
+- To configure an MDC Report spanning multiple objects requires multiple configurations
+- Only set one parent or you may have errors
+
+### 3) Select Child Objects
+
+Choose related child objects to include in the report.
+
+**Available Objects**: Child objects with a direct relationship to the configured object AND that have been configured for audit trails.
+
+**Selected Objects**: The child objects you've chosen to include.
+
+**Gotcha**: The order of child objects in the "Selected Objects" list does NOT determine their display order in the MDC report. The report uses a hierarchical structure based on object relationships, not this list order.
+
+### 4) Save/Cancel
+
+Standard buttons to save or discard changes.
+
+[//]: # "## Update Record"
+[//]: #
+[//]: #
+[//]: # "### MDC Configuration"
+[//]: # "The list of configured MDC setups, including:"
+[//]: # "- Object Name"
+[//]: # "- Object Fields"
+[//]: # "- Child Objects"
+[//]: # "- Is Parent"
+[//]: # "- Edit button"
+[//]: #
+[//]: # "### Select Review Group(s)"
+[//]: # "This is a GLOBAL setting, NOT per configuration. It controls which user groups have access to view and review ANY MDC report, regardless of the specific object or configuration."
+[//]: #
+[//]: # "Available Groups: All user groups in your Salesforce org."
+[//]: #
+[//]: # "Selected Groups: The groups with access to MDC reports."
+[//]: #
+[//]: # "Gotcha: This global setting can be misleading as it's within the configuration UI. It's NOT tied to the specific configuration being edited."
+[//]: #
+[//]: # '## "Update Record" Popup'
+[//]: #
+[//]: # 'Click on the little arrow on the configuration you wish to edit, and then click on "Edit"'
+[//]: # "<Screenshot fn='mdc-configuration-ui-02-edit-configuration.jpg' />"
+[//]: #
+[//]: # "<Screenshot fn='mdc-configuration-ui-03-update-record-top.jpg' />"
+[//]: # "<Screenshot fn='mdc-configuration-ui-03-update-record-bottom.jpg' />"
+[//]: #
+[//]: # "### Select Object"
+[//]: # "Same as for new"
+[//]: #
+[//]: # "### Select fields for object"
+[//]: # "Same as for new"
+[//]: #
+[//]: # "### Select Child Objects"
+[//]: # "Same as for new"
+[//]: #
+[//]: # "### Update/Cancel"
+[//]: # "Same as for new"
+[//]: #
+[//]: # "## Additional Non-Obvious Elements and Gotchas"
+[//]: #
+[//]: # "### Meaningful Fields"
+[//]: # 'The definition of "meaningful" fields is configured in the Audit Trail Mapping section, NOT in the MDC configuration. The MDC configuration only determines which fields to DISPLAY in the report, assuming they have meaningful changes.'
+[//]: #
+[//]: # "### Field Permissions"
+[//]: # "Users configuring MDC must have explicit field-level permissions for the fields they want to include in the configuration. This can be counterintuitive, especially for system administrators who usually have implicit access to all fields."
+[//]: #
+[//]: # "### Report Generation Logic"
+[//]: # "The logic for determining which records are included in an MDC report is based on the audit trail data and the meaningful fields configuration. The MDC configuration UI only controls the report's display and review access."
+[//]: #

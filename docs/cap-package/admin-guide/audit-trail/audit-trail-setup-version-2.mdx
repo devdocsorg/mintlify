@@ -1,0 +1,335 @@
+---
+sidebar_position: 31
+slug: /packages/cap/admin-guide/audit-trail/audit-trail-setup-version-2
+---
+
+import {Screenshot} from "/snippets/Screenshot/Screenshot";
+
+# Configuring V2 Flow based tracking
+
+This tutorial walks you through the process of configuring Smarteeva Audit Trail V2 in your Salesforce environment, enabling you to automatically track changes made to records, ensuring data integrity and compliance.
+
+## Prerequisites
+
+- **Salesforce Administrator Access:** Ensure you have the necessary permissions to access and modify Flows and Custom Settings in Salesforce.
+- **Understanding of Salesforce Objects and Fields:** Familiarize yourself with the objects and fields you want to track using the audit trail.
+- **Smarteeva Package Installed:** Make sure the Smarteeva package is installed and active in your Salesforce org.
+- **[Audit Trail Records/Fields Configured](./configuring-audited-records-fields.mdx):** Ensure that the Audit Trail Records/Fields are configured in your Salesforce org.
+
+## Enabling V2 Flow based tracking
+
+### 1) Access Custom Settings
+
+- Navigate to **Setup** by clicking the gear icon in the upper right corner.
+- In the Quick Find box, type "Custom Settings" and click **Custom Settings**.
+
+![Screenshot](/audit-trails-v2/enabling-audit-trail-v1-1-access-custom-settings.png)
+
+### 2) Manage Audit Trail Settings
+
+- Click the **Manage** link to the left of "Audit Trail Settings".
+
+![Screenshot](/audit-trails-v2/enabling-audit-trail-v1-1-2-access-custom-settings.png)
+
+### 3) Edit Audit Trail Configuration
+
+- Click the **Edit** button.
+
+![Screenshot](/audit-trails-v2/Custom-Settings_Audit-Trail-Config-3.png)
+
+### 4) Enable Version 2
+
+- Uncheck both **Use Audit Trail V1** and **Use Business Rule V1**. This will activate version 2 of the audit trail.
+- Click **Save**.
+
+
+## Creating Flows for Record Creation/Update
+
+Smarteeva Audit Trail V2 relies on Salesforce Flows to track changes.  For each object you want to track you will need to create two separate Flows: one for record creation/update and another for record deletion.
+
+### 1) Access Flows
+
+- Navigate to the **App Launcher** by clicking the grid icon in the upper left corner.
+- Type "Flow" in the search bar and select **Flows**.
+
+![Screenshot](/audit-trails-v2/flows-01-app-launcher-flows.png)
+
+### 2) Create a New Flow
+
+- Click **New Flow**.
+
+![Screenshot](/audit-trails-v2/flows-02-new-flow.png)
+
+### 3) Start from Scratch
+
+- In the "New Flow" window, choose **Start From Scratch**, then click **Next**.
+
+![Screenshot](/audit-trails-v2/flows-03-start-from-stratch.png)
+
+### 4) Select Flow Type
+
+- Choose **Record-Triggered Flow**, then click **Create**.
+
+![Screenshot](/audit-trails-v2/flows-04-record-triggered-flow.png)
+
+### 5) Configure Start
+
+- Search for the object you want to track (e.g., "DemoAuditedObject").
+- Under "Configure Trigger", select **A record is created or updated**.
+- Make sure **Actions and Related Records** is selected.
+- Click the **x** to close the **Configure Start** panel.
+
+![Screenshot](/audit-trails-v2/flows-05-configure-start.png)
+![Screenshot](/audit-trails-v2/flows-05-2-configure-start-open.png)
+
+### 6) Add a Smarteeva Business Rule Handler Action
+
+- Hover over the connector between **Start** and **End**, and click the **+** icon to add an element.
+
+![Screenshot](/audit-trails-v2/flows-06-add-a-smarteeva-business-rule-handler-action.png)
+
+- In the "Add Element" dialogue, select **Action**.
+
+![Screenshot](/audit-trails-v2/flows-06-2-add-a-smarteeva-business-rule-handler-action.png)
+
+- Search for "Smarteeva business rule handler" and select **Smarteeva Business Rule Handler (NEW)**.
+
+![Screenshot](/audit-trails-v2/flows-06-3-add-a-smarteeva-business-rule-handler-action.png)
+
+### 7) Edit Action Details
+
+- If the Label is not prefilled, enter "Smarteeva Business Rule Handler (NEW) Action 1". The API Name should auto-populate.
+
+![Screenshot](/audit-trails-v2/flows-07-edit-action-details.png)
+
+- Under **Select Objects**, for all four required fields, enter the name of your object (e.g., "DemoAuditedObject") and select the option ending with **__c**.
+
+![Screenshot](/audit-trails-v2/flows-07-2-edit-action-details.png)
+
+### 8) Set Input Values: Is Delete
+
+- For **Is Delete**, switch to "Included" and select **false** under "Global Constraints".
+
+![Screenshot](/audit-trails-v2/flows-08-set-input-values-is-delete.png)
+
+### 9) Set Input Values: Is Insert
+
+- For **Is Insert**, switch to "Included" and click **New Resource**. Select **Formula** as the Resource Type.
+
+![Screenshot](/audit-trails-v2/flows-09-set-input-values-is-insert.png)
+![Screenshot](/audit-trails-v2/flows-09-2-set-input-values-is-insert-new-resource-formula.png)
+
+- Enter "isInsert" as the API Name, "boolean" as the Data Type, and `ISNEW()` as the Formula. Click **Check Syntax** and then **Done**.
+
+![Screenshot](/audit-trails-v2/flows-09-3-set-input-values-is-insert-check-syntax.png)
+![Screenshot](/audit-trails-v2/flows-09-4-set-input-values-is-insert-valid-syntax.png)
+
+### 10) Set Input Values: Is Update
+
+- For **Is Update**, switch to "Included", click **New Resource**, and select **Formula**.
+
+![Screenshot](/audit-trails-v2/flows-10-set-input-values-is-update.png)
+
+- Enter "isUpdate" as the API Name, "boolean" as the Data Type, and `NOT(ISNEW())` as the Formula. Click **Check Syntax** and then **Done**.
+
+![Screenshot](/audit-trails-v2/flows-10-2-set-input-values-is-update.png)
+
+
+### 11) Set Input Values: New Record
+
+- For **New Record**, switch to "Included" and select **Triggering DemoAuditedObject** (replace with your object name).
+
+![Screenshot](/audit-trails-v2/flows-11-set-input-values-new-record.png)
+
+### 12) Set Input Values: Object Name
+
+- For **Object Name**, switch to "Included", type the object name (e.g., "DemoAuditedObject") in the input box, and click off the input. Make sure it is a string and not a variable.
+
+![Screenshot](/audit-trails-v2/flows-12-set-input-values-object-name.png)
+
+### 13) Set Input Values: Old Record
+
+- For **Old Record**, switch to "Included" and select **Prior Values of Triggering DemoAuditedObject** (replace with your object name).
+
+![Screenshot](/audit-trails-v2/flows-13-set-input-values-old-record.png)
+
+- Click the **x** in the top right corner to close the panel.
+
+### 14) Add a Decision Element
+
+- Click the circle connector below the "Smarteeva Business Rule Handler (NEW) Action 1" element and select **Decision** from the "Logic" group.
+
+![Screenshot](/audit-trails-v2/flows-14-add-a-decision-element.png)
+
+- Enter "Check Errors" for the left decision outcome Label and "Check_Errors" as the API Name.
+
+![Screenshot](/audit-trails-v2/flows-14-2-add-a-decision-element.png)
+
+- For the new outcome in "Outcome Details", enter "Has Error?" as the Label and "Has_Error" as the API Name.
+- In the "Resource" dropdown, select **Outputs from Smarteeva Business Rule Handler (NEW) Action 1**, then choose **Has Error**.
+
+![Screenshot](/audit-trails-v2/flows-14-3-add-a-decision-element-check-errors.png)
+![Screenshot](/audit-trails-v2/flows-14-4-add-a-decision-element-select-outputs-from.png)
+![Screenshot](/audit-trails-v2/flows-14-5-add-a-decision-element-select-has-error.png)
+
+- In the "Value" field, type "true" and select **true** under "Global Constants".
+
+![Screenshot](/audit-trails-v2/flows-14-6-add-a-decision-element-select-has-error-true.png)
+
+- Click the **x** to close the panel.
+
+### 15) Add a Custom Error Element (Has Error? Path)
+
+- Click the circle connector below "Has Error?" and select **Custom Error**.
+
+![Screenshot](/audit-trails-v2/flows-15-add-a-custom-error-has-error-path.png)
+![Screenshot](/audit-trails-v2/flows-15-2-add-a-custom-error-has-error-path.png)
+
+- In the "Custom Error Message" panel, enter "Notify error" for the Label. The API Name should autofill as "Notify_error".
+- In the "Error Message" input, select **Outputs from Smarteeva_Business_Rule_Has...**, then choose **errorMessage**.
+
+![Screenshot](/audit-trails-v2/flows-15-3-add-a-custom-error-notify-error.png)
+![Screenshot](/audit-trails-v2/flows-15-4-add-a-custom-error-notify-error-close.png)
+
+- Click the **x** to close the panel.
+
+### 16) Add a Fault Path (Smarteeva Business Rule Handler)
+
+- Click the **>_** icon on the "Smarteeva Business Rule Handler (NEW) Apex Action" element and select **Add Fault Path**.
+
+![Screenshot](/audit-trails-v2/flows-16-add-fault-path-SBRH.png)
+
+
+### 17) Add a Custom Error Element (Fault Path)
+
+- Click the circle connector under "Fault" and select **Custom Error**.
+
+![Screenshot](/audit-trails-v2/flows-17-add-fault-path-SBRH.png)
+![Screenshot](/audit-trails-v2/flows-17-2-add-fault-path-SBRH-custom-error.png)
+
+- In the "Custom Error Message" panel, enter "Show unhandled error" for the Label and "Show_unhandled_error" as the API Name.
+- In the textarea, enter your error message (e.g., "Something went wrong in Smarteeva Handler").
+![Screenshot](/audit-trails-v2/flows-17-3-add-fault-path-SBRH-custom-error.png)
+- Click the **x** to close the panel.
+
+
+
+### 18) Save the Flow
+
+- Click the **Save** button.
+- Enter "DemoAuditedObject Smarteeva Handler" for the Flow Label and "DemoAuditedObject_Smarteeva_Handler" for the Flow API Name.
+- Click **Show Advanced**.
+![Screenshot](/audit-trails-v2/flows-18-save-the-flow.png)
+- Enter "2000" for Trigger Order.
+
+![Screenshot](/audit-trails-v2/flows-18-2-save-the-flow.png)
+
+- Click **Save**.
+
+### 19) Activate the Flow
+
+- Click **Activate** in the top right corner.
+
+![Screenshot](/audit-trails-v2/flows-19-activate-the-flow.png)
+![Screenshot](/audit-trails-v2/flows-19-2-activate-the-flow.png)
+
+## Creating Flows for Record Deletion
+
+### 1) Repeat steps 1-5 from the previous section ("Flow for Record Creation/Update").
+
+### 2) Configure Start
+
+- Search for your object (e.g., "DemoAuditedObject").
+- Under "Configure Trigger", select **A record is deleted**.
+- Click the **x** to close the "Configure Start" panel.
+
+![Screenshot](/audit-trails-v2/flows-record-deletion-2-configure-start.png)
+
+### 3) Repeat steps 6-8 from the previous section ("Flow for Record Creation/Update").
+
+### 4) Set Input Values
+
+- For **Is Delete**, switch to "Included" and select **true** under "Global Constraints".
+
+![Screenshot](/audit-trails-v2/flows-record-deletion-4-set-input-values.png)
+
+- For **Is Insert** and **Is Update**, switch to "Included" and select **false** under "Global Constraints".
+
+![Screenshot](/audit-trails-v2/flows-record-deletion-4-2-set-input-values.png)
+
+- For **Old Record**, switch to "Included" and select **Triggering DemoAuditedObject** (replace with your object name).
+
+![Screenshot](/audit-trails-v2/flows-record-deletion-4-3-set-input-values.png)
+
+- Click the **x** to close the panel.
+
+### 5) Add a Decision Element
+
+- Click the circle connector below the "Smarteeva Business Rule Handler (NEW) Action 1" element and select **Decision** from the "Logic" group.
+
+![Screenshot](/audit-trails-v2/flows-record-deletion-5-add-a-decision-element.png)
+
+- Enter "Has Error?" for the left decision outcome Label and "Has_Error" for the API Name.
+- For the new outcome, enter "Check Error" as the Label and "Check_Error" as the API Name.
+- In "Outcome Details", select **Outputs from Smarteeva Business Rule Handler (NEW) Action 1**, then choose **Has Error**.
+
+![Screenshot](/audit-trails-v2/flows-record-deletion-5-2-add-a-decision-element.png)
+
+- In the "Value" field, type "true" and select **true** under "Global Constants".
+- Click the **x** to close the panel.
+
+### 6) Add a Custom Error Element
+
+- Click the circle connector below "Check Error" and select **Custom Error**.
+
+![Screenshot](/audit-trails-v2/flows-record-deletion-6-add-a-custom-error.png)
+
+- In the "Custom Error Message" panel, enter "Notify error" for the Label and "Notify_error" as the API Name.
+- In the "Error Message" input, select **Outputs from Smarteeva_Business_Rule_Has...**, then choose **errorMessage**.
+- Click the **x** to close the panel.
+
+![Screenshot](/audit-trails-v2/flows-record-deletion-6-2-add-a-custom-error.png)
+![Screenshot](/audit-trails-v2/flows-record-deletion-6-3-add-a-custom-error.png)
+
+### 7) Add a Fault Path
+
+- Click the **>_** icon on the "Smarteeva Business Rule Handler (NEW) Apex Action" element and select **Add Fault Path**.
+
+![Screenshot](/audit-trails-v2/flows-record-deletion-7-add-a-fault-path.png)
+
+### 8) Add a Custom Error Element (Fault Path)
+
+- Click the circle connector below "Fault" and select **Custom Error**.
+
+![Screenshot](/audit-trails-v2/flows-record-deletion-8-add-a-custom-error-element-fault-path.png)
+![Screenshot](/audit-trails-v2/flows-record-deletion-8-2-add-a-custom-error-element-fault-path.png)
+
+- Enter "Show unhandled error" for the Label, "Show_unhandled_error" as the API Name, and enter your error message in the textarea.
+- Click the **x** to close the panel.
+
+![Screenshot](/audit-trails-v2/flows-record-deletion-8-3-add-a-custom-error-element-fault-path.png)
+
+### 9) Save the Flow
+
+- Click **Save**.
+- Enter "DemoAuditedObject Delete Smarteeva Handler" as the Flow Label and "DemoAuditedObject_Delete_Smarteeva_Handler" as the Flow API Name.
+
+![Screenshot](/audit-trails-v2/flows-record-deletion-9-save-the-flow.png)
+
+- Click **Show Advanced**.
+- Enter "2000" for Trigger Order.
+
+![Screenshot](/audit-trails-v2/flows-record-deletion-9-2-save-the-flow.png)
+
+- Click **Save**.
+
+### 10) Activate the Flow
+
+- Click **Activate** in the top right corner.
+
+![Screenshot](/audit-trails-v2/flows-record-deletion-10-activate-the-flow.png)
+![Screenshot](/audit-trails-v2/flows-record-deletion-10-2-activate-the-flow.png)
+
+## Conclusion
+
+Congratulations! You have now configured Smarteeva Audit Trail V2 in your Salesforce environment. This setup allows you to automatically track changes made to records of your chosen object, enabling you to maintain a comprehensive audit history and meet compliance requirements.

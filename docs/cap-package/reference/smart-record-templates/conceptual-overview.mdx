@@ -1,0 +1,90 @@
+---
+sidebar_position: 00
+slug: /packages/cap/reference/smart-record-templates/conceptual-overview
+---
+
+import { Reference } from "/snippets/Reference/reference";
+import { Screenshot } from "/snippets/Screenshot/Screenshot";
+
+# Conceptual Overview
+
+## Introduction
+
+Smarteeva's CAP package includes Smart Record Templates, a powerful feature that streamlines data entry and ensures data consistency in Salesforce. This reference guide provides a comprehensive overview of their purpose, benefits, and core concepts.
+
+## Benefits
+
+Smart Record Templates offer significant advantages:
+
+* **Efficiency:** Reduce manual data entry and save time.
+* **Consistency:** Maintain uniform data across records, improving data quality and reducing errors, especially important in regulated environments.
+* **Simplified Onboarding:**  Accelerate new user training by providing pre-filled templates.
+* **Increased Productivity:** Automate repetitive tasks, freeing up users for more critical activities.
+* **Flexibility:** Adapt templates to diverse business needs using tags and dynamic merge fields. They can also automate the creation of related records, further streamlining workflows. 
+
+## Core Concepts
+
+### Templates
+
+
+Reusable sets of pre-defined field values for specific Salesforce objects (e.g., Complaint, Account).
+
+### Template Fields
+
+
+Templates consist of fields with defined values:
+
+* **Static Value:**  A fixed value. Example: Setting "Complaint Source" to "Phone Call."
+* **Dynamic Value (Merge Field):** Context-based value using merge field syntax (`{!Object.Field}`). Example: "Complaint from `{!Complaint.Account__r.Name}` regarding `{!Complaint.Product__r.Name}`." 
+
+### Merge Fields
+
+
+Dynamically insert data from related records or the current user into template fields. See the [Merge Field Syntax](./merge-field-syntax.mdx) reference guide.
+
+### Template Tags
+
+
+
+Categorize and filter templates using keywords. Tags are case-insensitive and can be combined (comma-separated). Example: A template for a specific product issue could have tags like "hardware, sensor, critical."
+
+### Related Record Templates
+
+
+Automatically create and populate related (child) records on template application. Example: A Complaint template could automatically create a related Investigation record.
+
+### Smart Record Templates Component
+
+
+The Lightning component on record pages for applying templates, offering search, tag-based filtering, and a preview mechanism.
+
+### Automated Template Application
+
+
+Templates can be applied automatically based on record criteria using Apex triggers, significantly reducing manual effort. See [Automating Template Application](../../admin-guide/smart-record-templates/automating-template-application.mdx).
+
+## How It Works
+
+1. **Template Definition:** Admins define templates. 
+2. **Component Addition:** The Smart Record Templates component is added to record pages. 
+3. **Manual Application:** Users select and apply templates via the component. 
+
+<Screenshot
+  disabled={true}
+  fn="TODO: salesforce/smart_record_templates_component.png"
+  alt="Smart Record Templates component on a record page"
+/>
+
+4. **Automated Application:** Apex triggers automatically apply templates based on criteria. 
+
+## Example Scenarios
+
+* **Standardized Case Management:** Create templates for common case types (e.g., "Product Defect," "Feature Request") to ensure consistent data capture and streamline case handling.
+* **Automated Account Setup:** Automatically apply account templates based on industry or account type, pre-populating relevant fields like "Account Source" or "SLA."
+* **Streamlined Complaint Processing:** Use templates for common complaint categories (e.g., "Hardware Issue," "Software Bug") and automatically generate related investigation records. 
+
+## Related Guides
+
+* [Creating Smart Record Templates](../../admin-guide/smart-record-templates/creating-templates.mdx)
+* [Applying Smart Record Templates](../../user-guide/smart-record-templates/applying-templates.mdx)
+* [Configuring the Smart Record Templates Component](../../admin-guide/smart-record-templates/adding-component-to-layouts.mdx)

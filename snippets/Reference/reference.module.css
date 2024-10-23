@@ -1,0 +1,14 @@
+.reference {
+    color: blue; /* Change text color */
+    text-decoration: underline; /* Underline links */
+    cursor: pointer; /* Change cursor on hover */
+  }
+  
+  .inline {
+    display: inline; /* Keep inline references on the same line */
+  }
+  
+  /* Optional: Add hover effect */
+  .reference:hover {
+    color: darkblue; /* Darker color on hover */
+  }

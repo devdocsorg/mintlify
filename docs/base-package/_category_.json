@@ -1,0 +1,10 @@
+{
+  "label": "Base Package (BP)",
+  "position": 30,
+  "collapsed": true,
+  "link": {
+    "type": "generated-index",
+    "description": "Covers the Base Package (BP)",
+    "slug": "/packages/base"
+  }
+}

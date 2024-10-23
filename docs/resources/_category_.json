@@ -1,0 +1,9 @@
+{
+  "label": "Resources",
+  "position": 50,
+  "link": {
+    "type": "generated-index",
+    "description": "Find more",
+    "slug": "/resources"
+  }
+}

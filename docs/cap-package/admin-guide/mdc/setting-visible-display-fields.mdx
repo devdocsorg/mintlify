@@ -1,0 +1,93 @@
+---
+sidebar_position: 40
+slug: /packages/cap/admin-guide/mdc/setting-visible-display-fields
+---
+
+import { Reference } from "/snippets/Reference/reference";
+import { Screenshot } from "/snippets/Screenshot/Screenshot";
+
+# Setting visible display fields for each line item
+
+## Introduction
+
+MDC (Meaningful Data Change) Reports provide a comprehensive overview of data changes within your Salesforce org. By default, the report displays key identifying information for each record. However, you can customize the visible fields for each line item in the report to include additional details relevant to your analysis. This guide will walk you through the process of configuring the visible display fields for MDC Reports in Smarteeva's CAP package.
+
+## Accessing MDC Configuration
+
+### 1) Navigate to MDC Configuration
+
+* In your Salesforce org, go to **Setup**.
+* In the Quick Find box, search for and select **Smart Config**.
+* Under the *Business Rule Configuration* heading in the left sidebar, click **MDC Configuration**.
+
+
+
+<Screenshot
+  disabled={true}
+  fn="TODO: salesforce/mdc_config_page.png"
+  alt="MDC Configuration page"
+/>
+
+
+## Configuring Visible Fields
+
+### 1) Select the MDC Group
+
+* On the MDC Configuration page, locate the MDC group you wish to configure.
+* Click the **Edit** button next to the desired group.  Each group can have a different set of visible fields.
+
+
+
+<Screenshot
+  disabled={true}
+  fn="TODO: salesforce/mdc_config_edit_group.png"
+  alt="Editing an MDC Group Configuration"
+/>
+
+
+### 2) Modify Selected Fields
+
+
+
+* In the *Update Record* popup, locate the **Select Fields** section.  This section controls which fields are displayed for each line item in the MDC Report for this group.
+* You'll see two columns: **Available Fields** and **Selected Fields**.
+
+<Screenshot
+  disabled={true}
+  fn="TODO: salesforce/mdc_config_selected_fields.png"
+  alt="Selecting Fields for Display"
+/>
+
+### 3) Add or Remove Fields
+
+* To add a field, click the **+** button next to the field name in the **Available Fields** column.
+* To remove a field, click the **-** button next to the field name in the **Selected Fields** column.
+
+
+
+
+### 4) Save Changes
+
+* Once you have configured the desired fields, click **Save** to apply your changes.
+
+
+
+
+## Viewing the Updated Report
+
+After saving your changes, generate a new MDC report. The report will now display the fields you selected for each line item.  
+
+
+## Considerations
+
+* **Performance:** Be mindful of the number of fields you select, as adding too many fields can impact report performance.  
+* **User Experience:** Select fields that are most relevant to the users who will be reviewing the report.  Too much information can make the report difficult to interpret. 
+* **Data Visibility:** Ensure that the selected fields comply with your organization's data visibility and access control policies.  
+
+
+## Example
+
+To display the Account Name, Status, and Description for each Complaint in the MDC report, add those fields to the **Selected Fields** list for the relevant MDC Group.
+
+
+

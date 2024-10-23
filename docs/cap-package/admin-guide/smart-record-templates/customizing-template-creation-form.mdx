@@ -1,0 +1,169 @@
+---
+slug: /packages/cap/admin-guide/smart-record-templates/customizing-template-creation-form
+---
+
+import { Reference } from "/snippets/Reference/reference";
+import { Screenshot } from "/snippets/Screenshot/Screenshot";
+
+# Customizing the Smart Record Template Creation Form
+
+## Introduction
+
+Smarteeva's Smart Record Templates offer powerful features for streamlining data entry. While the default configuration is robust, organizations often need to tailor the template creation process to meet specific business requirements. This guide will walk you through the process of customizing the Smart Record Template creation form, including adding custom fields, displaying them in the UI, and overriding the standard 'New' button with a custom Lightning component. These customizations can enhance template categorization, improve searchability, and provide additional metadata for reporting purposes.
+
+
+
+## Prerequisites
+
+- Salesforce Administrator access
+- Familiarity with Salesforce object customization
+- Access to Smarteeva CAP package
+- A sandbox environment for testing customizations
+
+## Adding Custom Fields to Smart Record Templates
+
+### 1) Navigate to the Object Manager
+
+1. In Salesforce Setup, go to **Object Manager**.
+2. Search for and select **Smart Record Template**.
+
+### 2) Create a New Custom Field
+
+1. Click on **Fields & Relationships**.
+2. Click the **New** button.
+3. Choose the appropriate **Data Type** for your field (e.g., Picklist, Text, Checkbox).
+4. Click **Next**.
+5. Enter the **Field Label** and **Field Name**.
+6. Configure field-specific properties (e.g., picklist values).
+7. Click **Next**.
+8. Set **Field-Level Security**.
+9. Click **Next**.
+10. Add the field to appropriate **Page Layouts**.
+11. Click **Save**.
+
+<Screenshot
+  disabled={true}
+  fn="TODO: path/to/add_custom_field.png"
+  alt="Adding a custom field to Smart Record Template object"
+  annotations={[
+    { guided_action: "Follow steps to add a new custom field" }
+  ]}
+/>
+
+
+
+## Displaying Custom Fields in the Template Creation UI
+
+To display custom fields in the template creation form, you need to use a specific Field Set.
+
+### 1) Create the Required Field Set
+
+1. In the Object Manager, on the Smart Record Template object, click **Field Sets**.
+2. Click **New**.
+3. Set the **Field Set Label** to "Additional Fields For Form".
+4. Ensure the **Field Set Name** is exactly `AdditionalFieldsForForm`.
+5. Click **Save**.
+
+### 2) Add Custom Fields to the Field Set
+
+1. On the Field Set edit page, locate your custom field(s) in the **Available Fields** section.
+2. Drag and drop the custom field(s) into the **In the Field Set** section.
+3. Click **Save**.
+
+<Screenshot
+  disabled={true}
+  fn="TODO: path/to/field_set_configuration.png"
+  alt="Configuring the AdditionalFieldsForForm Field Set"
+  annotations={[
+    { guided_action: "Drag custom fields to the 'In the Field Set' section" }
+  ]}
+/>
+
+
+
+## Overriding the Standard 'New' Button
+
+To provide a fully customized experience when creating new templates, you can override the standard 'New' button with a custom Lightning component.
+
+### 1) Create a Custom Tab for Smart Record Templates
+
+1. In Salesforce Setup, go to **Tabs**.
+2. Click **New** in the Custom Object Tabs section.
+3. For **Object**, select **Smart Record Template**.
+4. Choose a **Tab Style**.
+5. Set **Tab Visibility** for appropriate profiles.
+6. Click **Save**.
+
+### 2) Override the 'New' Button
+
+1. In Object Manager, on the Smart Record Template object, click **Buttons, Links, and Actions**.
+2. Find the **New** action and click **Edit**.
+3. In the **Lightning Experience Override** section, select **Lightning Component**.
+4. In the **Lightning Component** dropdown, select `smrtat:recordTemplateForm`.
+5. Click **Save**.
+
+<Screenshot
+  disabled={true}
+  fn="TODO: path/to/override_new_button.png"
+  alt="Overriding the New button with a custom Lightning component"
+  annotations={[
+    { guided_action: "Select the custom Lightning component for the override" }
+  ]}
+/>
+
+
+
+## Verifying the Customizations
+
+### 1) Navigate to the Smart Record Templates Tab
+
+1. Go to the App Launcher and find the newly created Smart Record Templates tab.
+
+### 2) Create a New Template
+
+1. Click the **New** button.
+2. Verify that the custom Lightning component form appears.
+3. Confirm that your custom fields are visible and editable in the form.
+
+<Screenshot
+  disabled={true}
+  fn="TODO: path/to/custom_template_form.png"
+  alt="Custom Smart Record Template creation form"
+  annotations={[
+    { guided_action: "Verify custom fields are present in the new form" }
+  ]}
+/>
+
+## Best Practices and Considerations
+
+1. **Field Naming**: Use clear and descriptive names for custom fields to ensure ease of use for template creators.
+
+2. **Field Set Management**: Only include necessary fields in the `AdditionalFieldsForForm` field set to avoid cluttering the UI.
+
+3. **Performance**: Be mindful of the number of custom fields added, as excessive customization can impact performance.
+
+4. **User Training**: Provide guidance to users on the purpose and usage of new custom fields in templates.
+
+5. **Regular Review**: Periodically review custom fields and remove any that are no longer needed to keep the form streamlined.
+
+6. **Sandbox Testing**: Always test customizations in a sandbox environment before deploying to production.
+
+## Troubleshooting
+
+- **Custom Fields Not Appearing**: If custom fields don't appear in the form, verify they are added to the `AdditionalFieldsForForm` field set.
+- **Override Not Working**: Ensure the `smrtat:recordTemplateForm` component is available in your org and that you have the necessary permissions.
+- **Performance Issues**: If the form loads slowly, consider reducing the number of custom fields or optimizing any custom code.
+
+## Limitations
+
+- The custom Lightning component (`smrtat:recordTemplateForm`) used for overriding the 'New' button is part of the Smarteeva package. Ensure it's available in your org before attempting the override.
+
+- Custom fields added through this process will not automatically be included in template cloning operations. For cloning support, refer to the guide on configuring template cloning.
+
+
+
+## Conclusion
+
+Customizing the Smart Record Template creation form allows you to tailor the template creation process to your organization's specific needs. By adding custom fields and utilizing the custom Lightning component, you can create a more efficient and user-friendly template creation experience. Remember to test thoroughly in a sandbox environment before implementing changes in production.
+
+For further assistance or advanced configurations, please refer to the Smarteeva documentation or contact support.

@@ -1,0 +1,10 @@
+{
+  "label": "Complaints and Adverse Events Reporting Package (CAP)",
+  "position": 40,
+  "collapsed": true,
+  "link": {
+    "type": "generated-index",
+    "description": "Covers the Complaints and Adverse Events Reporting Package (CAP)",
+    "slug": "/packages/cap"
+  }
+}

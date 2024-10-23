@@ -1,0 +1,115 @@
+---
+sidebar_position: 40
+slug: /packages/cap/admin-guide/business-rules/configuring-update-field-by-status
+---
+
+import { Reference } from "/snippets/Reference/reference";
+import { Screenshot } from "/snippets/Screenshot/Screenshot";
+
+# Configuring "Update Field By Status"
+
+## Introduction
+
+"Update Field By Status" automates field updates based on record status (picklist field) changes, simplifying workflows and ensuring data consistency. This guide explains configuration and the role of the Business Rule Handler.
+
+## Prerequisites
+
+* System Administrator privileges.
+* Access to the Smart Config app.
+* "Audit Trail Platform Permission Set Admin" (or a custom permission set with equivalent Smart Config access). 
+* The Business Rule Handler must be configured for the target object.  Configure tracking for the selected object by following the steps in either:
+  * [Configuring V2 Flow-Based Tracking](../audit-trail/audit-trail-setup-version-2.mdx) (recommended)
+  * [Configuring V1 Apex-Based Tracking](../audit-trail/audit-trail-setup-version-1.mdx) (legacy) 
+
+
+
+
+## Configuring the Rule
+
+### 1) Accessing Update Field By Status
+
+* In Smart Config, go to **Business Rule Configuration > Update Field By Status**. 
+
+<Screenshot
+  disabled={true}
+  fn="TODO: salesforce/smart_config_update_field_by_status.png"
+  alt="Update Field By Status page"
+/>
+
+
+### 2) Creating a New Rule
+
+* Click **New**. 
+
+
+### 3) Selecting Target Object and Status
+
+* **Target Object:** Choose the object (e.g., Complaint).
+<Screenshot
+  disabled={true}
+  fn="TODO: salesforce/smart_config_update_field_status_object.png"
+  alt="Selecting the target object" />
+
+* **Target Status:** Choose the status picklist value that triggers updates (e.g., Closed). *Status fields are picklists.* This rule activates when a user changes the record's status to the chosen value. 
+
+<Screenshot
+  disabled={true}
+  fn="TODO: salesforce/smart_config_update_field_status_status.png"
+  alt="Specifying the trigger status"
+/>
+
+
+
+### 4) Choosing Fields to Update
+
+* **Text Fields:** Select text fields to be updated with the currently logged-in user's information (username or ID). The exact field used might vary.  *The selected fields must exist on the target object.* 
+* **Date Fields:** Select date fields to automatically capture the timestamp. *The selected fields must exist on the target object.*
+* **Important:** Lookup and complex field types are not supported. 
+
+<Screenshot
+  disabled={true}
+  fn="TODO: salesforce/smart_config_update_field_status_fields.png"
+  alt="Selecting fields to update"
+/>
+
+
+
+
+### 5) Saving the Rule
+
+* Click **Save**. 
+
+
+
+
+## Example: Tracking Case Closure
+
+Automate tracking of Case closure:
+
+1. **Target Object:** Case
+2. **Target Status:** Closed
+3. **Text Fields:** "Closed By" (populated with the closing user's information).
+4. **Date Fields:** "Closed Date" (automatically populated with the timestamp).
+
+
+
+## Benefits
+
+* **Automation:** Eliminates manual field updates.
+* **Data Integrity:** Ensures accurate and consistent data.
+* **Simplified Workflows:** Streamlines processes, especially with picklist fields.
+
+
+## Troubleshooting
+
+### Fields Not Updating
+
+* **Configuration:** Double-check settings.
+* **Status Transition:** Verify the target status is reached.
+* **Business Rule Handler:** Ensure it's active for the target object. 
+* **Field-Level Security:** Verify edit access. 
+
+
+### Errors
+
+* Check Salesforce debug logs.

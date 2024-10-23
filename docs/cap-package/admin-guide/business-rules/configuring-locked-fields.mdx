@@ -1,0 +1,109 @@
+---
+sidebar_position: 20
+slug: /packages/cap/admin-guide/business-rules/configuring-locked-fields
+---
+
+import { Reference } from "/snippets/Reference/reference";
+import { Screenshot } from "/snippets/Screenshot/Screenshot";
+
+# Configuring Locked Fields
+
+## Introduction
+
+The "Locked Fields" feature prevents field modification based on record status, maintaining data integrity.  This guide explains configuration.
+
+## Prerequisites
+
+* System Administrator privileges.
+* Access to the Smart Config app.
+* "Audit Trail Platform Permission Set Admin" permission set (or equivalent). 
+* Active Business Rule Handler (Trigger or Flow) for the target object.  See:
+    * [Configuring V2 Flow-Based Tracking](../audit-trail/audit-trail-setup-version-2.mdx)
+    * [Configuring V1 Apex-Based Tracking](../audit-trail/audit-trail-setup-version-1.mdx)
+    
+
+
+## Configuring Locked Field Rules
+
+### 1) Accessing Locked Fields Setup
+
+* In Smart Config, navigate to **Business Rule Configuration > Locked Fields**.  
+
+<Screenshot
+  disabled={true}
+  fn="TODO: salesforce/smart_config_locked_fields_setup.png"
+  alt="Locked Fields page"
+/>
+
+
+### 2) Creating a New Rule
+
+* Click **New**.
+
+### 3) Selecting Target Object and Status
+
+* **Select Object:** Choose the object (e.g., Complaint).
+
+
+<Screenshot
+  disabled={true}
+  fn="TODO: salesforce/smart_config_locked_fields_object.png"
+  alt="Selecting the target object"
+/>
+
+
+* **Select Status:** Choose the triggering status value (picklist value) (e.g., "Closed"). *Status fields are picklists*.
+
+
+
+<Screenshot
+  disabled={true}
+  fn="TODO: salesforce/smart_config_locked_fields_status.png"
+  alt="Selecting the trigger status"
+/>
+
+
+
+### 4) Specifying Locked Fields
+
+* **Data Fields:** Select fields to lock when the status matches. 
+
+* **Reference Fields (Lookup Fields):** Selecting a lookup field here will prevent users from changing which record the lookup points to.
+
+
+<Screenshot
+  disabled={true}
+  fn="TODO: salesforce/smart_config_locked_fields_fields.png"
+  alt="Selecting locked fields"
+/>
+
+
+
+### 5) Saving the Rule
+
+* Click **Save**.
+
+
+
+## Example
+
+To lock "Complaint Description" and "Complaint Title" when a Complaint is "Closed":
+
+1. **Select Object:** Complaint
+2. **Select Status:** Closed
+3. **Data Fields:** Check "Complaint Description" and "Complaint Title."
+
+
+## How It Works
+
+When editing a record with the matching status, an error prevents saving changes to locked fields.  
+
+
+
+## Troubleshooting
+
+### Errors When Editing
+
+* **Locked Fields:** Ensure the field isn't locked for the current status.
+* **Incorrect Configuration:** Double-check the rule.
+* **Business Rule Handler:**  Ensure it's active for the target object

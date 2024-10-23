@@ -1,0 +1,78 @@
+---
+sidebar_position: 1
+slug: /packages/cap/user-guide/smart-email/managing-email-subscriptions
+---
+
+import { Reference } from "/snippets/Reference/reference";
+import { Screenshot } from "/snippets/Screenshot/Screenshot";
+
+
+# Managing Email Subscriptions
+
+## Introduction
+
+Smarteeva's CAP package allows you to subscribe to public email notifications for specific events or record changes within Salesforce.  This user guide explains how to manage your subscriptions.
+
+## Accessing Available Subscriptions
+
+### 1) Navigate to Smart Email Notifications
+
+* From the App Launcher, search for and select **Smart Email Notification**.
+
+
+### 2) Open the Available Public Email Services Tab
+
+* Click the **Available Public Email Services** tab. This tab lists all the email notification services that have been made public by an administrator.
+
+
+<Screenshot
+  disabled={true}
+  fn="TODO: salesforce/smart_email_public_services_tab.png"
+  alt="Available Public Email Services Tab"
+/>
+
+
+## Subscribing to a Service
+
+### 1) Locate the Service
+
+
+
+* Find the email service you want to subscribe to in the list. Each service will have a name (e.g., "Account Industry is Banking") indicating the object and criteria it's based on.
+
+### 2) Subscribe to the Service
+
+* Check the **Subscribe** checkbox next to the service name.
+
+<Screenshot
+  disabled={true}
+  fn="TODO: salesforce/smart_email_subscribe_checkbox.png"
+  alt="Subscribing to a Service"
+/>
+
+
+You will now receive email notifications whenever the defined criteria are met for the specified object.
+
+
+## Unsubscribing from a Service
+
+### 1) Locate the Service
+
+* Find the service you want to unsubscribe from in the list.
+
+### 2) Unsubscribe from the Service
+
+* Uncheck the **Subscribe** checkbox next to the service name.  
+
+<Screenshot
+  disabled={true}
+  fn="TODO: salesforce/smart_email_unsubscribe_checkbox.png"
+  alt="Unsubscribing from a Service"
+/>
+
+You will no longer receive email notifications for that specific service.  You can resubscribe at any time by checking the checkbox again.
+
+
+## Viewing Active Subscriptions
+
+All your currently active subscriptions are listed on the **Available Public Email Services** tab with the **Subscribe** checkbox checked.

@@ -1,0 +1,180 @@
+---
+slug: /packages/base/reference/decision-trees/data-model-and-events
+---
+
+# Understanding the Decision Tree Data Model and Event Handling
+
+## Introduction
+
+Smarteeva's Decision Tree functionality allows organizations to create dynamic questionnaires and forms within Salesforce. This article explains the data model, event handling, and how to leverage this for custom reporting and automation.
+
+## The Decision Tree Data Model
+
+### Key Components
+
+#### 1. Module
+- Container for the entire Decision Tree
+- Represents a specific questionnaire or form
+
+#### 2. Question
+- Individual questions presented to the user
+- Each Module contains multiple Questions
+
+#### 3. Question Item
+- Sub-elements of a Question
+- Used in complex question types like Forms
+
+#### 4. Event
+- Represents a single instance of user interaction
+- Created when a user begins a Decision Tree session
+
+#### 5. Answer
+- Captures the user's response to a single Question within an Event
+
+#### 6. Answer Item
+- Used when a Question has multiple inputs (Question Items)
+
+### Relationships Between Components
+
+1. Module ↔ Questions
+2. Question ↔ Question Items
+3. Module ↔ Events
+4. Event ↔ Answers
+5. Answer ↔ Answer Items
+6. Event ↔ Salesforce Records
+
+## Event Handling and User Response Capture
+
+### Creating an Event
+
+### 1) User Begins Interaction
+An Event record is created.
+
+### 2) Event Linking
+The Event is linked to the Module and Entity.
+
+### Capturing Answers
+
+1. Answers are recorded for each Question
+2. Answer Items are created for Questions with Question Items
+
+### Data Flow Example
+
+1. User starts Decision Tree → Event is created
+2. User answers Question 1 → Answer for Question 1 is created
+3. Question 1 has multiple Question Items → Answer Items are created
+4. User proceeds to Question 2, and so on
+
+### Resuming Incomplete Surveys
+
+- Event ID can be stored on the record
+- Users can resume from where they left off
+
+## Leveraging the Data Model for Reporting and Automation
+
+### Custom Reporting
+
+1. Track user responses
+2. Analyze patterns
+3. Maintain audit trails
+
+### Creating Apex Triggers Based on Event Completion
+
+### 1) Trigger on Event Completion
+Write an Apex trigger on the Event object.
+
+### 2) Access User Responses
+Retrieve user responses from related Answers and Answer Items.
+
+### 3) Implement Custom Logic
+Execute custom actions based on responses.
+
+#### Example Apex Trigger
+
+```apex
+trigger DecisionTreeEventTrigger on Event__c (after update) {
+    for (Event__c event : Trigger.new) {
+        if (event.Status__c == 'Completed') {
+            // Fetch related Answers
+            List<Answer__c> answers = [SELECT Id, Question__c, Response__c FROM Answer__c WHERE Event__c = :event.Id];
+
+            // Implement custom logic based on responses
+            for (Answer__c answer : answers) {
+                // Example: If a specific question was answered a certain way, create a follow-up task
+                if (answer.Question__c == 'Q1' && answer.Response__c == 'Yes') {
+                    Task newTask = new Task(
+                        Subject = 'Follow up on positive response',
+                        WhatId = event.RecordId__c,
+                        OwnerId = UserInfo.getUserId()
+                    );
+                    insert newTask;
+                }
+            }
+        }
+    }
+}
+```
+
+### Best Practices for Trigger Development
+
+1. Understand the Data Model
+2. Handle Bulk Operations
+3. Test Thoroughly
+
+## Practical Example: Assigning Tasks Based on Responses
+
+### 1) Trigger Activation
+Apex trigger detects Event completion.
+
+### 2) Response Evaluation
+Trigger checks Answers for negative responses.
+
+### 3) Task Creation
+Follow-up task assigned to customer support.
+
+## Configuration Steps and Best Practices
+
+### Setting Up the Decision Tree Component
+
+### 1) Use Lightning App Builder
+Drag the Decision Tree component onto the page.
+
+### 2) Configure Component Parameters
+- Set Module Key Value
+- Choose View Type
+- Specify Default Event Field Name (optional)
+
+### Single Survey vs. List View
+
+#### Single Survey
+- For one-time completion
+- Useful for single responses
+
+#### List View
+- Displays existing Events
+- Allows multiple sessions
+- Ideal for ongoing data collection
+
+### Resuming Incomplete Surveys
+
+### 1) Specify Event ID Field
+Configure Default Event Field Name.
+
+### 2) Store Event ID
+Save Event ID to the specified field.
+
+### Permissions and Access
+
+1. Assign necessary permission sets
+2. Control component visibility based on user profiles or roles
+
+## Conclusion
+
+Understanding the Decision Tree data model and event handling allows you to:
+
+1. Capture and analyze user responses systematically
+2. Implement custom reporting
+3. Automate processes with Apex triggers
+4. Enhance user experience through proper configuration
+
+Adhering to best practices maximizes the capabilities of Decision Tree functionality within Salesforce.

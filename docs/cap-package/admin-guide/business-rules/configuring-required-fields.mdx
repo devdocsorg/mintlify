@@ -1,0 +1,106 @@
+---
+sidebar_position: 10
+slug: /packages/cap/admin-guide/business-rules/configuring-required-fields
+---
+
+import { Reference } from "/snippets/Reference/reference";
+import { Screenshot } from "/snippets/Screenshot/Screenshot";
+
+# Configuring Required Fields
+
+## Introduction
+
+The "Required Fields" feature dynamically enforces required fields based on record status. This guide explains how to configure these rules.
+
+## Prerequisites
+
+* System Administrator privileges.
+* Access to the Smart Config app.
+* "Audit Trail Platform Permission Set Admin" permission set (or equivalent). 
+* Active Business Rule Handler (Trigger or Flow) for the target object. See:
+  * [Configuring V2 Flow-Based Tracking](../audit-trail/audit-trail-setup-version-2.mdx)
+  * [Configuring V1 Apex-Based Tracking](../audit-trail/audit-trail-setup-version-1.mdx)
+
+
+
+
+## Configuring Required Field Rules
+
+### 1) Accessing Required Fields Setup
+
+* In Smart Config, navigate to **Business Rule Configuration > Required Fields**. 
+
+<Screenshot
+  disabled={true}
+  fn="TODO: salesforce/smart_config_required_fields_setup.png"
+  alt="Required Fields tab"
+/>
+
+
+### 2) Creating a New Rule
+
+* Click **New**.
+
+### 3) Selecting the Target Object and Status
+
+* **Select Object:** Choose the object (e.g., Complaint).
+
+<Screenshot
+  disabled={true}
+  fn="TODO: salesforce/smart_config_required_fields_object.png"
+  alt="Selecting the target object"
+/>
+
+
+* **Select Status:** Choose the status value (picklist value) that triggers the rule (e.g., "In Progress"). *Status fields are picklists*.
+
+<Screenshot
+  disabled={true}
+  fn="TODO: salesforce/smart_config_required_fields_status.png"
+  alt="Selecting the trigger status"
+/>
+
+
+
+### 4) Specifying Required Fields
+
+* **Data Fields:** Select fields that should become required. *These must exist on the selected object.* 
+
+* **Reference Fields (Lookup Fields):** Select lookup fields that should become required. This enforces that the lookup field has a related record selected, but it doesn't enforce requirements on fields *within* the related record.
+
+<Screenshot
+  disabled={true}
+  fn="TODO: salesforce/smart_config_required_fields_fields.png"
+  alt="Selecting required fields"
+/>
+
+
+
+### 5) Saving the Rule
+
+* Click **Save**.
+
+
+
+## Example
+
+To require "Complaint Description," "Complaint Title," and the "Related Account" lookup when a Complaint's status is "In Progress":
+
+1. **Select Object:** Complaint
+2. **Select Status:** In Progress
+3. **Data Fields:** Check "Complaint Description" and "Complaint Title."
+4. **Reference Fields:** Check "Related Account."
+
+## How It Works
+
+When a user changes a record's status, the Business Rule Handler checks the rules. If the new status matches, those fields become required. If empty, an error prevents saving.  
+
+
+
+## Troubleshooting
+
+### Errors When Saving
+
+* **Missing Required Fields:** Ensure all required fields are filled.
+* **Incorrect Configuration:** Double-check the rule.
+* **Business Rule Handler:** Ensure it's active for the target object

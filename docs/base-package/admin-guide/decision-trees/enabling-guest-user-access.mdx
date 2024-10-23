@@ -1,0 +1,223 @@
+---
+slug: /packages/base/admin-guide/decision-trees/guest-user-access
+---
+
+# Enabling Guest User Access to Decision Trees
+
+## Introduction
+
+This article provides detailed instructions for setting up Guest User access to Decision Trees in Smarteeva. By enabling Guest Users—external users without Salesforce accounts—to fill out forms, organizations can gather feedback or additional information directly from customers or stakeholders. This feature extends the capabilities of Smarteeva's Decision Trees, allowing external contributions while ensuring security and data integrity.
+
+## Prerequisites and Considerations
+
+Before proceeding, please note the following important considerations:
+
+- **Custom Code Requirement**: Enabling Guest User access requires additional code not included in the managed BASE package. This code is part of an unmanaged package and must be deployed separately at the customer level.
+- **Supported Module Types**: Currently, only the **'Form'** module type is supported for Guest User access. Other module types like **'Regular Branching'** are not supported in this context.
+
+## Setup Steps for Enabling Guest User Access
+
+To enable Guest User access to Decision Trees, follow these configuration steps carefully.
+
+### 1. Configure Custom Settings
+
+Navigate to **Smarteeva Setup** in Salesforce and update the custom settings.
+
+- **Link to Use in Emails**: Populate the **'Link to Use in Emails'** field with the URL of the public site you will create. This link will be included in emails sent to Guest Users to access the forms.
+
+Example:
+
+```
+https://yourdomain.force.com/customerfeedback
+  ```
+
+### 2. Creating a Public Site
+
+Set up a public Salesforce site to host the Decision Tree form accessible to Guest Users.
+
+#### a. Site Creation
+
+1. Go to **Setup** in Salesforce.
+2. Navigate to **Sites** under **User Interface**.
+3. Click **New** to create a new site.
+4. Fill in the required fields:
+- **Site Label**: e.g., `Customer Feedback`
+- **Site Name**: e.g., `Customer_Feedback`
+- **Default Web Address**: This will be auto-populated based on the site name.
+5. Check the **Active** checkbox to activate the site.
+
+#### b. Set Active Site Home Page
+
+- Set the **Active Site Home Page** to a Visualforce page named **'FeedbackFormPage'**. This page is specifically created for the Guest User feature and must be developed or obtained separately.
+
+**Note**: The **'FeedbackFormPage'** is part of the unmanaged package and is not included in the managed BASE package.
+
+#### c. Enable Required Features
+
+In the site settings:
+
+1. Enable **Lightning Features for Guest Users**.
+2. Ensure the following settings are enabled (these are usually enabled by default):
+- **Enable Content Sniffing Protection**
+- **Enable Browser Cross Site Scripting Protection**
+
+### 3. Guest User Creation and Permissions
+
+#### a. Understand Guest User Creation
+
+- When you create a public site, Salesforce automatically creates a **Guest User** associated with that site. This user represents all unauthenticated users who access the site.
+
+#### b. Assign Permission Sets
+
+1. Navigate to the **Public Access Settings** of your site.
+2. Click on **View Users** to see the **Guest User**.
+3. Assign the **'Custom Guest User Permissions'** permission set to the Guest User.
+- This permission set is part of the unmanaged package and provides the necessary permissions for the Guest User to interact with the Decision Tree.
+4. Verify that the Guest User has the **'Customer Feedback Profile'**, which determines the baseline permissions.
+
+### 4. Configure Sharing Settings and Sharing Rules
+
+By default, the Guest User cannot access the necessary records. You'll need to create sharing rules to grant access to specific objects.
+
+#### a. Objects Requiring Sharing Rules
+
+Create sharing rules for the following objects:
+
+- **Complaint**
+- **Content Module**
+- **Decision**
+- **Event**
+
+#### b. Set Sharing Rules Criteria and Access Level
+
+For each object:
+
+1. Navigate to **Setup** > **Sharing Settings**.
+2. Find the object (e.g., **Complaint**) and click **New** under **Sharing Rules**.
+3. Define the sharing rule:
+- **Rule Name**: e.g., `Complaint Sharing Rule for Guest User`
+- **Rule Type**: Select **Based on criteria**
+- **Criteria**: Set **'Created By'** not equal to `null`
+- This includes all records, as all records have a **Created By** value.
+- **Shared To**: Select **Guest User Access** and choose your **Site Guest User**.
+- **Access Level**: Select **Read Only**
+
+Repeat these steps for each object listed above.
+
+### 5. Set 'Module Types Allowed for Ad-hoc Feature'
+
+In the **Smarteeva Setup** custom settings:
+
+- Set the **'Module Types Allowed for Ad-hoc Feature'** field to `Form`.
+
+**Note**: Only the **'Form'** module type is currently supported for Guest User access. Use a semicolon to separate module types if you need to include others in the future, but for Guest Users, only include `Form`.
+
+## Process of Sending Forms to Guest Users
+
+### 1. Create and Activate the Ad Hoc Decision Tree
+
+#### a. Create the Decision Tree Module
+
+1. Navigate to the **Decision Tree Builder**.
+2. Create a new module with the following configurations:
+- **Module Name**: Provide an appropriate name (e.g., `Guest Feedback Form`).
+- **Module Type**: Select `Form`.
+3. Add the necessary questions to the form and link them to the appropriate record fields if needed (e.g., **'Complaint Title'**, **'Complaint Description'**).
+
+#### b. Activate the Module
+
+1. Click **Activate** to activate the module.
+2. During activation, you can choose to send an email to recipients.
+
+### 2. Configure Email Settings
+
+In the activation process:
+
+1. Specify the **email recipients** in the **'To'** field.
+2. Select or create an email template if desired.
+3. Ensure that the email includes a link to the form, which utilizes the **'Link to Use in Emails'** you configured earlier.
+
+### 3. Understand Link Parameters
+
+The link sent in the email includes parameters that allow the Guest User to access the specific form instance:
+
+- **eventId**: The ID of the Event record associated with the form.
+- **recordId**: The ID of the record (e.g., Complaint) the form is linked to.
+- **key**: The unique key value of the Decision Tree module.
+
+Example link format:
+
+```
+https://yourdomain.force.com/customerfeedback?eventId=EVENT_ID&recordId=RECORD_ID&key=MODULE_KEY
+```
+
+## Guest User Interaction with the Form
+
+### 1. Accessing the Form
+
+- The Guest User receives the email and clicks the provided link.
+- The link directs the user to the public site where the form is hosted.
+- No Salesforce authentication is required.
+
+### 2. Filling and Submitting the Form
+
+- The Guest User completes the form by filling in the required fields.
+- If the form fields are linked to record fields (e.g., **'Complaint Title'**), the input will update those fields on the associated record upon submission.
+- After completing the form, the user submits it, and a confirmation message may be displayed.
+
+## Data Capture and Audit Trail
+
+### 1. Record Updates
+
+- Upon form submission by the Guest User, any linked fields on the associated record are updated with the Guest User's input.
+
+### 2. Ownership and Modification Tracking
+
+- The **'Last Modified By'** field on the record will display the **Guest User**, indicating that the changes were made by an external user.
+- The **Audit Trail** records the changes, with **'Performed By'** showing the Guest User.
+- This provides transparency and traceability for all modifications made via Guest User submissions.
+
+## Security Considerations
+
+### 1. Limited Access Provided
+
+- **Read Only** access is granted to the Guest User through sharing rules.
+- The Guest User cannot perform actions beyond filling out the form and updating linked fields.
+- They cannot access Salesforce beyond the specific form provided.
+
+### 2. Record Access Restrictions
+
+- The Guest User can only access the specific records associated with the link parameters (**eventId**, **recordId**, **key**).
+- If a user attempts to manipulate the URL parameters, they will not be able to access unauthorized records without valid keys and IDs.
+
+### 3. Session Isolation
+
+- The Guest User operates without an authenticated session.
+- Using an incognito browser window demonstrates that the user can access and submit the form without being logged into Salesforce.
+- This ensures that Guest Users cannot access any data beyond what is explicitly shared with them.
+
+## Best Practices and Additional Notes
+
+### 1. Customizations Are Customer Specific
+
+- Components such as the public site, Visualforce pages, and permission sets are created at the customer level.
+- Since these are part of the unmanaged package, they can be customized according to your organization's needs.
+
+### 2. Testing the Entire Flow
+
+- It's recommended to thoroughly test the entire process:
+- Create and activate an Ad Hoc Decision Tree.
+- Send the form to a test email address.
+- Access the form as a Guest User and submit it.
+- Verify that the data is correctly updated on the associated record.
+- Check the **Audit Trail** to ensure changes are properly recorded.
+
+### 3. Email Templates and Link Verification
+
+- Ensure that the **'Link to Use in Emails'** is accurate and points to your public site URL.
+- Test the links in the email to confirm that Guest Users can access the forms without issues.
+- Keep email templates clear and provide instructions if necessary to guide users through the process.
+
+## Conclusion
+
+Enabling Guest User access to Decision Trees in Smarteeva allows organizations to collect valuable information from external users without requiring Salesforce accounts. By following the configuration steps outlined in this article, you can set up secure and efficient forms accessible to Guest Users. Remember to consider security implications, test thoroughly, and customize components to fit your organization's needs. This feature enhances the flexibility of Decision Trees and expands the potential for external collaboration and data gathering.

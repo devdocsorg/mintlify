@@ -1,0 +1,10 @@
+{
+  "label": "Decision Trees",
+  "position": 0,
+  "collapsed": true,
+  "link": {
+    "type": "generated-index",
+    "description": "Reference material for Decision Trees within the BASE package",
+    "slug": "/packages/base/reference/decision-trees"
+  }
+}

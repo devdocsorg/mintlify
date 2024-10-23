@@ -1,0 +1,91 @@
+---
+sidebar_position: 30
+slug: /packages/cap/admin-guide/audit-trail/audit-trail-setup-version-1
+---
+
+# Configuring V1 Apex based tracking
+
+This guide explains how to configure tracking for a specific object in Salesforce using the V1 approach.
+It requires using Apex triggers to capture changes and log them in the audit trail.
+
+## Prerequisites
+
+- **Salesforce Administrator Access:** Ensure you have the necessary permissions to access and modify Flows and Custom Settings in Salesforce.
+- **Understanding of Salesforce Objects and Fields:** Familiarize yourself with the objects and fields you want to track using the audit trail.
+- **Smarteeva CAP Package Installed:** Make sure the Smarteeva CAP package is installed and active in your Salesforce org.
+- **Familiarity with Apex Triggers:** You should have a basic understanding of Apex triggers and how they work in Salesforce.
+
+## Enabling V1 Apex based tracking
+
+### 1) Go to Setup
+
+- Log in to Salesforce and click on the gear icon in the upper right corner.
+- Click on "Setup."
+
+![Go to Setup](/snippets/smarteeva-screenshots/use-setup-quickfind-02-click-on-setup-menu-item.jpg)
+
+### 2) Go to Custom Settings
+
+- In the left sidebar in the quick find field, search for "Custom Settings" then click **Custom Settings**.
+- Click **Manage** to the left of **Audit Trail Config**.
+
+![Go to Custom Settings](/snippets/smarteeva-screenshots/audit-trails-v1/audit-trail-02-go-to-custom-settings.png)
+
+### 3) Manage Audit Trail Settings
+
+- Click **Edit**.
+
+![Manage Audit Trail Settings](/snippets/smarteeva-screenshots/audit-trails-v1/audit-trail-03-manage-audit-trail-settings.png)
+
+### 4) Select Audit Trail Version 1
+
+- Ensure **Use Audit Trail V1** and **Use Business Rule V1** are checked.
+- The **Audit Trail Selected Fields** should be prefilled.
+
+![Select Audit Trail Version 1](/snippets/smarteeva-screenshots/audit-trails-v1/audit-trail-04-select-audit-trail-v1.png)
+
+## Setting up Triggers for each Object
+
+### 1) Navigate To Developer Console
+
+- Navigate to the Developer Console and create a new trigger for each object you want to track. This trigger will be responsible for capturing changes and logging them in the audit trail.
+
+![Navigate to Developer Console](/snippets/smarteeva-screenshots/audit-trails-v1/setting-up-triggers-01-navigate-to-developer-console.png)
+
+### 2) Create New Apex Trigger
+
+- In the **Developer Console**, select **New** and then **Apex Trigger**.
+
+![Create New Apex Trigger](/snippets/smarteeva-screenshots/audit-trails-v1/setting-up-triggers-02-create-new-apex-trigger.png)
+
+### 3) Configure New Apex Trigger
+
+- In the **New Apex Trigger** window, enter the **Name** and **Object** (API name) for the trigger, then click **Submit**.
+
+![Configure New Apex Trigger](/snippets/smarteeva-screenshots/audit-trails-v1/setting-up-triggers-03-configure-new-apex-trigger.png)
+
+### 4) Add Trigger Code
+
+- Within the trigger code, you'll need to include logic to capture the old and new values of the tracked fields, the timestamp of the change, and the user who made the change.
+
+```apex
+trigger DemoAuditOBjectTrigger on DemoAuditedObject__c (before insert,
+            before update,
+            after insert,
+            after update,
+            before delete) {
+
+  // The smrtat.AuditTrailConfigTriggerValidationHandler.checkConfigValidation method
+  // from the Smarteeva CAP package handles the audit trail logic.
+
+  smrtat.AuditTrailConfigTriggerValidationHandler.checkConfigValidation(
+      Trigger.newMap,    // A map of new record values
+      Trigger.oldMap,    // A map of old record values (available for update and delete operations)
+      Trigger.new,       // A list of new records
+      Trigger.isBefore,  // A Boolean indicating if the trigger is firing before the operation
+      Trigger.isAfter,   // A Boolean indicating if the trigger is firing after the operation
+      Trigger.isInsert,  // A Boolean indicating if the operation is an insert
+      Trigger.isUpdate,  // A Boolean indicating if the operation is an update
+      Trigger.isDelete,  // A Boolean indicating if the operation is a delete
+      'DemoAuditedObject__c'); // The API name of the object being tracked
+}

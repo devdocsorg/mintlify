@@ -1,0 +1,90 @@
+---
+sidebar_position: 2
+slug: /packages/cap/reference/smart-email/merge-field-syntax
+---
+
+import { Reference } from "/snippets/Reference/reference";
+
+# Merge Field Syntax for Smart Email Notifications
+
+
+
+## Introduction
+
+This reference guide explains merge field syntax in Smarteeva's CAP package for dynamically populating email templates.
+
+## Basic Syntax
+
+Merge fields are enclosed in curly braces `{}` and prefixed with an exclamation mark `!`:
+
+```
+{!Object.Field}
+```
+
+Where:
+
+* `Object`: The object containing the field (e.g., `Recipient`, `RelatedTo`, `Account`).
+* `Field`: The field's API name.
+
+
+## Examples
+
+### Recipient's Full Name
+
+`{!Recipient.FullName}`  
+
+### Related Account Name
+
+`{!RelatedTo.Account.Name}` (Assumes `RelatedTo` is a Complaint with an Account lookup.)
+
+
+### Complaint Description
+
+`{!RelatedTo.Description__c}` (Assumes `Description__c` is the Complaint Description API name.) 
+
+
+### Service Name
+
+`{!Service_Name}` 
+
+### Unsubscribe Link
+
+`{!Unsubscribe_URL}` 
+
+
+
+## Important Considerations
+
+### API Names
+
+Use correct API names (found in Salesforce Object Manager). 
+
+### Object Relationships
+
+Understand object relationships. To access Account Name from a Complaint, traverse the relationship: `{!RelatedTo.Account.Name}`.
+
+
+### Data Types
+
+Ensure merge field types are compatible with the email template.
+
+
+### Error Handling
+
+Unresolved merge fields (e.g., blank fields, lack of access) may cause errors or blank spaces. Use formulas for robust handling (e.g., `{!IF(ISBLANK(RelatedTo.Description__c), "No description provided", RelatedTo.Description__c)}`).
+
+
+## Troubleshooting
+
+### Missing Data
+
+Double-check the field's API name and object data.
+
+### Incorrect Data
+
+Verify object relationships and data types.
+
+### Error Messages
+
+Consult Salesforce documentation or debug logs.
+

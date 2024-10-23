@@ -1,0 +1,10 @@
+{
+  "label": "Reference",
+  "position": 40,
+  "collapsed": true,
+  "link": {
+    "type": "generated-index",
+    "description": "Reference material for the Complaints and Adverse Events Reporting Package (CAP)",
+    "slug": "/packages/cap/reference"
+  }
+}

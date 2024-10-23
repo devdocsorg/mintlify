@@ -1,0 +1,98 @@
+---
+sidebar_position: 30
+slug: /packages/cap/admin-guide/business-rules/configuring-child-record-locks
+---
+
+import { Reference } from "/snippets/Reference/reference";
+import { Screenshot } from "/snippets/Screenshot/Screenshot";
+
+# Configuring Child Record Locks
+
+## Introduction
+
+The "Child Record Lock" feature in Smarteeva's CAP package prevents changes to related child records when the parent record reaches a specific status. This ensures data integrity and prevents unintended modifications to related data. This guide explains how to configure these locks.
+
+## Prerequisites
+
+* System Administrator privileges.
+* Access to the Smart Config app.
+* "Audit Trail Platform Permission Set Admin" permission set (or equivalent). 
+* Active Business Rule Handler (Trigger or Flow) for the target object. See:
+  * [Configuring V2 Flow-Based Tracking](../audit-trail/audit-trail-setup-version-2.mdx)
+  * [Configuring V1 Apex-Based Tracking](../audit-trail/audit-trail-setup-version-1.mdx)
+
+
+
+
+## Configuring Child Record Lock Rules
+
+### 1) Accessing Child Record Lock Setup
+
+* In Smart Config, navigate to **Business Rule Configuration > Child Record Lock**. 
+
+<Screenshot
+  disabled={true}
+  fn="TODO: salesforce/smart_config_child_record_lock.png"
+  alt="Child Record Lock page"
+/>
+
+### 2) Creating a New Rule
+
+* Click **New**.
+
+### 3) Selecting Target Object and Status
+
+* **Select Object:** Choose the parent object (e.g. Complaint). The available statuses are determined by this selection. 
+<Screenshot
+  disabled={true}
+  fn="TODO: salesforce/smart_config_child_record_lock_object.png"
+  alt="Selecting the parent object" />
+
+* **Select Status:**  Choose the parent record status value (picklist value) that triggers the lock (e.g., "Closed"). *Status fields are picklists.*  
+
+<Screenshot
+  disabled={true}
+  fn="TODO: salesforce/smart_config_child_record_lock_status.png"
+  alt="Selecting the trigger status"
+/>
+
+### 4) Specifying Child Objects to Lock
+
+* **Locked Children Record:** Select the related child objects to lock when the parent's status matches. These must be *child* objects related to the selected parent object.
+
+
+<Screenshot
+  disabled={true}
+  fn="TODO: salesforce/smart_config_child_record_lock_children.png"
+  alt="Selecting child objects to lock"
+/>
+
+
+
+### 5) Saving the Rule
+
+* Click **Save**. 
+
+
+## Example
+
+To prevent changes to related Investigation records when a Complaint's Status is "Closed":
+
+1. **Select Object:** Complaint
+2. **Select Status:** Closed
+3. **Locked Children Record:** Select Investigation.
+
+
+## How It Works
+
+When the parent record's status matches a configured rule, any attempts to create, update, or delete the specified related child records will result in an error, preventing the change.  This includes updating fields *within* the child records. 
+
+
+
+## Troubleshooting
+
+### Errors Modifying Child Records
+
+* **Locked Child Records:** Ensure the child record isn't locked due to its parent's status. 
+* **Incorrect Configuration:**  Double-check the rule and child object relationships.
+* **Business Rule Handler:** Ensure it's active for the target object

@@ -1,0 +1,174 @@
+---
+slug: /packages/cap/admin-guide/smart-record-templates/adding-component-to-layouts
+---
+
+import { Reference } from "/snippets/Reference/reference";
+import { Screenshot } from "/snippets/Screenshot/Screenshot";
+
+# Adding Component to Page Layouts
+
+## Introduction
+
+The Smart Record Templates component in Smarteeva CAP allows users to apply predefined templates to records, streamlining data entry and ensuring consistency. This guide explains how administrators can add the Smart Record Templates component to page layouts and configure its properties.
+
+## Steps to Add the Smart Record Templates Component
+
+### 1) Accessing the Lightning App Builder
+
+#### a) Navigate to the Record Page
+
+1. Go to a record of the object you want to add the component to (e.g., a Complaint record).
+
+#### b) Open the Lightning App Builder
+
+1. Click on the **⚙️ Gear** icon in the upper-right corner.
+2. Select **Edit Page**.
+
+<Screenshot
+  disabled={true}
+  fn="TODO: path/to/lightning_app_builder_access.png"
+  alt="Accessing Lightning App Builder"
+  annotations={[
+    { guided_action: "Click on the Gear icon" },
+    { guided_action: "Select Edit Page" }
+  ]}
+/>
+
+
+
+### 2) Adding the Smart Record Templates Component
+
+#### a) Locate the Component
+
+1. In the Lightning App Builder, find the **Components** panel on the left.
+2. In the search box, type "Smart Record Templates".
+
+#### b) Add the Component to the Layout
+
+1. Drag the **Smart Record Templates** component to the desired location on the page layout.
+
+<Screenshot
+  disabled={true}
+  fn="TODO: path/to/add_smart_record_templates_component.png"
+  alt="Adding the Smart Record Templates component"
+  annotations={[
+    { guided_action: "Search for Smart Record Templates component" },
+    { guided_action: "Drag and drop the component onto the page layout" }
+  ]}
+/>
+
+
+
+### 3) Configuring Component Properties
+
+#### a) Include Template Tag Property
+
+This property specifies tags used to filter displayed templates.
+
+1. Click on the **Smart Record Templates** component on the page layout to select it.
+2. In the **Component Properties** pane, locate the **Include Template Tag** field.
+3. Enter a merge field to dynamically assign the tag (e.g., `{!Category__c}`).
+
+<Screenshot
+  disabled={true}
+  fn="TODO: path/to/include_template_tag_property.png"
+  alt="Setting the Include Template Tag property"
+  annotations={[
+    { guided_action: "Enter {!Category__c} to use the Category field as a tag" }
+  ]}
+/>
+
+
+
+#### b) Default Tag Behavior
+
+This property determines how templates are filtered based on tags.
+
+1. Find the **Default Tag Behavior** dropdown in the Component Properties pane.
+2. Select one of the following options:
+- **Templates with at least one matching tag** (OR logic)
+- **Templates with all matching tags** (AND logic)
+
+<Screenshot
+  disabled={true}
+  fn="TODO: path/to/default_tag_behavior.png"
+  alt="Setting the Default Tag Behavior property"
+  annotations={[
+    { guided_action: "Select the desired Default Tag Behavior option" }
+  ]}
+/>
+
+
+
+#### c) Warning Message While Applying Template
+
+This property allows customization of the warning message displayed when applying a template.
+
+1. Locate the **Warning Message While Applying Template** field in the Component Properties pane.
+2. Enter the desired warning message, including the placeholder `$$record name placeholder$$`.
+Example: `Are you sure you want to change the content of $$record name placeholder$$?`
+
+<Screenshot
+  disabled={true}
+  fn="TODO: path/to/warning_message_property.png"
+  alt="Customizing the warning message"
+  annotations={[
+    { guided_action: "Enter the customized warning message with placeholder" }
+  ]}
+/>
+
+
+
+### 4) Using Custom Labels for Warning Messages
+
+Custom labels allow centralized message management and support for multiple languages.
+
+#### a) Create a Custom Label
+
+1. Navigate to **Setup**.
+2. In the Quick Find box, type "Custom Labels".
+3. Click on **Custom Labels**.
+4. Click **New Custom Label**.
+5. Enter the **Label** (e.g., `WarningMessageApplyTemplate`).
+6. In the **Value**, enter your warning message, including `$$record name placeholder$$`.
+Example: `Are you sure you want to change the content of $$record name placeholder$$? Existing values will be replaced.`
+
+<Screenshot
+  disabled={true}
+  fn="TODO: path/to/create_custom_label.png"
+  alt="Creating a custom label for the warning message"
+  annotations={[
+    { guided_action: "Click New Custom Label" },
+    { guided_action: "Enter Label and Value" },
+    { guided_action: "Include $$record name placeholder$$ in the Value" }
+  ]}
+/>
+
+
+
+#### b) Use the Custom Label in Component Properties
+
+1. In the **Warning Message While Applying Template** field of the component properties, reference the custom label using the syntax `{!$Label.CustomLabelName}`.
+Example: `{!$Label.WarningMessageApplyTemplate}`
+
+<Screenshot
+  disabled={true}
+  fn="TODO: path/to/use_custom_label_in_component.png"
+  alt="Referencing the custom label in component properties"
+  annotations={[
+    { guided_action: "Enter {!$Label.WarningMessageApplyTemplate} in the Warning Message field" }
+  ]}
+/>
+
+
+
+### 5) Save and Activate the Page Layout
+
+1. Click the **Save** button in the upper-right corner of the Lightning App Builder.
+2. Click **Activate** to assign the updated page layout to users.
+
+
+
+## Conclusion
+
+By adding the Smart Record Templates component to page layouts and configuring its properties, administrators enable users to easily access and apply templates directly from record pages. The customizable warning messages and tag-based filtering options provide flexibility and clarity in template application.

@@ -1,0 +1,28 @@
+## Introduction to MDC Reports
+
+![MDC Report Generation](../../static/img/generic/mdc-report-generation-04-submit-review.jpg)
+
+### Audit Overload
+
+While the Smarteeva Audit Trail functionality is incredibly useful, and has none of the limitations of built-in
+Salesforce equivalents[^1], sometimes only specific fields are of interest. Sifting through irrelevant fields while trying
+to review changes is both tedious and error-prone.
+
+### Finding Meaning Together
+
+Complex records such as Complaints or Investigations can have a bewildering amount of fields. What is relevant and
+important to one team may be considered noise by another. Smarteeva models these teams as Salesforce Public Groups. On
+each object, each group can configure “Meaningful Fields”.
+
+### Configuration Options
+
+A primary object with optional descendants can be configured, up to 3 levels deep, to appear in the Meaningful Data
+Change Report (MDC Report) tab. In most cases, this is enough, but where there is need for more than one object, a
+custom MDC Report Page can be created using Lightning App Builder and bundled components.
+
+### Review Only Meaningful Changes
+
+Each item in an MDC Report is an object with “meaningful” changes since last review. Each item goes from “unreviewed” to
+“reviewed” status, and this status is tracked per group. Only one user per group is required to review a given item.
+
+[^1]: Limitations: Salesforce can only track up to 20 fields per object and data retention is not permanent.

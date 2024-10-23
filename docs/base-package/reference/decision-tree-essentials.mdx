@@ -1,0 +1,153 @@
+---
+sidebar_position: 1
+slug: /packages/base/reference/decision-tree-essentials
+purpose: Provide a concise overview of the key components and terminology used in Smarteeva's Decision Tree functionality.
+---
+
+# Decision Tree Essentials - Overview Reference
+
+![Decision Tree Essentials](/snippets/generic/generic-ui-images-01-decision-tree-does-company-have-responsibility.jpg)
+
+## Introduction to Decision Trees
+
+In Smarteeva, Decision Trees are interactive workflows that guide users through a series of questions or information
+collection steps. They are designed to help users make decisions, provide information, or complete tasks based on their
+specific needs or circumstances.
+
+Decision Trees consist of various components, such as Content Modules, Content Items, and Choices, which work together
+to create a dynamic, personalized experience for each user. By understanding these components and how they interact, you
+can create effective Decision Trees that streamline processes, gather important data, and provide valuable insights.
+
+## 1. Core Components
+
+| Component                               | Description                                                                                                                                                                                          |
+| --------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Content Module                          | A configuration or template that defines the structure, content, and behavior of an interactive questionnaire or workflow within Smarteeva.                                                          |
+| Decision Tree                           | Often used interchangeably with Content Module, but generally refers to an instance of a Content Module that is linked to a specific record or event, capturing a user's responses and interactions. |
+| Module Type                             | Defines the overall structure and behavior of a Content Module, influencing how Content Items are organized and presented.                                                                           |
+| Content Item                            | An individual element within a Content Module, representing a question, information display, or data collection point.                                                                               |
+| Content Item Choice                     | An option or input associated with a Content Item, allowing for user interaction and decision-making within the Content Module.                                                                      |
+| Content Item Parent ("Parent Question") | A field used in specific Module Types (primarily "Regular Branching") to create hierarchical relationships between Content Items, enabling complex question flows.                                   |
+| Event                                   | A record that is created when a user interacts with a Decision Tree (an instance of a Content Module). It captures the user's responses and other relevant information.                              |
+| Answer                                  | A record that stores a user's response to a specific Content Item within an Event.                                                                                                                   |
+| Answer Item                             | A record that stores detailed information about a user's response, particularly for form-type questions with multiple inputs.                                                                        |
+
+## 2. Module Types
+
+| Module Type        | Key Characteristics                                               | Structural Elements                                                                          | Limitations                                                                                                    | Unique Features                     |
+| ------------------ | ----------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | ----------------------------------- |
+| Regular Branching  | Linear flow with branching logic. Uses Content Item Parent field. | Branching questions as containers. Non-branching questions parked under branching questions. | No choices directly under branching questions. Next question logic ignored for sub-questions.                  | Groups related questions.           |
+| Detailed Branching | Flexible sequencing. Each question has own branching logic.       | Standalone questions. No parent-child relationship.                                          | Cannot group questions under a parent.                                                                         | Supports complex conditional logic. |
+| Chatbot            | Conversational format. Mobile-optimized.                          | Sequential question presentation.                                                            | Form questions limited to one item. Only first choice in a form is shown. No going back to previous questions. | Stacked, vertical layout.           |
+| Form               | Structured data collection. One Form Question Type per module.    | Single form question with multiple items. Various input types.                               | One form question per module. No branching within form.                                                        |                                     |
+| Checklist          | Series of form-type questions.                                    | Multiple form questions, each with multiple form items.                                      | No preview feature available.                                                                                  |                                     |
+
+## 3. Content Item Types
+
+### Branching Types
+
+| Type                       | Description                                                                                                   | Example                                                                                                                    |
+| -------------------------- | ------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| **Branching**              | Presents a question with multiple predefined options. User's selection determines the next Content Item.      | "What type of issue are you experiencing?" with choices like "Technical", "Billing", "Other".                              |
+| **Image Button Branching** | Displays an image with clickable areas. User's selection of an area determines the next Content Item.         | An image of a car with clickable areas for different parts. (Not currently used, available for future implementation)      |
+| **Branching Formula**      | Uses conditions based on user input and associated record values to dynamically determine the branching path. | Branching based on combination of user answers and Salesforce record field values like "Account Type" or "Complaint Risk". |
+
+### Selection Types
+
+| Type                 | Description                                                                                 | Example                                                                                          |
+| -------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
+| **Choices**          | User selects one option. May influence subsequent questions or be used for data collection. | "What is your preferred contact method?" with choices like "Email", "Phone", "Mail".             |
+| **Choices Multiple** | Allows users to select one or more predefined options.                                      | "Which products are you interested in?" with choices like "Product A", "Product B", "Product C". |
+
+### Data Collection Types
+
+| Type                 | Description                                                   | Example                                                                              |
+| -------------------- | ------------------------------------------------------------- | ------------------------------------------------------------------------------------ |
+| **Form**             | Provides various input fields for structured data collection. | A customer information form with fields for name, date of birth, email address, etc. |
+| **Image Attachment** | Allows users to upload an image file.                         | "Please upload a photo of the damaged product."                                      |
+
+### Informational Type
+
+| Type              | Description                                               | Example                                                |
+| ----------------- | --------------------------------------------------------- | ------------------------------------------------------ |
+| **Content Piece** | Displays static information without requiring user input. | A disclaimer message, instructions, or a company logo. |
+
+## 4. Decision Tree Flow
+
+The flow of a Decision Tree is determined by the types of Content Items used and how their choices are configured.
+
+| Flow Mechanism                | Description                                                                                                                                                                                               |
+| ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Branching Logic               | Content Items like "Branching" and "Image Button Branching" directly control the next question based on user selection.                                                                                   |
+| Data Collection and Influence | "Choices" and "Choices Multiple" gather information that can influence later questions or be used for data analysis.                                                                                      |
+| Dynamic Flow with Formulas    | "Branching Formula" uses predefined conditions based on user input and associated record values to dynamically alter the flow. It allows for personalized questionnaire paths based on specific criteria. |
+| Hierarchical Structure        | In "Regular Branching" modules, the "Content Item Parent" field plays a crucial role in defining the hierarchy and influencing navigation.                                                                |
+
+## 5. UI Terminology Mapping
+
+Understanding how technical terms map to what you see in the Smarteeva user interface is essential for effectively
+building and managing Decision Trees.
+
+| Technical Term            | UI Term         |
+| ------------------------- | --------------- |
+| Content Module            | Decision Tree   |
+| Content Item              | Question        |
+| Content Item Choice       | Choice          |
+| Content Item Parent Field | Parent Question |
+
+## 6. Identifiers, Associations, and Data Integration
+
+| Identifier/Association | Description                                                                                                                                                                            |
+| ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Key Value              | A unique identifier for a Content Module. Required to ensure that there can't be multiple modules with the same name. Acts like an ID for the module.                                  |
+| Element                | A unique identifier field for each Content Module element (question, choice, etc.) within a module. Usually auto-populated to mirror a corresponding Text field. (Exact usage unclear) |
+| Associated Object Name | A field that specifies which Salesforce object the content module is associated with. Used in regular branching and form type modules.                                                 |
+| Field to be Linked     | A field that specifies which Salesforce object field should be populated with the answer to a specific question.                                                                       |
+
+## 7. Ad Hoc Decision Trees
+
+| Feature              | Description                                                                                                                                                                                                                                                                                                                                                      |
+| -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Ad Hoc Decision Tree | A feature that allows non-admin users to create and modify decision trees on the fly.                                                                                                                                                                                                                                                                            |
+| Guest User Access    | A setup allowing guest users to access and interact with Ad Hoc Decision Trees. Requires configuring a custom public site in Salesforce and associating it with a guest user profile. Only the "Form" module type is supported for guest users. A custom permission set, "Custom Guest User Permissions," must be assigned to provide appropriate access levels. |
+
+## 8. Decision Tree Component
+
+The `Decision Tree` Lightning component integrates dynamic questionnaires into Salesforce record pages, providing
+interactive workflows and data collection capabilities directly within the Salesforce interface.
+
+| Configuration | Description                                                                                                  |
+| ------------- | ------------------------------------------------------------------------------------------------------------ |
+| Single Survey | Displays a single instance of the questionnaire, automatically creating an Event if none exists.             |
+| List          | Displays a list of all Events associated with the record, allowing users to view or edit previous responses. |
+
+## 9. Permissions
+
+| Permission Set                               | Purpose                                                                             |
+| -------------------------------------------- | ----------------------------------------------------------------------------------- |
+| **Decision Tree Platform Permissions Admin** | Grants administrators the ability to configure, manage, and oversee decision trees. |
+| **Decision Tree Platform Permissions User**  | Allows regular users to interact with and provide responses within decision trees.  |
+
+## 10. Decision Tree Versions
+
+| Version | Status                 | Design Focus                                            | Admin Interface                                  | Compatibility                         |
+| ------- | ---------------------- | ------------------------------------------------------- | ------------------------------------------------ | ------------------------------------- |
+| V1      | Frozen, bug fixes only | User interfaces for form interaction                    | Lacks extensive validation, easy to misconfigure | -                                     |
+| V2      | Current version        | Improved admin experience while maintaining V1 benefits | More robust (implied)                            | Forward compatible with many V1 trees |
+
+### Configuring Version
+
+- `Custom Settings` -> `Smarteeva Setup` -> `Enable Decision Tree V2`
+
+### Notes
+
+- All new customers should use be using the newest version.
+- V2 reuses the same models as V1, and for many trees, it will be forward compatible.
+- V1 was designed pragmatically, with all care going into the interfaces used by regular users interacting with the forms.
+  Consequently, the admin interface lacks extensive validation, making it easy to configure nonsensical setups due to the
+  underlying flexibility of the models that support all variations.
+
+## 11. Version Control
+
+Use the clone feature to create a new version of a content module. Only one version will be active for any given "key
+value."

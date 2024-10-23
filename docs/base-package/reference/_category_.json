@@ -1,0 +1,10 @@
+{
+  "label": "Reference",
+  "position": 40,
+  "collapsed": true,
+  "link": {
+    "type": "generated-index",
+    "description": "Reference material for the Base Package (BP)",
+    "slug": "/packages/base/reference"
+  }
+}

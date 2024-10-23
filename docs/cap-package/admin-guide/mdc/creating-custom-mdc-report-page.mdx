@@ -1,0 +1,128 @@
+---
+sidebar_position: 50
+slug: /packages/cap/admin-guide/mdc/creating-custom-mdc-report-page
+---
+
+import { Reference } from "/snippets/Reference/reference";
+import { Screenshot } from "/snippets/Screenshot/Screenshot";
+
+# Creating a custom MDC report page
+
+## Introduction
+
+Smarteeva's CAP package provides a standard MDC (Meaningful Data Change) Report page, focusing on the `Complaint` object. This is sufficient for many use cases, but sometimes you need a specialized MDC report focusing on a different object as the root, such as `Account` or `Contact`.  For more information about MDC Reports, see [MDC Reports Intro](./intro.mdx). This guide walks you through creating custom MDC report pages using Lightning App Builder and custom tabs, giving you the flexibility to tailor MDC reporting to your specific needs.
+
+## Prerequisites
+
+Before you begin, ensure you have the following:
+
+* **System Administrator Access:** You'll need the necessary permissions to create and modify Lightning Pages and Tabs.
+* **Lightning App Builder Familiarity:** A basic understanding of the Lightning App Builder is helpful. Get started with the Lightning App Builder on Trailhead: [Lightning App Builder](https://trailhead.salesforce.com/search/learning?tab=LEARNING&keywords=lightning-app-builder)
+* **MDC Configuration Knowledge:** Review the MDC configuration process to understand how object relationships and field selections affect the report output. For more information, see [Configuring Meaningful Fields](./configuring-meaningful-fields.mdx).
+
+## Building a Custom Lightning Page
+
+The first step is to create a Lightning Page that will host the MDC report component.
+
+### 1) Access the Lightning App Builder
+
+* From Setup, search for and select **Lightning App Builder**.
+
+
+
+### 2) Start a New App Page
+
+* Click **New**, choose **App Page**, and click **Next**.
+<Screenshot
+  disabled={true}
+  fn="TODO: salesforce/lightning_app_builder_new_app_page.png"
+  alt="Creating a new App Page in Lightning App Builder" />
+
+### 3) Name Your Page
+
+* Give your page a descriptive label (e.g., "Account MDC Report Page"). This label will also be used for the tab name later.  Click **Next**.
+
+
+### 4) Select a Template
+
+* Choose the **One Region** template. This provides a clean layout for the MDC report. Click **Finish**.
+<Screenshot
+  disabled={true}
+  fn="TODO: salesforce/lightning_app_builder_choose_template.png"
+  alt="Choosing a page template"  />
+
+### 5) Add the MDC Component
+
+* In the Components pane, search for "MDCOnRecord" and drag it onto the page canvas. This component displays the actual MDC report.
+<Screenshot
+  disabled={true}
+  fn="TODO: salesforce/lightning_app_builder_find_mdconrecord.png"
+  alt="Finding and adding the MDCOnRecord component"  />
+
+### 6) Configure the Root Object
+
+* In the `MDCOnRecord` component's properties, under "Set Top Level Object," enter the **API Name** of the object you want to use as the root for this report (e.g., `Account`).
+
+
+<Screenshot
+  disabled={true}
+  fn="TODO: salesforce/lightning_app_builder_configure_mdconrecord.png"
+  alt="Setting the Top Level Object for the MDC Report"  />
+
+### 7) Add the (Hidden) Processor
+
+* While not visually displayed, the `MDCProcessor` Visualforce page handles background processing for the report. Add a Visualforce component to the page, select `MDCProcessor` as the page name, and set its height to `0` to hide it.
+
+
+<Screenshot
+  disabled={true}
+  fn="TODO: salesforce/lightning_app_builder_add_mdcprocessor.png"
+  alt="Adding and hiding the MDC Processor component"  />
+
+### 8) Save Your Work
+
+* Click **Save** to save your Lightning Page.
+
+
+
+## Creating the Tab
+
+Now that the page is ready, create a tab to make it accessible to users.
+
+### 1) Go to Tabs
+
+* In Setup, search for and select **Tabs**.
+
+### 2) New Lightning Page Tab
+
+* Under "Lightning Page Tabs," click **New**.
+
+### 3) Configure Tab Details
+
+
+* **Lightning Page:** Select the Lightning page you just created (e.g., "Account MDC Report Page").
+* **Tab Label:** Enter a user-friendly name for the tab (e.g., "Account MDC Report").
+* **Tab Name:** This usually auto-populates.
+* **Choose Icon:** Select a relevant icon for the tab.
+* **Description:** (Optional) Provide a brief description.
+
+<Screenshot
+  disabled={true}
+  fn="TODO: salesforce/setup_tabs_configure_tab_details.png"
+  alt="Configuring the Lightning Page Tab details"  />
+
+### 4) Manage Tab Visibility
+
+* Choose which profiles can see this tab. By default, it's visible to all. Click **Save**.
+
+
+<Screenshot
+  disabled={true}
+  fn="TODO: salesforce/setup_tabs_configure_visibility.png"
+  alt="Setting Tab Visibility"  />
+
+
+## Accessing the Custom Report
+
+Users with access to the tab can now find it in the App Launcher or navigation bar. This new report will provide an MDC-focused view rooted in the object you specified.
+

@@ -1,0 +1,127 @@
+---
+sidebar_position: 20
+---
+
+# Packages Guide
+
+Smarteeva offers a suite of (mostly) managed packages designed to address the specific needs of medical device companies
+within
+Salesforce. Each package provides a set of functionalities that can be configured and customized to fit your unique
+workflows and compliance requirements.
+
+| Code                               | Name                                  | Development Status | Salesforce Package Type | AppExchange | Functionality                                                                                                                                                                                                                                                                           |
+| ---------------------------------- | ------------------------------------- | ------------------ | ----------------------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [BP](/docs/packages/base/overview) | Base Package                          | Mature             | Managed                 | ✅          | Provides the core framework and utilities required for other Smarteeva packages. This package enables Smarteeva to function as a licensed Salesforce package vendor. It also implements the core [Decision Tree](/docs/packages/base/reference/decision-tree-essentials) functionality. |
+| [CAP](/docs/packages/cap/overview) | Complaints and Adverse Events Package | Mature             | Managed                 | ❌          | Comprehensive audit trails, dynamic business rules for objects, and [specialized reporting](/docs/packages/cap/reference/meaningful-data-change-reports) tools. This is Smarteeva's primary offering.                                                                                   |
+| RMP                                | Recall Management Package             | Mature             | Managed                 | ❌          | Automates recall processes and communication with affected parties in multiple languages.                                                                                                                                                                                               |
+| PR                                 | Product Registration                  | Development        | Managed                 | ❌          | (Functionality to be defined)                                                                                                                                                                                                                                                           |
+| GDP                                | Guest User Decision Trees Package     | Mature             | Unmanaged               | ❌          | Allows Salesforce Guest Users to fill out forms                                                                                                                                                                                                                                         |
+
+## Overview of Smarteeva Packages
+
+Smarteeva's solution is modular, consisting of several interdependent packages that together provide comprehensive functionality for managing complex medical device regulations and ensuring product safety. The primary packages include:
+
+- **BASE Package**: This is Smarteeva's foundational package and serves as the core of the system. It includes essential functionalities, such as the Decision Tree platform, and is the package uploaded to the Salesforce AppExchange as the Independent Software Vendor (ISV) package.
+- **CAP Package** (Corrective and Preventive Action): This package extends the BASE package by adding functionalities specific to CAP processes. It relies on components provided by the BASE package.
+- **Recall Package**: Building upon both the BASE and CAP packages, the Recall package includes functionalities related to product recalls, and utilizes components like the Audit Trail from the CAP package.
+- **Product Registration Package**: Currently in development, this package is expected to handle product registration functionalities and may depend on the CAP package upon release.
+
+## Package Dependencies
+
+Understanding how these packages depend on each other is crucial for proper installation and operation:
+
+1. **BASE Package**:
+- **Dependency**: None (Core package).
+- **Description**: Must be installed first as it provides the essential infrastructure and functionalities required by other packages.
+
+2. **CAP Package**:
+- **Dependency**: Requires the BASE package.
+- **Description**: Depends on the BASE package for foundational components and cannot operate without it.
+
+3. **Recall Package**:
+- **Dependency**: Requires both the CAP and BASE packages.
+- **Description**: Utilizes functionalities from the CAP package, such as the Audit Trail component, making it reliant on both the CAP and BASE packages.
+
+4. **Product Registration Package** (Planned):
+- **Dependency**: May depend on the CAP package.
+- **Description**: As it is still in development, its dependencies are subject to change, but it is anticipated to rely on existing packages, particularly CAP.
+
+### Visual Representation of Dependencies
+
+```
+BASE Package
+   |
+   v
+CAP Package
+   |
+   v
+Recall Package
+```
+
+- The **BASE package** is at the top, serving as the foundation.
+- The **CAP package** depends on the BASE package.
+- The **Recall package** depends on both the CAP and BASE packages.
+
+## Installation Order
+
+To ensure all packages function correctly, they must be installed in the proper order due to their dependencies:
+
+1. **Install the BASE Package First**: As the foundational package, it must be installed before any other Smarteeva packages.
+2. **Install the CAP Package Second**: Since the CAP package depends on the BASE package, it should be installed after the BASE package is in place.
+3. **Install the Recall Package Third**: With dependencies on both the CAP and BASE packages, the Recall package should be installed after both have been successfully installed.
+
+**Note**: Attempting to install the CAP or Recall packages without first installing the BASE package will result in errors due to missing dependencies.
+
+## The Role of the Migration Tool
+
+### Purpose of the Migration Tool
+
+The **Migration Tool** is a powerful utility provided by Smarteeva that allows you to transfer configurations from one Salesforce environment to another. This is particularly useful when moving configurations from a sandbox (testing environment) to a production environment.
+
+### Impact on Package Dependencies
+
+- **Configuration Dependencies**: When the Migration Tool is used to transfer configurations, it also migrates configurations from the BASE package. This creates dependencies between the packages in the target environment.
+- **Installation Order**: Due to these dependencies, it becomes essential to install the BASE package before using the Migration Tool to migrate configurations involving the CAP package.
+- **Simplifying Deployments**: The tool streamlines the deployment of configurations but requires careful attention to package dependencies to avoid issues.
+
+## Practical Use Case: Migrating Configurations Between Environments
+
+Consider a scenario where you have:
+
+- A **production Salesforce org** where your live data resides.
+- A **sandbox Salesforce org** used for development and testing.
+
+### Steps:
+
+1. **Configure in Sandbox**: You set up and test your Smarteeva configurations in the sandbox environment to ensure they meet your requirements.
+2. **Use the Migration Tool**: After testing, you use the Migration Tool to migrate these configurations from the sandbox to the production org.
+3. **Install Necessary Packages**: Before migrating, you must ensure that the BASE package is installed in the production org, as the Migration Tool will migrate configurations that depend on it.
+4. **Migrate Configurations**: Proceed with the migration, transferring the configurations from the sandbox to production.
+
+### Outcome:
+
+- The configurations are successfully migrated, and the system in the production org functions as expected.
+- All package dependencies are satisfied, preventing errors related to missing components.
+
+## Best Practices
+
+- **Always Install the BASE Package First**: Before installing any other Smarteeva packages or migrating configurations, ensure the BASE package is installed in your Salesforce org.
+- **Understand Package Dependencies**: Familiarize yourself with the dependencies among Smarteeva packages to plan your installation and migration processes effectively.
+- **Use the Migration Tool Carefully**: While the Migration Tool simplifies configuration migration, be mindful of the dependencies it introduces. Always verify that required packages are installed beforehand.
+- **Test Configurations in Sandbox**: Develop and test your configurations in a sandbox environment to prevent disruptions in your production org.
+
+## Conclusion
+
+Understanding the hierarchy and dependencies of Smarteeva's packages is essential for a successful implementation. The BASE package serves as the cornerstone of the system, with other packages like CAP and Recall building upon it. Proper installation order and awareness of dependencies, especially when using tools like the Migration Tool, ensure that your Smarteeva system operates smoothly within your Salesforce environment.
+
+By following the best practices outlined in this article, you can efficiently manage the installation and configuration of Smarteeva's packages, enabling your organization to leverage the full capabilities of the platform.
+
+## Next Steps
+
+- **Review Package Documentation**: Familiarize yourself with the detailed documentation for each Smarteeva package.
+- **Plan Your Implementation**: Map out the packages you need and their installation order based on your organizational requirements.
+- **Contact Support**: If you have questions or need assistance with installation or migration, reach out to Smarteeva's support team.
+
+---
+
+For more information on installation and setup, visit the [Getting Started Guide](./get-started/installation.mdx).

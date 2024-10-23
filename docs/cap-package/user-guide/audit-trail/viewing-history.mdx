@@ -1,0 +1,80 @@
+---
+sidebar_position: 10
+slug: /packages/cap/user-guide/audit-trail/viewing-history
+---
+
+import { Reference } from "/snippets/Reference/reference";
+import { Screenshot } from "/snippets/Screenshot/Screenshot";
+
+# Viewing Audit Trail History
+
+## Introduction
+
+Smarteeva's CAP package provides an Audit Trail feature that tracks changes made to Salesforce records. This allows you to see the history of modifications, including who made the changes, when they were made, and the old and new values of the fields. This guide explains how to view and interpret the Audit Trail history for any record.
+
+## Accessing the Audit Trail
+
+### 1) Open the Record
+
+* Navigate to the record you're interested in viewing the history for. This could be an Account, Contact, Complaint, or any other object enabled for audit trail tracking.
+
+### 2) Go to the Audit Trail Tab
+
+* On the record detail page, click the **Audit Trail** tab.  If this tab isn't visible, contact your Salesforce administrator to have it added to the page layout.
+
+
+<Screenshot
+  disabled={true}
+  fn="TODO: salesforce/record_detail_audit_trail_tab.png"
+  alt="Audit Trail tab on record page"
+/>
+
+### 3) View the Audit Trail History
+
+The Audit Trail table displays a chronological log of changes made to the record.
+
+
+## Understanding the Audit Trail Table
+
+The Audit Trail table contains the following information:
+
+### Field Name
+
+The name of the field that was modified.
+
+### Context
+
+Additional context about the change, if available.
+
+
+### New Value
+
+The value of the field *after* the change. 
+
+### Old Value
+
+The value of the field *before* the change. 
+
+
+### Performed On
+
+The date and time the change was made.  
+
+### Updated By
+
+The user who made the change. 
+
+
+## Example
+
+Let's say you want to see who changed the "Description" field on an Account record and when:
+
+1. Open the Account record.
+2. Click the **Audit Trail** tab.
+3. Locate the entries in the table where "Field Name" is "Description". The "Old Value" and "New Value" columns show the previous and current descriptions, respectively. The "Updated By" and "Performed On" columns indicate who made the change and when.
+
+
+## Refreshing the Audit Trail
+
+If recent changes aren't reflected in the table, you might need to manually refresh.  Some pages have a dedicated refresh button within the Audit Trail section. If not, refresh the entire page to ensure the latest changes are displayed. 
+

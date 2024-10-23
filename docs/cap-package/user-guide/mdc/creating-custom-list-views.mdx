@@ -1,0 +1,172 @@
+---
+sidebar_position: 1
+slug: /packages/cap/user-guide/mdc/creating-custom-list-views
+---
+
+import { Reference } from "/snippets/Reference/reference";
+import { Screenshot } from "/snippets/Screenshot/Screenshot";
+
+# Creating custom list views
+
+## Introduction
+
+Meaningful Data Change (MDC) Reports in Smarteeva provide valuable insights into data changes within your system. However, as the volume of data grows, it becomes essential to refine these reports to focus on the most relevant information. Salesforce List Views offer a powerful way to filter records based on specific criteria, and when integrated with Smarteeva's MDC Reports, they enable users to generate more targeted and meaningful reports.
+
+In this article, we will explore how to create custom List Views in Salesforce and utilize them within Smarteeva MDC Reports to enhance your data analysis and reporting capabilities.
+
+## Prerequisites
+
+Before proceeding, ensure that you have:
+
+* Appropriate permissions to create List Views in Salesforce.
+* Access to Smarteeva's MDC Reports within your Salesforce environment.
+
+
+## Understanding the Benefits of Using List Views in MDC Reports
+
+Utilizing Salesforce List Views within MDC Reports allows you to:
+
+* **Refine data displayed** in reports based on specific criteria.
+* **Focus on relevant records** for more effective analysis.
+* **Improve efficiency** by leveraging familiar Salesforce functionality.
+* **Share customized views** with other users or groups.
+
+
+## Creating a Custom List View in Salesforce
+
+To create a custom List View for use in MDC Reports, follow these steps:
+
+### 1) Navigate to the Object Tab
+
+* In Salesforce, click on the **App Launcher** (the grid icon in the upper-left corner).
+* Search for and select the relevant object for which you want to create a List View (e.g., **Complaints**).
+
+### 2) Create a New List View
+
+* On the object’s tab, click on the **List View Controls** (gear icon) next to the current List View name.
+* Select **New List View** from the dropdown menu.
+
+<Screenshot
+  disabled={true}
+  fn="TODO: salesforce/account_list_view_controls.png"
+  alt="Accessing List View Controls"
+  annotations={[
+    {guided_action: "Click on the List View Controls (gear icon)"},
+    {guided_action: "Select 'New List View'"}
+  ]}
+/>
+
+### 3) Define the List View Criteria
+
+* In the **List Name** field, enter a descriptive name for your List View (e.g., **Closed Complaints**).
+* Choose who can see this List View:
+* **Only I can see this List View**: Private to you.
+* **All users can see this List View**: Accessible to all users.
+* **Share List View with groups of users**: Share with specific groups.
+* Click **Save**.
+
+### 4) Set Filter Criteria
+
+* Add filter conditions to define which records should be included.
+* For example, to include complaints with a status of **Closed**:
+* Click **Add Filter**.
+* Select **Field**: **Status**.
+* Select **Operator**: **equals**.
+* Enter **Value**: **Closed**.
+* Click **Done**.
+* Repeat for additional criteria as needed.
+
+<Screenshot
+  disabled={true}
+  fn="TODO: salesforce/list_view_filters.png"
+  alt="Setting Filter Criteria in List View"
+  annotations={[
+    {guided_action: "Define filter criteria for your List View"}
+  ]}
+/>
+
+### 5) Adjust Columns Displayed (Optional)
+
+* Click on the **List View Controls** (gear icon) and select **Select Fields to Display**.
+* Add or remove fields to customize which columns are displayed in the List View.
+* Click **Save**.
+
+
+
+## Using the Custom List View in Smarteeva MDC Reports
+
+After creating the custom List View, you can use it within Smarteeva MDC Reports.
+
+### 1) Access the MDC Reports
+
+* Navigate to the **MDC Reports** tab in Smarteeva.
+
+
+### 2) Select the Custom List View
+
+* In the **Available List Views** dropdown, select your newly created List View (e.g., **Closed Complaints**).
+
+<Screenshot
+  disabled={true}
+  fn="TODO: smarteeva/mdc_report_select_list_view.png"
+  alt="Selecting Custom List View in MDC Reports"
+  annotations={[
+    {guided_action: "Open the 'Available List Views' dropdown"},
+    {guided_action: "Select your custom List View"}
+  ]}
+/>
+
+### 3) Configure Report Parameters
+
+* Set the **Date Range** for the report as needed.
+* Select the **MDC Group** if applicable.
+
+### 4) Generate the Report
+
+* Click on **Generate Report**.
+* The MDC Report will display data according to the criteria defined in your custom List View, showing only the relevant records.
+
+## Sharing List Views with Others (Optional)
+
+If you want other users or groups to utilize the List View in MDC Reports:
+
+### 1) Edit Sharing Settings
+
+* Navigate back to your custom List View.
+* Click on the **List View Controls** (gear icon) and select **Sharing Settings**.
+
+### 2) Share with Users or Groups
+
+* Choose **Share with groups of users**.
+* Select the users, roles, or groups you want to share the List View with.
+* Click **Save**.
+
+## Best Practices
+
+* **Naming Conventions**: Use clear and descriptive names for your List Views to make them easily identifiable.
+* **Consistency**: Standardize the criteria used in List Views across your team to ensure uniform reporting.
+* **Access Control**: Be mindful of data visibility when sharing List Views, ensuring users only see data they are permitted to access.
+* **Maintenance**: Regularly review and update List Views to keep them relevant and efficient.
+
+## Troubleshooting Common Issues
+
+* **List View Not Appearing**: If your custom List View does not appear in the MDC Reports dropdown, refresh the MDC Reports page to load the latest List Views.
+* **No Data Displayed**: Ensure that the filter criteria in your List View correctly match existing records. Adjust the filters if necessary.
+* **Permission Issues**: Verify that users have the necessary permissions to access the object and fields used in the List View.
+
+## Conclusion
+
+Integrating Salesforce List Views with Smarteeva MDC Reports empowers users to generate more focused and meaningful reports, enhancing data analysis and decision-making processes. By creating custom List Views based on specific criteria, you can streamline your reporting workflow and ensure that you and your team are working with the most relevant data.
+
+## Next Steps
+
+* Explore creating additional List Views for other objects relevant to your organization.
+* Share useful List Views with your team to promote collaboration and consistency.
+* Regularly review your MDC Reports to identify trends and insights.
+
+## References
+
+* For more information on creating List Views in Salesforce, refer to the Salesforce documentation on [Create a Custom List View](https://trailhead.salesforce.com/content/learn/modules/lex_customization/lex_customization_list).
+* To learn more about MDC Reports in Smarteeva, consult the MDC Reports User Guide.
+
+

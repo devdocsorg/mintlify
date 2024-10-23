@@ -1,0 +1,210 @@
+---
+slug: /packages/cap/admin-guide/smart-record-templates/using-template-tags
+---
+
+import { Reference } from "/snippets/Reference/reference";
+import { Screenshot } from "/snippets/Screenshot/Screenshot";
+
+# Using Template Tags
+
+## Introduction
+
+
+
+Smart Record Templates help streamline data entry in Smarteeva's Compliance Toolkit. Template Tags can further improve this process by categorizing templates and making them easier to find and apply. This guide explains how to use Template Tags effectively.
+
+## Understanding Template Tags
+
+
+
+Template Tags are keywords or phrases that categorize Smart Record Templates. They help manage and filter templates, especially when dealing with a large number of them.
+
+### Benefits of Using Template Tags
+
+- Easier template filtering
+- Quicker template selection
+- Better template organization
+
+## Adding Template Tags to Templates
+
+
+
+### Access the Smart Record Templates Configuration
+
+Navigate to the Smart Record Templates tab via the App Launcher.
+
+<Screenshot
+  disabled={true}
+  fn="TODO: smart-record-templates/access_smart_record_templates.png"
+  alt="Accessing Smart Record Templates via App Launcher"
+  annotations={[
+    { guided_action: "Click on the App Launcher and search for Smart Record Templates" }
+  ]}
+/>
+
+### Select or Create a Template
+
+Choose an existing template or create a new one.
+
+<Screenshot
+  disabled={true}
+  fn="TODO: smart-record-templates/create_new_template.png"
+  alt="Creating a new Smart Record Template"
+  annotations={[
+    { guided_action: "Click 'New' to create a template or select an existing one from the list" }
+  ]}
+/>
+
+### Add Tags in the Template Tags Tab
+
+1. Open the Template Tags tab
+2. Enter tags, separating multiple tags with commas
+3. Save your changes
+
+<Screenshot
+  disabled={true}
+  fn="TODO: smart-record-templates/add_template_tags.png"
+  alt="Adding tags to a Smart Record Template"
+  annotations={[
+    { guided_action: "Enter tags in the Template Tags field, separated by commas" }
+  ]}
+/>
+
+
+Note: Tags are not case-sensitive. Use descriptive tags that align with how users might search for templates.
+
+
+## Using Tags for Dynamic Filtering
+
+
+
+### Manually Filtering Templates by Tags
+
+1. Open the Tag Setting Panel
+2. Add Tags for Filtering
+3. Select Templates
+
+<Screenshot
+  disabled={true}
+  fn="TODO: smart-record-templates/open_tag_setting_panel.png"
+  alt="Opening the Tag Setting Panel"
+  annotations={[
+    { guided_action: "Click on the 'Open Tag Setting Panel' button" }
+  ]}
+/>
+
+<Screenshot
+  disabled={true}
+  fn="TODO: smart-record-templates/add_filter_tags.png"
+  alt="Adding filter tags"
+  annotations={[
+    { guided_action: "Enter tags and click 'Add' to filter templates" }
+  ]}
+/>
+
+### Understanding Tag Matching Behavior
+
+You can configure how templates are filtered based on tags:
+
+- Templates with at least one matching tag (OR logic)
+- Templates with all matching tags (AND logic)
+
+## Automatic Tagging Based on Record Fields
+
+
+
+### Including Merge Fields in Tags
+
+Use merge fields to dynamically assign tags based on record data.
+
+1. Edit the Lightning Page
+2. Configure the Smart Record Templates Component
+3. Enter Merge Fields
+
+<Screenshot
+  disabled={true}
+  fn="TODO: smart-record-templates/edit_lightning_page.png"
+  alt="Editing the Lightning Page"
+  annotations={[
+    { guided_action: "Click 'Edit Page' to open Lightning App Builder" }
+  ]}
+/>
+
+<Screenshot
+  disabled={true}
+  fn="TODO: smart-record-templates/configure_component.png"
+  alt="Configuring the Smart Record Templates component"
+  annotations={[
+    { guided_action: "Select the component and locate the Include Template Tag field" }
+  ]}
+/>
+
+<Screenshot
+  disabled={true}
+  fn="TODO: smart-record-templates/enter_merge_fields.png"
+  alt="Entering merge fields for automatic tagging"
+  annotations={[
+    { guided_action: "Enter the merge field syntax in the Include Template Tag field" }
+  ]}
+/>
+
+Note: The merge field must reference a field on the same object.
+
+## Configuring Component Behavior with Tags
+
+
+
+### Setting the Default Tag Behavior
+
+Choose between:
+- At least one matching tag (OR logic)
+- All matching tags (AND logic)
+
+<Screenshot
+  disabled={true}
+  fn="TODO: smart-record-templates/set_default_tag_behavior.png"
+  alt="Setting the default tag behavior"
+  annotations={[
+    { guided_action: "Select the desired tag matching logic in the component properties" }
+  ]}
+/>
+
+### Customizing the Warning Message
+
+Customize the confirmation message when users apply a template.
+
+<Screenshot
+  disabled={true}
+  fn="TODO: smart-record-templates/customize_warning_message.png"
+  alt="Customizing the warning message"
+  annotations={[
+    { guided_action: "Enter a custom warning message or reference a custom label" }
+  ]}
+/>
+
+Tip: Use $$record name placeholder$$ to dynamically include the record's name.
+
+## Best Practices for Using Template Tags
+
+
+
+#### Consistent Tagging
+Establish a standard for tags across templates.
+
+#### Use Relevant Tags
+Assign meaningful tags that help in effective filtering.
+
+#### Leverage Automatic Tagging
+Use merge fields to reduce manual filtering.
+
+#### Avoid Over-Tagging
+Keep tags concise to maintain effective filtering.
+
+#### Test Configurations
+Ensure templates are filtered as expected with various records.
+
+## Conclusion
+
+
+
+Template Tags can significantly improve the efficiency of template management and application in Smarteeva. By implementing the practices outlined in this guide, you can streamline your workflow and improve data entry processes.

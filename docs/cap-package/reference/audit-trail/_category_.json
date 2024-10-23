@@ -1,0 +1,10 @@
+{
+  "label": "Audit Trail",
+  "position": 0,
+  "collapsed": true,
+  "link": {
+    "type": "generated-index",
+    "description": "Reference material for Audit Trail functionality within the CAP package",
+    "slug": "/packages/cap/reference/audit-trail"
+  }
+}

@@ -1,0 +1,278 @@
+---
+revision: 16
+sidebar_position: 30
+---
+
+# Salesforce Orientation
+
+New to Salesforce?
+
+This guide will steer you towards the right resources to get started with administrating Smarteeva.
+
+## Quick Tour
+
+### App Launcher
+![App Launcher](/snippets/smarteeva-screenshots/salesforce-orientation/salesforce-orientation-01-app-launcher.png)
+Look for the nine dots icon. This is the App Launcher, where you can find and open all the apps in your Salesforce organization, including Smarteeva.
+
+### Setup Menu
+![Setup Menu](/snippets/smarteeva-screenshots/salesforce-orientation/salesforce-orientation-02-setup-menu.png)
+Click on the gear icon to access the Setup menu. This is your control center for customizing and configuring everything in Salesforce.
+
+### Search Bar
+![Search Bar](/snippets/smarteeva-screenshots/salesforce-orientation/salesforce-orientation-03-search-bar.png)
+Use the search bar at the top of the page (the one with the magnifying glass) to quickly find anything in Salesforce: objects, records, settings, and more.
+
+## The Trail Ahead - The Need to Know Salesforce
+![Trailhead](/snippets/smarteeva-screenshots/salesforce-orientation/salesforce-orientation-04-trailhead.png)
+Salesforce forms the foundation of Smarteeva. Understanding basic Salesforce concepts is essential to becoming an effective Smarteeva administrator.
+
+To assist you on this journey, Salesforce offers [Trailhead](https://trailhead.salesforce.com/), a free online learning platform.
+Trailhead provides interactive, self-paced courses (called "trails") that cover various aspects of Salesforce, from fundamentals to advanced topics.
+It's an invaluable resource for both newcomers and seasoned users.
+
+Throughout this guide, we'll include links to relevant Trailhead modules, enabling you to delve deeper into specific topics and enhance your Salesforce expertise.
+
+## Key Salesforce Concepts
+
+### 1. Objects, Records, and Fields
+
+Salesforce stores data in a structured manner using objects, records, and fields.
+
+#### Core Salesforce Data Concepts
+
+| Concept | Description | Smarteeva Example |
+|---------|-------------|-------------------|
+| Objects | Analogous to database tables, representing categories of information | `Complaint`, `Investigation`, `MDR` (Medical Device Report) |
+| Records | Individual entries within an object, similar to rows in a database table | A single complaint in the `Complaint` object |
+| Fields  | Specific data points within a record, comparable to columns in a database table | "Description," "Date Received," "Product Involved," "Country of Incident," "Status" in a `Complaint` record |
+
+#### Salesforce Standard Objects
+
+| Object Type | Object Name | Description | Purpose |
+|-------------|-------------|-------------|---------|
+| Salesforce Standard | Account | For companies | Manages company information |
+| Salesforce Standard | Case | For customer support issues | Tracks customer support requests |
+| Salesforce Standard | Contact | For people | Stores individual contact details |
+
+#### Smarteeva Custom Objects
+
+| Object Type | Object Name | Description | Purpose |
+|-------------|-------------|-------------|---------|
+| Smarteeva Custom | Complaint | Contains details about complaints received | Manages complaint information |
+| Smarteeva Custom | Investigation | Tracks investigations related to complaints | Handles investigation processes |
+| Smarteeva Custom | MDR (Medical Device Report) | Stores information needed for reporting to regulatory agencies | Facilitates regulatory reporting |
+
+#### Relevance to Smarteeva:
+
+* Objects and fields are the foundation for configuring the Audit Trail, which tracks changes made to records.
+* Smarteeva allows for customized questionnaires based on objects and fields.
+* Administrators can create custom fields to capture specific data points required by their organization.
+
+#### Trailhead Resources
+- [Data Modeling](https://trailhead.salesforce.com/content/learn/modules/data_modeling)
+
+### 2. Profiles & Permission Sets
+
+Salesforce uses profiles and permission sets to control user access to data and actions within the system.
+
+#### Profiles
+
+Each Salesforce user is assigned a profile, which defines their baseline permissions. Profiles determine:
+
+| Permission Type | Description |
+|-----------------|-------------|
+| Object Permissions | Which actions users can perform on specific objects (view, create, edit, delete) |
+| Field Level Security | Whether users can see or edit specific fields within objects |
+| App Permissions | Which Salesforce apps users can access |
+| System Permissions | Broader permissions that affect the entire system |
+
+#### Permission Sets
+Permission sets grant additional permissions on top of a user's profile. Smarteeva utilizes permission sets to:
+
+| Purpose | Description |
+|---------|-------------|
+| Control Access to Features | Grant users access to specific Smarteeva tools and functionalities |
+| Tailor Access for Roles | Give different levels of access to users based on their job responsibilities |
+
+#### Relevance to Smarteeva:
+
+- Profiles and Permission Sets are essential for data security and role-based access control within Smarteeva.
+- Administrators need to configure profiles and permission sets to ensure that users have the appropriate level of access to Smarteeva features and data.
+- Even with the System Administrator profile, users may **not automatically have access to all Smarteeva features without assing explicit permission** sets.
+
+#### Trailhead Resources
+
+- [Data Security](https://trailhead.salesforce.com/content/learn/modules/data_security)
+- [Data Security Roles](https://trailhead.salesforce.com/content/learn/modules/data_security/data_security_roles)
+- [Permission Set Groups](https://trailhead.salesforce.com/content/learn/modules/permission-set-groups)
+- [Data Security Objects](https://trailhead.salesforce.com/content/learn/modules/data_security/data_security_objects)
+
+
+### 3. Salesforce Packages
+
+Salesforce Packages are collections of components and applications that can be installed in Salesforce organizations. They come in two main types:
+
+#### Managed Packages
+- Pre-built functionalities with hidden code
+- Easier to install and upgrade
+- Typically used for distributing commercial applications
+
+#### Unmanaged Packages
+- Code is visible and customizable
+- Useful for sharing components between Salesforce orgs
+- More flexibility but require manual maintenance
+
+Smarteeva primarily uses Managed Packages for its core functionalities, simplifying installation and upgrades for users.
+
+#### Relevance to Smarteeva:
+
+- Managed Packages provide ready-to-use Smarteeva features and workflows.
+- Smarteeva handles package upgrades, ensuring compatibility and reducing administrative overhead.
+
+#### Trailhead Resources
+- [Second-Generation Managed Packages](https://trailhead.salesforce.com/content/learn/modules/second-generation-managed-packages)
+- [Unlocked Packages for Customers](https://trailhead.salesforce.com/content/learn/modules/unlocked-packages-for-customers/break-up-your-metadata)
+- [Build Apps Together with Package Development](https://trailhead.salesforce.com/content/learn/trails/sfdx_get_started)
+
+### 4. Lightning Experience
+
+**Lightning Experience** is Salesforce's modern and user-friendly interface. It is where you will spend most of your time working with Smarteeva.
+
+#### Lightning App Builder
+This is a drag-and-drop tool that allows you to customize pages in Lightning Experience. You can add, remove, or rearrange components to make the interface work best for you.
+
+#### Lightning Components
+These are reusable building blocks that make up the user interface. Smarteeva comes with its own components, which you will use in the App Builder to display its features.
+
+#### Relevance to Smarteeva:
+
+- You can tailor the Smarteeva experience for your users, making it easier for them to find the information and tools they need.
+
+#### Trailhead Resources
+
+- [Lightning App Builder](https://trailhead.salesforce.com/content/learn/modules/lightning_app_builder)
+- [Lightning Experience Basics](https://trailhead.salesforce.com/content/learn/modules/lex_implementation_basics)
+
+### 5.  Apex: The Programming Language of Salesforce
+
+**Apex** is the programming language that Salesforce uses.  While you do not need to be a programmer to use Smarteeva, a little bit of Apex knowledge can be helpful.
+
+#### Apex Triggers
+These are like automatic instructions that tell Salesforce to do something when certain events happen. For example, Smarteeva uses triggers to log changes in the Audit Trail or to automatically populate fields in a record.
+
+#### Apex Classes and Methods
+These are like reusable blocks of code that perform specific actions.  Smarteeva has some pre-built Apex classes and methods that you can use to extend its features or customize its behavior.
+
+#### Relevance to Smarteeva:
+
+- For advanced customizations, you might need to work with a Salesforce developer who knows Apex.
+
+#### Trailhead Resources
+
+- [Apex Triggers](https://trailhead.salesforce.com/content/learn/modules/apex_triggers/apex_triggers_intro)
+- [Apex Basics & Database](https://trailhead.salesforce.com/content/learn/modules/apex_database)
+
+### 6. Flow Builder:  Automation Made Easy
+
+**Flow Builder** is a visual tool that lets you create automated processes in Salesforce, utilizing a visual, flowchart-like interface.
+
+#### Smarteeva Uses Flow Builder For:
+
+#### Audit Trail (Version 2)
+This is a more user-friendly version of the Audit Trail that lets you easily configure what changes you want to track.
+
+#### Smart Email Notifications
+You can use Flow Builder to set up notifications that are sent out automatically when certain events happen.
+
+#### You Can Use Flow Builder To:
+
+- Automate other tasks in Smarteeva, like assigning complaints or generating reports.
+- Create custom screens to guide your users through Smarteeva processes.
+
+#### Relevance to Smarteeva:
+
+- Flows make repetitive tasks easier, ensure consistency, and can even guide users with interactive screens.
+
+#### Trailhead Resources
+- [Flow Basics](https://trailhead.salesforce.com/content/learn/modules/flow-basics)
+
+### 7. Custom Metadata Types
+
+**Custom Metadata Types** are a way to store configuration data in Salesforce. This can be conceptualized as a settings menu where you can control how Smarteeva features work.
+
+#### Smarteeva Uses Custom Metadata Types to:
+
+- Store global settings for features (e.g., the version of Audit Trail you want to use).
+-  Define exceptions to rules (e.g., excluding certain objects from specific audit trail rules).
+
+#### Relevance to Smarteeva:
+
+- You can fine-tune how Smarteeva behaves without needing to change the code directly.
+
+#### Trailhead Resources
+- [Custom Metadata Types](https://trailhead.salesforce.com/content/learn/modules/custom_metadata_types_dec/cmt_overview)
+
+### 8. Email Deliverability
+
+Smarteeva uses email to send out notifications, so it is important that those emails reach their recipients without any problems.
+
+#### Email Relay
+This can be conceptualized as having a reliable mail carrier. You will need to configure Salesforce to use an email server that is trusted, so your emails do not end up in spam folders.
+
+#### Test Deliverability
+Salesforce has tools that let you send test emails to make sure they are being delivered properly.
+
+#### Whitelist Salesforce IP Addresses
+If emails are still having trouble getting through, your IT team can whitelist Salesforce's IP addresses, which is like giving them a special pass to deliver your emails.
+
+#### Relevance to Smarteeva:
+
+- Ensuring that users receive critical notifications and alerts.
+
+#### Trailhead Resources
+- [Email Deliverability Essentials](https://trailhead.salesforce.com/content/learn/modules/email-deliverability-essentials)
+
+##  Common Challenges for Smarteeva Admins
+
+Common challenges for new Smarteeva administrators include:
+
+#### Assuming Salesforce is only for sales teams
+Salesforce is a versatile platform that can be used for many different business functions, including managing complaints, investigations, and regulations.
+
+#### Assuming System Administrators have automatic access to everything in Smarteeva
+System Administrators might need specific permission sets to access certain Smarteeva features.
+
+## Tip: Always Test in a Sandbox
+
+Before making any changes to your live Smarteeva system, it is crucial to test them out in a safe environment called a **Sandbox**. A Sandbox is a practice copy of your Salesforce organization.
+
+#### Trailhead Resources
+- [Sandbox Basics](https://trailhead.salesforce.com/content/learn/modules/nonprofit-success-pack-maintenance/set-up-a-sandbox-in-your-salesforce-org)
+
+## Conclusion
+
+This guide has provided an overview of essential Salesforce concepts for Smarteeva administrators. By understanding these concepts, administrators can effectively manage user access, configure settings, automate tasks, and customize Smarteeva's functionalities to meet specific organizational needs.
+
+Deeper knowledge unlocks Salesforce's full potential, enhancing your ability to tailor and optimize Smarteeva for your organization's success.
+
+Continue your Salesforce education by exploring [Trailhead](https://trailhead.salesforce.com/) and other resources.
+
+#### Appendix A: Glossary
+
+| Term | Definition |
+|------|------------|
+| Object | A category of information in Salesforce (like `Complaint`, `Investigation`, or `MDR`). |
+| Record | An individual entry in an object (like a single complaint). |
+| Field | A specific piece of information within a record (like "Date Received" or "Status"). |
+| Profile | A collection of settings that determine what a user can do and see in Salesforce. |
+| Permission Set | A way to grant additional permissions to users. |
+| Managed Package | A bundle of pre-built functionality that is installed and upgraded as a unit. |
+| Lightning Experience | The modern and user-friendly Salesforce interface. |
+| Lightning App Builder | A tool for customizing pages in Lightning Experience. |
+| Lightning Component | Building blocks for creating the user interface. |
+| Apex | Salesforce's programming language (used behind the scenes). |
+| Apex Trigger | Code that runs automatically based on events. |
+| Flow Builder | A tool for automating processes and workflows. |
+| Custom Metadata Type | A way to store configuration data. |
+| Sandbox | A practice copy of your Salesforce organization for testing. |

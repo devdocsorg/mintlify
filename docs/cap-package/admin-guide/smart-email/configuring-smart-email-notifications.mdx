@@ -1,0 +1,190 @@
+---
+sidebar_position: 01
+slug: /packages/cap/admin-guide/smart-email/configuring-smart-email-notifications
+---
+
+import { Reference } from "/snippets/Reference/reference";
+import { Screenshot } from "/snippets/Screenshot/Screenshot";
+
+# Configuring Smart Email Notifications
+
+## Introduction
+
+Smart Email Notifications in Smarteeva's CAP package automate email alerts. This guide provides a walkthrough for administrators.
+
+## Prerequisites
+
+* System Administrator privileges.
+* Optional: Understanding Salesforce Flows for advanced criteria. [Learn about Salesforce Flows on Trailhead](https://trailhead.salesforce.com/content/learn/modules/flow-basics)
+* Familiarity with Salesforce email templates. [Salesforce Email Templates Overview](https://trailhead.salesforce.com/content/learn/modules/pardot-email-marketing-lightning/create-an-email-template-lightning)
+
+
+## Creating a New Email Notification
+
+### 1) Accessing Smart Email Notifications
+
+* From the App Launcher, search for and select **Smart Email Notification**.
+
+
+### 2) Selecting the Target Object
+
+* Choose the object to monitor (e.g., Account, Complaint).
+
+
+### 3) Starting a New Configuration
+
+* Click **New**.
+
+
+## Configuration Details
+
+### 1) Service Configuration
+
+This tab defines the notification's basic properties.
+
+#### Email Service Name
+
+* Enter a descriptive name (e.g., "Account Industry is Banking").
+
+<Screenshot
+  disabled={true}
+  fn="TODO: salesforce/smart_email_service_name.png"
+  alt="Email Service Name field"
+/>
+
+#### Is Active
+
+* Enables the notification service. Leave unchecked for drafts.
+
+<Screenshot
+  disabled={true}
+  fn="TODO: salesforce/smart_email_is_active.png"
+  alt="Is Active checkbox"
+/>
+
+#### Execute for Record Change
+
+* **(Required for Update Notifications):** Triggers notifications on record updates.
+
+
+<Screenshot
+  disabled={true}
+  fn="TODO: salesforce/smart_email_execute_record_change.png"
+  alt="Execute for Record Change checkbox"
+/>
+
+#### Make This Configuration Public
+
+* Allows users to self-subscribe. Public configurations appear on the "Available Public Email Services" tab. See [Managing Email Subscriptions](./managing-subscriptions.mdx) for user instructions.
+
+
+
+
+### 2) Criteria
+
+This tab defines notification trigger conditions.
+
+#### Condition Requirements
+
+* **All conditions are met (AND):** Every criterion must be true.
+* **Any condition is met (OR):** At least one criterion must be true.
+* **Custom Filter (Admin Only):**  Use a SOQL WHERE clause for complex logic. 
+
+<Screenshot
+  disabled={true}
+  fn="TODO: salesforce/smart_email_condition_requirements.png"
+  alt="Condition Requirements options"
+/>
+
+
+#### Adding Criteria
+
+* Click **Add New Criteria** to define criteria (field, operator, value).
+
+<Screenshot
+  disabled={true}
+  fn="TODO: salesforce/smart_email_add_criteria.png"
+  alt="Adding criteria based on object fields"
+/>
+
+
+### 3) Subscribers
+
+This tab specifies notification recipients.
+
+#### User Selection Mode
+
+* **Select individual users from here:** Manually add users.
+* **Inherit from existing group:** Use a Public Group. This setting is fixed after the initial save.  
+
+<Screenshot
+  disabled={true}
+  fn="TODO: salesforce/smart_email_user_selection.png"
+  alt="User Selection Mode options"
+/>
+
+
+#### Adding Users/Groups
+
+* Add users or select a group. Modifiable after saving.
+
+#### Available References on Objects (Optional)
+
+* Dynamically include recipients based on lookup fields (e.g., Account Owner).  
+
+
+### 4) Email Template
+
+This tab designs the email content.
+
+#### Selecting an Email Template
+
+* Choose an existing Salesforce Classic Email Template or create a custom one. 
+
+#### Custom Templates
+
+* Use the rich text or HTML editor and merge fields to create custom content. [Merge Field Syntax](../../reference/smart-email/merge-field-syntax.mdx)  [Available Email Template Variables](../../reference/smart-email/available-variables.mdx)
+
+
+    <Screenshot
+      disabled={true}
+      fn="TODO: salesforce/smart_email_custom_template.png"
+      alt="Custom Email Template editor"
+    />
+
+
+#### Merge Field Explorer
+
+* Easily insert merge fields. 
+
+
+
+### 5) Optional (Admin Only)
+
+#### Email Notification Object
+
+* Select visible objects in the new email service dropdown. Simplifies user selection. Uses 'Email Notification Object' Custom Metadata Type. [Learn more about Custom Metadata Types](https://trailhead.salesforce.com/content/learn/modules/custom_metadata_types_adv). 
+
+<Screenshot
+  disabled={true}
+  fn="TODO: salesforce/smart_email_object_visibility.png"
+  alt="Email Notification Object selection"
+/>
+
+
+
+## Troubleshooting
+
+### Email Not Received
+
+* Verify email deliverability: [Salesforce Email Deliverability](https://trailhead.salesforce.com/content/learn/modules/email-deliverability-essentials)
+* Check spam folders.
+* Confirm subscriptions and group memberships.
+
+### Incorrect Data in Email
+
+* Review [Merge Field Syntax](../../reference/smart-email/merge-field-syntax.mdx).
+
+### Unexpected Behavior
+
+* Review configuration criteria.  Use [Salesforce debug logs](https://trailhead.salesforce.com/content/learn/modules/developer_console/developer_console_logs).

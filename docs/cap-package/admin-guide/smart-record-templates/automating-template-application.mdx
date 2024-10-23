@@ -1,0 +1,280 @@
+---
+slug: /packages/cap/admin-guide/smart-record-templates/auto-apply-templates
+toc_min_heading_level: 2
+toc_max_heading_level: 4
+---
+
+import { Reference } from "/snippets/Reference/reference";
+
+# Automating Template Application with Apex Triggers
+
+In this article, we explore how to automate the application of Smart Record Templates in Smarteeva by using Apex triggers. By leveraging the `smrtat.SmartRecordTemplate.applyTemplate` method, you can programmatically apply templates based on specific conditions, streamlining data entry and ensuring data consistency across your records.
+
+
+
+## Overview
+
+Automatically applying Smart Record Templates allows you to:
+
+- **Enhance Efficiency**: Reduce manual data entry by populating fields automatically when certain conditions are met.
+- **Ensure Consistency**: Maintain data integrity by applying predefined templates consistently across records.
+- **Customize Automation**: Tailor the automation to your business logic using Apex code.
+
+This guide covers:
+
+- Understanding the `applyTemplate` method variants.
+- Writing Apex triggers to auto-apply templates.
+- Best practices for trigger context and bulkification.
+- Limitations and considerations.
+
+## Understanding the `applyTemplate` Method
+
+The Smarteeva CAP package provides the `smrtat.SmartRecordTemplate.applyTemplate` method, which you can use within Apex triggers to apply templates programmatically. There are two variants of this method to accommodate different scenarios.
+
+
+
+### Variant 1: Applying a Single Template to a List of Records
+
+```apex
+smrtat.SmartRecordTemplate.applyTemplate(
+    List<SObject> records,
+    List<String> specificFields,
+    Id templateId,
+    String saveTemplateIdOnField
+);
+```
+
+- **Parameters:**
+- `records`: A list of records (`List<SObject>`) to which the template will be applied (e.g., `Trigger.new`).
+- `specificFields` (Optional): A list of specific field API names (`List<String>`) from the template to apply. If `null`, all fields in the template will be applied.
+- `templateId`: The ID of the Smart Record Template to apply.
+- `saveTemplateIdOnField` (Optional): The API name of a field on the target object where the applied template ID will be recorded.
+
+### Variant 2: Applying Multiple Templates Based on Conditions
+
+```apex
+smrtat.SmartRecordTemplate.applyTemplate(
+    Map<Id, List<SObject>> recordsMap,
+    List<String> specificFields,
+    String saveTemplateIdOnField
+);
+```
+
+- **Parameters:**
+- `recordsMap`: A map where each key is a template ID (`Id`), and each value is a list of records (`List<SObject>`) to which that template should be applied.
+- `specificFields` (Optional): Same as above.
+- `saveTemplateIdOnField` (Optional): Same as above.
+
+## Writing Apex Triggers to Auto-Apply Templates
+
+Below are step-by-step instructions on how to write an Apex trigger that auto-applies Smart Record Templates based on specific conditions.
+
+
+
+### 1) Create or Identify the Trigger
+
+First, ensure that you have a trigger on the object where you want to auto-apply templates. For this example, we'll use the `Complaint__c` object.
+
+```apex
+trigger ComplaintTrigger on Complaint__c (before insert, before update) {
+    // Trigger logic goes here
+}
+```
+
+### 2) Use the `before` Trigger Context
+
+It's important to use the `before` trigger context because it allows you to modify the records in `Trigger.new` without performing additional DML operations. In `after` triggers, records are read-only, and attempting to modify them will result in errors.
+
+
+
+### 3) Filter Records Based on Conditions
+
+Within the trigger, filter the records that meet the criteria for template application. For example, apply a specific template when the `Category__c` field is `'Sensor'`.
+
+```apex
+if (Trigger.isBefore) {
+    List<SObject> compListSensor = new List<SObject>();
+    for (Complaint__c comp : Trigger.new) {
+        if (comp.Category__c == 'Sensor') {
+            compListSensor.add(comp);
+        }
+    }
+    // Proceed if there are records to process
+}
+```
+
+### 4) Retrieve the Template ID
+
+Query for the template ID that you want to apply. Ensure that the template exists and is active.
+
+```apex
+Id templateId = [
+    SELECT Id
+    FROM smrtat__Smart_Record_Template__c
+    WHERE Name = 'Template for Sensor'
+    LIMIT 1
+].Id;
+```
+
+### 5) Apply the Template
+
+Use the `applyTemplate` method to apply the template to the filtered records.
+
+```apex
+if (!compListSensor.isEmpty()) {
+    smrtat.SmartRecordTemplate.applyTemplate(
+        compListSensor,
+        null,
+        templateId,
+        'Last_Applied_Template__c'
+    );
+}
+```
+
+- **Note:** Replace `'Last_Applied_Template__c'` with the API name of a custom field on the `Complaint__c` object where you want to store the ID of the applied template.
+
+### 6) Complete Trigger Code Example
+
+Putting it all together, your trigger code should look like this:
+
+```apex
+trigger ComplaintTrigger on Complaint__c (before insert, before update) {
+    if (Trigger.isBefore) {
+        List<SObject> compListSensor = new List<SObject>();
+        for (Complaint__c comp : Trigger.new) {
+            if (comp.Category__c == 'Sensor') {
+                compListSensor.add(comp);
+            }
+        }
+        if (!compListSensor.isEmpty()) {
+            Id templateId = [
+                SELECT Id
+                FROM smrtat__Smart_Record_Template__c
+                WHERE Name = 'Template for Sensor'
+                LIMIT 1
+            ].Id;
+            smrtat.SmartRecordTemplate.applyTemplate(
+                compListSensor,
+                null,
+                templateId,
+                'Last_Applied_Template__c'
+            );
+        }
+    }
+}
+```
+
+
+
+## Creating a Custom Field to Store Applied Template ID
+
+To record which template was applied to each record, you can create a custom field on your object.
+
+
+
+### Steps to Create the Custom Field:
+
+#### Navigate to Object Manager:
+- In Salesforce Setup, go to Object Manager.
+- Select your object (e.g., Complaint__c).
+
+#### Create a New Field:
+- Go to Fields & Relationships and click New.
+- Choose Lookup Relationship as the data type and click Next.
+
+#### Configure the Lookup Relationship:
+- Set Related To as Smart Record Template.
+- Click Next.
+
+#### Set Field Details:
+- Enter Field Label (e.g., Last Applied Template).
+- Field Name auto-populates.
+
+#### Set Field-Level Security:
+- Set the appropriate visibility settings for your profiles.
+- Click Next.
+
+#### Add to Page Layouts:
+- Choose the page layouts where this field should appear.
+- Click Save.
+
+After creating the field, make sure to add it to your page layouts and adjust permissions as needed.
+
+## Best Practices
+
+### Use `before` Triggers
+
+Always use the `before` trigger context when modifying field values on the records in `Trigger.new`. In `after` triggers, records become read-only, and attempting to modify them will result in runtime errors.
+
+
+
+### Bulkification
+
+Ensure that your trigger is bulkified to handle multiple records efficiently:
+
+- **Avoid SOQL Queries in Loops**: Perform queries outside of loops to prevent hitting governor limits.
+- **Process Lists of Records**: Use lists to process multiple records at once.
+
+
+
+### Avoid Hardcoding Template IDs
+
+Instead of hardcoding template IDs or names, consider:
+
+- **Custom Labels**: Store template names in custom labels.
+- **Custom Settings or Metadata**: Use custom settings or custom metadata types to store template information.
+
+This approach makes your code more maintainable and flexible.
+
+### Recording the Applied Template
+
+Recording the ID of the applied template can be useful for tracking and reporting purposes. Use the `saveTemplateIdOnField` parameter to specify where to store this information.
+
+```apex
+smrtat.SmartRecordTemplate.applyTemplate(
+    compListSensor,
+    null,
+    templateId,
+    'Last_Applied_Template__c'
+);
+```
+
+Ensure that the field `Last_Applied_Template__c` exists on your object.
+
+## Limitations and Considerations
+
+### Related Records Not Supported
+
+Currently, the `applyTemplate` method used in triggers does not support applying templates to related records (child records). It only applies to fields on the main object. This functionality may be added in future updates.
+
+
+
+### Trigger Context
+
+Be cautious with the trigger context to avoid unintended behavior:
+
+- **Do Not Modify Records in `after` Triggers**: Records are read-only in `after` triggers.
+- **Avoid Duplicate Processing**: Ensure that the `applyTemplate` method is not called multiple times unintentionally.
+
+### Error Handling
+
+Implement appropriate error handling in your triggers:
+
+- **Template Not Found**: Handle cases where the template might not exist.
+- **Exception Handling**: Use `try-catch` blocks if necessary to handle exceptions during template application.
+
+## Conclusion
+
+Auto-applying Smart Record Templates using Apex triggers can significantly enhance data consistency and save time by automating repetitive data entry tasks. By following the guidelines and best practices outlined in this article, you can effectively implement this functionality in your Smarteeva environment.
+
+Remember to thoroughly test your triggers in a sandbox environment before deploying them to production. Keep an eye on future updates from Smarteeva for potential enhancements to the `applyTemplate` method, particularly concerning related records.
+
+## Next Steps
+
+- **Deploy and Test**: Implement the trigger in your sandbox environment and perform rigorous testing.
+- **Monitor Performance**: Ensure that the trigger performs efficiently, especially in bulk data operations.
+- **Stay Updated**: Watch for updates from Smarteeva that may introduce new capabilities or change existing methods.
+
+---
+
+*Note:* The code examples provided are for illustrative purposes. Adjust the object names, field API names, and template names according to your specific implementation.

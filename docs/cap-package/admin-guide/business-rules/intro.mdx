@@ -1,0 +1,45 @@
+---
+sidebar_position: -10
+slug: /packages/cap/admin-guide/business-rules/intro
+---
+
+import { Reference } from '/snippets/Reference/reference'
+
+# Introduction
+
+## Overview
+
+The Business Rules feature within the Smarteeva CAP package allows administrators to manage and control various business rules for different objects. It is designed to provide no-code implementations that is easily configurable, as opposed to Salesforce's native options.
+
+## Key Features
+
+### Object-Specific Rules
+
+Configure rules for different objects such as Complaints, Accounts, and more.
+
+### Multiple Rule Types
+Manage various types of rules including:
+- [Required Field Validations](./configuring-required-fields.mdx) 
+- [Locked Field Validations](./configuring-locked-fields.mdx) 
+- [Child Record Locks](./configuring-child-record-locks.mdx) 
+- [Field Updates by Status](./configuring-update-field-by-status.mdx) 
+
+## Use Cases
+The Business Rules Handler is particularly useful in scenarios such as:
+- Enforcing data quality standards 
+- Implementing compliance requirements 
+- Managing record lifecycle states 
+- Controlling field editability based on record status 
+
+## Flexible Activation
+Easily enable or disable individual rules as needed. 
+
+For specific use cases, the Business Rules Handler offers advanced configuration options:
+1. **[Disabling Rules for Specific Profiles](./disabling-rules-for-profile.mdx)**: Create exceptions for certain user profiles, allowing them to bypass specific rules when necessary. 
+2. **[Disabling Rules for Automation](./disabling-rules-for-automation.mdx)**: Temporarily disable rules during bulk data operations or automated processes to improve performance and prevent unnecessary rule enforcement. 
+
+## Relationship with Audit Trail
+
+Currently, it's unclear about the exact relationship between the Business Rule Handler and how to configure tracking.
+It's our current understanding that you must configure the tracker per [Apex Trigger](../audit-trail/audit-trail-setup-version-1.mdx) or [Salesforce Flow](../audit-trail/audit-trail-setup-version-2.mdx) per object.
+Contact smarteeva support if you have any questions.

@@ -1,0 +1,82 @@
+---
+sidebar_position: 1
+slug: /packages/cap/user-guide/mdc/reviewing-changed-item
+---
+
+import { Reference } from "/snippets/Reference/reference";
+import { Screenshot } from "/snippets/Screenshot/Screenshot";
+
+# Reviewing a Changed Item
+
+## Introduction
+
+Reviewing changes in an MDC (Meaningful Data Change) Report is crucial for acknowledging modifications and maintaining data integrity within your Salesforce org. This review confirms awareness of the changes and helps track who has acknowledged them. This guide explains how to review individual changes or entire reports within Smarteeva's CAP package.
+
+## Prerequisites
+
+* Access to Smarteeva MDC Reports.
+* Membership in an MDC group.
+
+
+
+## Reviewing Specific Changes
+
+To review individual changes:
+
+### 1) Generate an MDC Report
+
+* Access the MDC Reports tab and generate a report for your group (see the [Generating MDC Reports](./making-mdc-report) guide). This report lists all meaningful changes within the specified timeframe.
+
+### 2) Locate and Select Changes
+
+* Find the specific changes you wish to review. Expand any parent records to view changes in related child records. Select the checkbox next to each change.
+
+
+
+### 3) Review Selected Changes
+
+* Click **Review Selected**. This action marks the chosen changes as reviewed by your group.
+
+<Screenshot
+  disabled={true}
+  fn="TODO: smarteeva/mdc_report_review_selected.png"
+  alt="Select checkboxes next to each change and click 'Review Selected'"
+/>
+
+## Reviewing an Entire Report
+
+To review all changes in the current report:
+
+### 1) Generate the Report
+
+* Generate the desired MDC report.
+
+### 2) Mark All as Reviewed
+
+* Select **Mark All Records as Reviewed** and click **Generate Report**. This marks all displayed changes as reviewed by your group. This is particularly useful for reports with many minor changes.
+
+
+<Screenshot
+  disabled={true}
+  fn="TODO: smarteeva/mdc_report_review_all.png"
+  alt="Select 'Mark All Records as Reviewed' and click 'Generate Report'"
+/>
+
+
+## Understanding Review Implications
+
+
+### Group Context
+
+* Reviews are tied to the MDC group you're currently acting as a member of. A user belonging to multiple groups might need to review the same changes within each group's context. This ensures each responsible team acknowledges the changes.
+
+
+### Visibility of Reviewed Changes
+
+* Reviewed changes are hidden by default to declutter the report. To view reviewed changes, use the report's filter options.
+
+
+### Auditability
+
+* All review actions are logged in the Salesforce audit trail, providing a complete history of review activities for compliance and tracking purposes.
+

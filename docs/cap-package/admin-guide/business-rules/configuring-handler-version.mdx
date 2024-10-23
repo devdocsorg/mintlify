@@ -1,0 +1,80 @@
+---
+sidebar_position: 50
+slug: /packages/cap/admin-guide/business-rules/configuring-handler-version
+---
+
+import { Reference } from "/snippets/Reference/reference";
+import { Screenshot } from "/snippets/Screenshot/Screenshot";
+
+# Configuring Handler Version
+
+## Introduction
+
+This guide explains how to configure and switch between versions of Business Rules and Audit Trails in Smarteeva's CAP package.  **"Business Rules" refer to the features that control data integrity and field behavior based on record status, including Required Fields, Locked Fields, and Child Record Locks.**  These rules help enforce data quality and prevent unintended modifications.
+
+## Understanding the Differences
+
+| Feature        | Version 1 (Apex Triggers)                                                              | Version 2 (Salesforce Flows)                                                        |
+|----------------|----------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------|
+| Implementation | Requires custom Apex triggers and code changes.                                        | Configured using Salesforce Flow Builder.                                           |
+| Configuration  | Requires familiarity with Apex and the Developer Console.                              | Configured via flows in Flow Builder.                                               |
+| Flexibility    | Limited flexibility for complex criteria/actions.                                      | Greater flexibility with Flow Builder (e.g., complex logic, custom actions, loops). |
+| Maintenance    | More complex; requires code deployments.                                               | Easier; changes are often immediate.                                                |
+| Performance    | Can be more performant for simple scenarios, but complex logic can impact performance. | Generally performant, but very complex flows might have performance implications.   |
+| Recommendation | Use only if necessary for backward compatibility or performance.                       | **Recommended** for most use cases.                                                 |
+
+
+
+## Switching Between Versions
+
+### 1) Accessing Custom Settings
+
+* In Salesforce Setup, search for and select **Custom Settings**.
+
+### 2) Managing Audit Trail Config
+
+
+
+* Locate **Audit Trail Config** and click **Manage**.
+
+<Screenshot
+  disabled={true}
+  fn="TODO: salesforce/custom_settings_audit_trail_config.png"
+  alt="Audit Trail Config Custom Setting"
+/>
+
+### 3) Enabling/Disabling Versions
+
+
+
+
+* **Use Audit Trail V1:** Controls Audit Trail version. Checked: V1 (Apex Triggers). Unchecked: V2 (Flows).
+* **Use Business Rule V1:** Controls Business Rules version. Checked: V1 (Apex Triggers). Unchecked: V2 (Flows).
+
+
+<Screenshot
+  disabled={true}
+  fn="TODO: salesforce/custom_settings_audit_trail_versions.png"
+  alt="Audit Trail and Business Rule Version Settings"
+/>
+
+* Click **Save**.
+
+
+
+## Important Considerations
+
+* **Independent Versions:** The "Use Audit Trail V1" and "Use Business Rule V1" settings are independent.
+* **Migration:** Switching versions might impact existing configurations. Test thoroughly.
+* **Best Practice:** Use Version 2 (Flow-based) for both Audit Trail and Business Rules for ease of use and flexibility.
+
+
+## Troubleshooting
+
+### Business Rules Not Working
+
+* Ensure the correct version is enabled. For V1, "Use Business Rule V1" must be checked.  
+
+### Audit Trail Not Functioning
+
+* Verify the correct version and active/configured triggers/flows.

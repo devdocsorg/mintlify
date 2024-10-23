@@ -1,0 +1,80 @@
+---
+sidebar_position: 30
+slug: /packages/cap/admin-guide/mdc/creating-primary-mdc-configuration
+---
+
+# Creating Primary MDC Configuration
+
+This guide explains how to create an MDC configuration for the primary object in the Smart Config application. This configuration defines which fields and related child objects are tracked for Meaningful Data Change (MDC) reports.
+
+## Prerequisites
+
+* **CAP Package Installed:** Ensure you have the [CAP](/docs/packages/cap/overview) package installed.
+* **Smart Config Permissions:** You need appropriate permissions to access and configure Smart Config in Salesforce.
+
+## Steps
+
+### 1) Navigating to Smart Config
+
+* Log in to Salesforce and click the App Launcher icon.
+![Click on the App Launcher icon](/snippets/smarteeva-screenshots/launching-smart-config-01-click-on-app-launcher.jpg)
+
+* In the App Launcher, search for and select **Smart Config**.
+![Search for and select Smart Config](/snippets/smarteeva-screenshots/launching-smart-config-02-type-in-smart-config-and-click.jpg)
+
+### 2) Accessing MDC Configuration
+
+
+* In the left-hand navigation menu, click **Technical Configuration**.
+![Click on Technical Configuration](/snippets/smarteeva-screenshots/mdc-config-primary-02-click-on-mdc-configuration.jpg)
+
+* Select **MDC Configuration**.
+![Select MDC Configuration](/snippets/smarteeva-screenshots/mdc-config-primary-03-mdc-configuration-tab.jpg)
+
+### 3) Creating a New Configuration
+
+* Click the **New** button to start creating a new MDC configuration.
+
+
+### 4) Selecting the Object and Group
+
+* **Select Object:** Choose the primary object for this configuration (e.g., `Complaint`). This determines which fields are available for tracking. Use the object's API name, not its label.
+
+
+* **Select MDC Group:** Choose the user group this configuration applies to. Each group can have different MDC configurations. You'll need to have created the MDC Group beforehand. See [Enabling MDC for a Public Group](./enabling-mdc-for-a-public-group.mdx) for instructions.
+
+
+
+### 5) Choosing Fields to Track
+
+The **Select Fields** section allows you to specify which fields of the primary object should be tracked for meaningful changes.
+
+#### Data Fields
+
+* **Data Fields** are fields directly on the primary object. Select the checkboxes next to the fields you want to track. Only fields that are part of the Audit Trail configuration for the object will be available here. (See [Configuring Audit Trail](/docs/packages/cap/admin-guide/audit-trail/audit-trail-config)).
+
+
+#### Reference Fields
+
+* **Reference Fields** are fields from related objects that you can include in the MDC report for additional context. Select the checkboxes to include them.
+
+
+### 6) Specifying Child Objects (Optional)
+
+* In the **Select Child Objects** section, choose any related child objects whose changes you want to include in the MDC report. These changes will be displayed hierarchically under the primary object's entries. This setting allows viewing changes made to related child objects within the same MDC report. See [Child Entry Audit Trails](../../user-guide/audit-trail/child-entry-audit-trails.mdx) for more details on how child records are tracked.
+
+
+
+### 7) Marking as Default Parent (Important!)
+
+* Check the **Is Default Parent** checkbox. This designates the selected object as the primary object for this MDC configuration. This setting determines the root object for MDC reports generated using this configuration.
+
+
+### 8) Saving the Configuration
+
+* Click **Save** to save the new MDC configuration.  
+
+
+## Verification
+
+After saving, navigate to the MDC Reports tab and generate a new report. The report should reflect the fields and child objects you configured. (See [Generating MDC Reports](/docs/packages/cap/user-guide/mdc/making-mdc-report)).

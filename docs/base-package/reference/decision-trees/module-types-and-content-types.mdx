@@ -1,0 +1,287 @@
+---
+sidebar_position: 2
+slug: /packages/base/reference/decision-trees/module-types-and-content-types
+---
+
+# Module Types and Content Items
+
+## Introduction
+
+The Decision Tree functionality within Smarteeva's BASE package provides a powerful and flexible tool for creating interactive questionnaires and forms within Salesforce. By leveraging Decision Trees, organizations can guide users through dynamic surveys, collect data efficiently, and automate processes based on user input.
+
+This article provides a comprehensive overview of the Decision Tree capabilities in the BASE package, focusing on the different module types and content item types available. It offers guidance on when and how to use each type, along with best practices to maximize the effectiveness of your Decision Trees.
+
+## Understanding Decision Trees in the BASE Package
+
+### Overview of Decision Trees
+
+Decision Trees are interactive tools that allow users to navigate through a series of questions or prompts, where each subsequent question can depend on the user's previous answers. They are useful for a wide range of applications, including data collection, troubleshooting guides, compliance checks, and customer interactions.
+
+In the BASE package, Decision Trees are composed of Modules and Content Items:
+
+- **Modules**: Define the overall structure and behavior of a Decision Tree. Each module has a specific type that determines how it functions and how questions are presented to users.
+- **Content Items**: Represent individual questions, prompts, or informational pieces within a module. Each content item has a type that defines its behavior and how it interacts with other content items.
+
+## Module Types
+
+The BASE package supports several module types, each designed for different use cases:
+
+1. **Detailed Branching**
+2. **Regular Branching**
+3. **Chatbot**
+4. **Checklist**
+5. **Form**
+
+Understanding the characteristics and use cases of each module type is essential for selecting the right one for your Decision Tree.
+
+### Detailed Branching
+
+- **Functionality**: Presents one question at a time, where each question can lead to different subsequent questions based on the user's choice. It allows for complex branching logic and is ideal for creating dynamic surveys.
+- **Use Cases**: Detailed surveys, troubleshooting guides, compliance checks.
+- **Features**:
+- Supports various content item types, including Branching, Choices, and Forms.
+- Users can navigate back and forth between questions.
+- Provides flexibility in designing custom question flows.
+
+### Regular Branching
+
+- **Functionality**: Groups multiple sub-questions under a single branching question without conditional logic based on choices. All sub-questions are presented sequentially.
+- **Use Cases**: Linear questionnaires, data collection forms where the flow is consistent.
+- **Features**:
+- Users cannot navigate back to previous questions once they proceed.
+- No choices are added under the branching question itself.
+- Sub-questions are directly assigned to the parent branching question.
+
+### Chatbot
+
+- **Functionality**: Renders questions in a conversational chatbot-style interface, designed specifically for mobile platforms. Behaves similarly to Detailed Branching but with a different UI experience.
+- **Use Cases**: Mobile data collection, customer interactions, user-friendly surveys.
+- **Features**:
+- Presents questions in a chat-like format.
+- Supports a limited set of content item types.
+- **Form Item Limitation**: In Chatbot modules, when creating **Form** type questions, only one form item is allowed per question. This limitation ensures proper rendering in the chatbot UI.
+
+### Checklist
+
+- **Functionality**: Allows creating modules that include multiple forms or checks. Suitable for scenarios where users need to complete a set of tasks or verify information.
+- **Use Cases**: Audits, compliance checklists, process validations.
+- **Features**:
+- Users can interact with multiple forms within the module.
+- Note: The Checklist module has some limitations and may not be fully functional in Version 1.
+
+### Form
+
+- **Functionality**: Provides a single form within a module. Limited to one question.
+- **Use Cases**: Simple data collection forms, guest user submissions.
+- **Features**:
+- Designed primarily for guest user access.
+- Best suited when only one form is needed.
+
+## Content Item Types
+
+Within each module, you can define various content items that determine the behavior of individual questions or prompts. The content item types include:
+
+1. **Branching**
+2. **Branching Formula**
+3. **Choices**
+4. **Choices Multiple**
+5. **Form**
+6. **Content Piece**
+7. **Image Attachment**
+
+Understanding each content item type allows you to build effective and interactive Decision Trees.
+
+### Branching
+
+- **Functionality**: Presents options to the user, where each choice leads to a specific subsequent question.
+- **Use Case**: When the next question depends on the user's selection.
+- **Configuration**:
+- Add choices (answers) under the branching question.
+- Link each choice to the next appropriate question.
+
+### Branching Formula
+
+- **Functionality**: Automatically determines the next question based on record field values or criteria, without user input at that step.
+- **Use Case**: Dynamic branching based on data already present in Salesforce records (e.g., if a Complaint's risk is high, present specific questions).
+- **Configuration**:
+- Define criteria using fields from the associated object.
+- Set up logic rules to determine the flow based on the criteria.
+
+### Choices
+
+- **Functionality**: Presents options to the user, where the next question is the same regardless of the choice.
+- **Use Case**: When collecting input without affecting the flow (e.g., selecting preferences).
+- **Configuration**:
+- Add choices (answers) under the question.
+- No need to link choices to different questions.
+
+### Choices Multiple
+
+- **Functionality**: Similar to Choices but allows users to select multiple options.
+- **Use Case**: When users need to select all applicable options (checkboxes).
+- **Configuration**:
+- Add multiple choices.
+- User can select more than one option.
+
+### Form
+
+- **Functionality**: Combines multiple sub-questions of various types into one content item, allowing comprehensive data collection in a single screen.
+- **Use Case**: Collecting detailed information from users (e.g., contact details, feedback).
+- **Configuration**:
+- Add form items such as text fields, dates, picklists, numbers.
+- In Chatbot modules, limit to one form item.
+
+### Content Piece
+
+- **Functionality**: Displays information, notices, or disclaimers without collecting user input.
+- **Use Case**: Providing instructions, warnings, or additional information.
+- **Features**:
+- Supports rich text, including images.
+- Used at the beginning or between questions.
+
+### Image Attachment
+
+- **Functionality**: Allows users to upload images as part of their responses.
+- **Use Case**: Collecting visual evidence, screenshots, or photos.
+- **Configuration**:
+- Add an Image Attachment content item.
+- Users can upload and preview images before submission.
+
+## How to Create and Configure Modules and Content Items
+
+### Creating a New Module
+
+To create a new Decision Tree module:
+
+1. **Navigate to the Decision Tree Builder** in the Smarteeva Admin app.
+2. **Click on "New Module."**
+3. **Enter the Module Name.**
+4. **Select the Module Type** from the dropdown menu.
+5. **Enter a unique Key Value** for the module (acts as an identifier).
+6. **Click "Save."**
+
+**Note**: The Key Value must be unique and is used to reference the module, even if the names are similar.
+
+### Configuring Content Items
+
+Once the module is created, you can add content items (questions) to build the Decision Tree.
+
+#### Adding a Branching Question
+
+1. **Click on "Add Content Item."**
+2. **Enter the Question Text** (the question displayed to users).
+3. **Select "Branching" as the Content Item Type.**
+4. **Save the content item.**
+5. **Add choices under the branching question by clicking "Manage Choices."**
+6. **For each choice:**
+- Enter the Choice Text.
+- Link the choice to the next appropriate question (if applicable).
+
+#### Adding a Branching Formula
+
+1. **Add a new content item.**
+2. **Enter a placeholder in Question Text (this question is automated).**
+3. **Select "Branching Formula" as the Content Item Type.**
+4. **Save the content item.**
+5. **Define conditions under Form Items:**
+- Select the Object (e.g., Account).
+- Choose the Field to evaluate.
+- Set the Operator (e.g., equals).
+- Enter the Value to compare.
+- Define whether all conditions must be met (AND) or any (OR).
+6. **Link the branching formula to the next question(s) based on conditions.**
+
+#### Adding Choices or Choices Multiple
+
+1. **Add a new content item.**
+2. **Enter the Question Text.**
+3. **Select "Choices" or "Choices Multiple" as the Content Item Type.**
+- "Choices" for single selection (radio buttons).
+- "Choices Multiple" for multiple selections (checkboxes).
+4. **Save the content item.**
+5. **Add choices by clicking "Manage Choices" and entering Choice Text for each option.**
+
+#### Adding a Form
+
+1. **Add a new content item.**
+2. **Enter the Form Title in Question Text.**
+3. **Select "Form" as the Content Item Type.**
+4. **Save the content item.**
+5. **Add Form Items:**
+- Click "Add Form Item."
+- Enter the Form Item Text (e.g., "Enter your name").
+- Select the Form Type Option (Text, Date, Number, etc.).
+- Configure additional settings (e.g., required).
+6. **In Chatbot modules, limit to one Form Item.**
+
+#### Adding a Content Piece
+
+1. **Add a new content item.**
+2. **Enter the Content Text in the rich text editor (e.g., disclaimer, instructions).**
+3. **Select "Content Piece" as the Content Item Type.**
+4. **Optionally, include images or formatting using the rich text editor.**
+5. **Save the content item.**
+
+#### Adding an Image Attachment
+
+1. **Add a new content item.**
+2. **Enter the Instruction Text in Question Text (e.g., "Please upload a photo").**
+3. **Select "Image Attachment" as the Content Item Type.**
+4. **Save the content item.**
+
+### Parent Content Items and Regular Branching
+
+In Regular Branching, sub-questions are assigned directly to a parent branching question.
+
+- **When adding a sub-question:**
+- Ensure the **Parent Content Item** is set to the appropriate branching question.
+- Only branching questions will appear in the Parent Content Item selection.
+
+**Note**: Do not add choices under branching questions in Regular Branching modules.
+
+## Best Practices
+
+### Configuring Logic Rules
+
+- **Clearly define logic rules** for branching questions to control the flow effectively.
+- **Limit one rule per choice** to maintain clarity.
+- **Test the decision tree thoroughly** to ensure the flow behaves as expected.
+
+### Parent Content Items
+
+- Always set the **Parent Content Item** when adding sub-questions in Regular Branching.
+- This organizes the Decision Tree correctly and ensures questions appear under the right parent.
+
+### Limitations and Considerations
+
+- **Chatbot Module Limitations**:
+- **Form Item Restriction**: In Chatbot modules, restrict form-type questions to a single form item to ensure proper functionality and avoid skipped questions.
+- **Editing Responses**: Users cannot edit their responses after submission in Chatbot modules.
+- **Regular Branching Limitations**:
+- Users cannot navigate back to previous questions once they proceed.
+- Do not add choices under branching questions.
+- **Version Differences**:
+- Be aware of UI and functionality differences between Version 1 and Version 2.
+- Upgrading to Version 2 may require additional validation.
+
+## Examples and Use Cases
+
+- **Dynamic Questioning Based on Record Data**:
+- Use **Branching Formulas** to present different questions based on fields like Account Type or Industry.
+- For example, if an Account's Type is "Partner" and Industry is "Banking," direct the user to specific questions relevant to partners in banking.
+- **Image Collection**:
+- Use **Image Attachment** content items to collect photos from users, such as evidence of an issue or images for verification purposes.
+- **Linear Surveys**:
+- Use **Regular Branching** to present a set of questions in a fixed order without branching logic.
+- Ideal for standard forms where every user answers the same questions.
+
+## Summary and Next Steps
+
+Understanding the various module types and content item types in the Decision Tree functionality of the BASE package allows you to create powerful and interactive questionnaires tailored to your organization's needs. By selecting the appropriate module type and configuring content items effectively, you can guide users through a seamless experience while collecting valuable data.
+
+**Next Steps**:
+
+- **Experiment with creating different module types** to become familiar with their behaviors.
+- **Leverage branching formulas** to create dynamic Decision Trees based on Salesforce data.
+- **Consult the Smarteeva documentation** for advanced configurations and features.
+

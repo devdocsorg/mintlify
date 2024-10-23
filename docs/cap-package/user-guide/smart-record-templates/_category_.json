@@ -1,0 +1,10 @@
+{
+  "label": "Smart Record Templates",
+  "position": 1,
+  "collapsed": true,
+  "link": {
+    "type": "generated-index",
+    "description": "User Guide material for Smart Record Templates within the CAP package",
+    "slug": "/packages/cap/user-guide/smart-record-templates"
+  }
+}

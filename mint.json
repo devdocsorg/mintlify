@@ -50,36 +50,120 @@
   ],
   "navigation": [
     {
-      "group": "Get Started",
+      "group": "Admin Guide - Decision Trees",
       "pages": [
-        "introduction",
-        "quickstart",
-        "development"
+        "docs/base-package/admin-guide/decision-trees/best-practices",
+        "docs/base-package/admin-guide/decision-trees/enabling-guest-user-access"
       ]
     },
     {
-      "group": "Essentials",
+      "group": "Admin Guide - Audit Trail",
       "pages": [
-        "essentials/markdown",
-        "essentials/code",
-        "essentials/images",
-        "essentials/settings",
-        "essentials/navigation",
-        "essentials/reusable-snippets"
+        "docs/cap-package/admin-guide/audit-trail/adding-audit-trail-tab",
+        "docs/cap-package/admin-guide/audit-trail/audit-trail-setup-version-1",
+        "docs/cap-package/admin-guide/audit-trail/audit-trail-setup-version-2",
+        "docs/cap-package/admin-guide/audit-trail/configuring-audited-records-fields",
+        "docs/cap-package/admin-guide/audit-trail/managing-exceptions"
       ]
     },
     {
-      "group": "API Documentation",
+      "group": "Admin Guide - Business Rules",
       "pages": [
-        "api-reference/introduction"
+        "docs/cap-package/admin-guide/business-rules/intro",
+        "docs/cap-package/admin-guide/business-rules/configuring-child-record-locks",
+        "docs/cap-package/admin-guide/business-rules/configuring-handler-version",
+        "docs/cap-package/admin-guide/business-rules/configuring-locked-fields",
+        "docs/cap-package/admin-guide/business-rules/configuring-required-fields",
+        "docs/cap-package/admin-guide/business-rules/configuring-update-field-by-status",
+        "docs/cap-package/admin-guide/business-rules/disabling-rules-for-automation",
+        "docs/cap-package/admin-guide/business-rules/disabling-rules-for-profile"
       ]
     },
     {
-      "group": "Endpoint Examples",
+      "group": "Admin Guide - MDC",
       "pages": [
-        "api-reference/endpoint/get",
-        "api-reference/endpoint/create",
-        "api-reference/endpoint/delete"
+        "docs/cap-package/admin-guide/mdc/intro",
+        "docs/cap-package/admin-guide/mdc/adding-mdc-report",
+        "docs/cap-package/admin-guide/mdc/configuring-meaningful-fields",
+        "docs/cap-package/admin-guide/mdc/create-a-team-in-public-groups",
+        "docs/cap-package/admin-guide/mdc/creating-custom-mdc-report-page",
+        "docs/cap-package/admin-guide/mdc/creating-primary-mdc-configuration",
+        "docs/cap-package/admin-guide/mdc/enabling-mdc-for-a-public-group",
+        "docs/cap-package/admin-guide/mdc/setting-visible-display-fields"
+      ]
+    },
+    {
+      "group": "Admin Guide - Smart Email",
+      "pages": [
+        "docs/cap-package/admin-guide/smart-email/configuring-smart-email-notifications",
+        "docs/cap-package/admin-guide/smart-email/managing-subscriptions"
+      ]
+    },
+    {
+      "group": "Admin Guide - Smart Record Templates",
+      "pages": [
+        "docs/cap-package/admin-guide/smart-record-templates/adding-component-to-layouts",
+        "docs/cap-package/admin-guide/smart-record-templates/automating-template-application",
+        "docs/cap-package/admin-guide/smart-record-templates/configuring-related-records-templates",
+        "docs/cap-package/admin-guide/smart-record-templates/creating-templates",
+        "docs/cap-package/admin-guide/smart-record-templates/customizing-template-creation-form",
+        "docs/cap-package/admin-guide/smart-record-templates/using-template-tags"
+      ]
+    },
+    {
+      "group": "Reference - Decision Trees",
+      "pages": [
+        "docs/base-package/reference/decision-trees/module-types-and-content-types",
+        "docs/base-package/reference/decision-trees/templates-and-checklists",
+        "docs/base-package/reference/decision-trees/understanding-decision-tree-model",
+        "docs/base-package/reference/decision-trees/version-2-enhancements"
+      ]
+    },
+    {
+      "group": "Reference - Audit Trail",
+      "pages": [
+        "docs/cap-package/reference/audit-trail/field-types"
+      ]
+    },
+    {
+      "group": "Reference - Smart Email",
+      "pages": [
+        "docs/cap-package/reference/smart-email/available-variables",
+        "docs/cap-package/reference/smart-email/merge-field-syntax"
+      ]
+    },
+    {
+      "group": "Reference - Smart Record Templates",
+      "pages": [
+        "docs/cap-package/reference/smart-record-templates/conceptual-overview",
+        "docs/cap-package/reference/smart-record-templates/merge-field-syntax"
+      ]
+    },
+    {
+      "group": "User Guide - Decision Trees",
+      "pages": [
+        "docs/base-package/user-guide/decision-trees/ad-hoc-decision-trees"
+      ]
+    },
+    {
+      "group": "User Guide - Audit Trail",
+      "pages": [
+        "docs/cap-package/user-guide/audit-trail/child-entry-audit-trails",
+        "docs/cap-package/user-guide/audit-trail/viewing-history"
+      ]
+    },
+    {
+      "group": "User Guide - MDC",
+      "pages": [
+        "docs/cap-package/user-guide/mdc/creating-custom-list-views",
+        "docs/cap-package/user-guide/mdc/making-mdc-report",
+        "docs/cap-package/user-guide/mdc/reviewing-changed-item"
+      ]
+    },
+    {
+      "group": "User Guide - Smart Record Templates",
+      "pages": [
+        "docs/cap-package/user-guide/smart-record-templates/applying-templates"
       ]
     }
   ],

@@ -1,0 +1,11 @@
+
+{
+  "label": "Smart Email Notifications",
+  "position": 1,
+  "collapsed": true,
+  "link": {
+    "type": "generated-index",
+    "description": "Guides for setting up Smart Email Notifications",
+    "slug": "/packages/cap/admin-guide/smart-email"
+  }
+}

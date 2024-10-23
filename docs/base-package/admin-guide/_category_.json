@@ -1,0 +1,10 @@
+{
+  "label": "Admin Guide",
+  "position": 30,
+  "collapsed": true,
+  "link": {
+    "type": "generated-index",
+    "description": "Admin Guide Material for the BASE package",
+    "slug": "/packages/base/admin-guide"
+  }
+}

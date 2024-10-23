@@ -1,0 +1,10 @@
+{
+  "label": "User Guide",
+  "position": 30,
+  "collapsed": true,
+  "link": {
+    "type": "generated-index",
+    "description": "User Guide Material for the BASE package",
+    "slug": "/packages/base/user-guide"
+  }
+}

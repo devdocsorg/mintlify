@@ -1,0 +1,53 @@
+---
+sidebar_position: 15
+slug: /packages/cap/admin-guide/audit-trail/adding-audit-trail-tab
+---
+
+import { Reference } from "/snippets/Reference/reference";
+import { Screenshot } from "/snippets/Screenshot/Screenshot";
+
+# Adding the Audit Trail Tab to Record Pages
+
+## Introduction
+
+Smarteeva's CAP package includes the Audit Trail related list, which provides a history of changes made to records.  By default, this related list might not be displayed on all record pages.  As a Salesforce administrator, you can easily add and configure the Audit Trail tab to the desired page layouts, making it accessible to users.
+
+## Adding the Audit Trail Tab
+
+### 1) Navigate to Object Manager
+
+* In Salesforce Setup, go to **Object Manager**.
+
+### 2) Select the Object
+
+* Choose the object for which you want to add the Audit Trail tab (e.g., Account, Complaint, Investigation).
+
+### 3) Edit the Page Layout
+
+* Under **Page Layouts**, select the page layout you wish to modify.
+* Click **Edit**. This opens the Lightning App Builder.
+
+
+
+
+### 4) Configure the Related Lists Component
+
+* In the Lightning App Builder, locate the **Related Lists** component on the page layout.  If it's not already present, drag it from the components pane onto the page.
+* In the component's properties panel, ensure that **Audit Trail** is selected in the available related lists.  Use the drag-and-drop functionality to reorder the related lists as needed. This ensures the Audit Trail is visible in the desired position on the page.
+
+<Screenshot
+  disabled={true}
+  fn="TODO: salesforce/page_layout_add_audit_trail_tab.png"
+  alt="Adding Audit Trail Related List to Page Layout"
+/>
+
+### 5) Save the Page Layout
+
+* Click **Save** to apply your changes.
+
+
+
+## Verification
+
+After saving the page layout, open a record of the configured object and verify that the **Audit Trail** tab is now visible on the record detail page in the desired position.  This confirms the successful addition and proper configuration of the audit trail tab within the record page layout, allowing users to readily access and review the change history.
+

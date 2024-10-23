@@ -1,0 +1,76 @@
+---
+sidebar_position: 60
+slug: /packages/cap/admin-guide/mdc/adding-mdc-report
+---
+
+import { Reference } from "/snippets/Reference/reference";
+import { Screenshot } from "/snippets/Screenshot/Screenshot";
+
+# Adding the MDC Report to Record Pages
+
+## Introduction
+
+The `MDCOnRecord` Lightning component in Smarteeva's CAP package allows you to embed a Meaningful Data Change (MDC) report directly on a record page. This provides users with an inline view of the important changes made to that specific record and its related child records, without navigating to a separate report page. This guide explains how to add and configure the `MDCOnRecord` component.
+
+## Prerequisites
+
+* System Administrator privileges in Salesforce.
+* Familiarity with the Lightning App Builder.
+* Understanding of MDC configurations ([Configuring MDC](./creating-primary-mdc-configuration.mdx)).
+
+
+## Adding the MDCOnRecord Component
+
+### 1) Navigate to the Lightning App Builder
+
+* In Salesforce Setup, search for and select **Lightning App Builder**.
+
+### 2) Select the Target Record Page
+
+* Choose the record page you want to add the MDC report to (e.g., Account, Complaint).  If the page doesn't exist, you'll need to create a new one.
+* Click **Edit** to open the page in the Lightning App Builder.
+
+
+
+<Screenshot
+  disabled={true}
+  fn="TODO: salesforce/lightning_app_builder_record_page.png"
+  alt="Lightning App Builder - Record Page"
+/>
+
+
+### 3) Add the MDCOnRecord Component
+
+
+
+* In the Components pane, search for "MDCOnRecord" and drag it onto the page canvas in the desired location.
+
+<Screenshot
+  disabled={true}
+  fn="TODO: salesforce/lightning_app_builder_add_mdconrecord.png"
+  alt="Dragging MDCOnRecord component to page canvas"
+/>
+
+### 4) Save the Page
+
+
+* Click **Save** and then **Activate** to make the changes live. Choose the appropriate activation settings based on your org's requirements.
+
+
+
+## Configuration (Usually Not Required)
+
+The `MDCOnRecord` component automatically inherits the MDC configuration for the selected object and uses the record ID of the current page. You usually don't need to manually configure any properties.  However, you might want to adjust the component's label or other display settings within the Lightning App Builder.
+
+
+
+## How it Works
+
+The `MDCOnRecord` component retrieves the record ID from the current page context using `force:hasRecordId`. 
+
+## Troubleshooting
+
+* **No Data Displayed:** Verify the MDC configuration for the target object. Ensure meaningful fields are configured and the user has permission to view them. (See [Configuring MDC](/docs/packages/cap/admin-guide/mdc/creating-primary-mdc-configuration).)
+* **Component Not Visible:** Check the component visibility settings in the Lightning App Builder and ensure the user has access to the page layout where the component is added.
+* **Errors:** Refer to the browser's developer console or Salesforce debug logs for detailed error messages and troubleshooting steps.
+

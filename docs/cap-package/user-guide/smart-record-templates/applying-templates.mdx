@@ -1,0 +1,136 @@
+---
+slug: /packages/cap/user-guide/smart-record-templates/applying-templates
+---
+
+import { Reference } from "/snippets/Reference/reference";
+import { Screenshot } from "/snippets/Screenshot/Screenshot";
+
+# Applying Templates
+
+## Introduction
+
+Smart Record Templates in Smarteeva CAP allow users to quickly populate record fields with predefined data, ensuring consistency and saving time. This guide will walk you through the process of applying these templates to your records.
+
+
+
+## Prerequisites
+
+- Access to Salesforce org with Smarteeva CAP installed
+- Permissions to view and edit records
+- Smart Record Templates component added to your page layouts
+
+## Locating the Smart Record Templates Component
+
+### 1) Navigate to the Record
+
+Open the record to which you want to apply a template (e.g., a Complaint record).
+
+### 2) Find the Smart Record Templates Component
+
+Look for the Smart Record Templates component on the record page. It's typically located in the sidebar or main body of the page layout.
+
+<Screenshot
+  disabled={true}
+  fn="TODO: path/to/smart_record_templates_component.png"
+  alt="Smart Record Templates component on a record page"
+  annotations={[
+    { guided_action: "Locate the Smart Record Templates component" }
+  ]}
+/>
+
+
+
+## Applying a Template
+
+### 1) View Available Templates
+
+The component will display a list of available templates. These may be filtered based on tags or other criteria set by your administrator.
+
+
+
+### 2) Select a Template
+
+Click the "View" or "Apply" button next to the desired template.
+
+### 3) Preview Template Details
+
+A window will appear showing the fields and values defined in the template.
+
+<Screenshot
+  disabled={true}
+  fn="TODO: path/to/template_preview.png"
+  alt="Template preview window"
+  annotations={[
+    { guided_action: "Review the fields and values that will be applied" }
+  ]}
+/>
+
+### 4) Choose Fields to Apply
+
+You can select or deselect specific fields to be applied from the template.
+
+
+
+### 5) Apply the Template
+
+Click the "Apply Template" button at the bottom of the preview window.
+
+### 6) Confirm Action
+
+A warning message will appear asking you to confirm the action. This message may vary depending on your org's configuration.
+
+<Screenshot
+  disabled={true}
+  fn="TODO: path/to/confirm_template_application.png"
+  alt="Confirmation dialog for applying template"
+  annotations={[
+    { guided_action: "Read the warning message" },
+    { guided_action: "Click Confirm to proceed" }
+  ]}
+/>
+
+
+
+### 7) Review Changes
+
+After confirming, the selected fields on your record will be populated with the values from the template.
+
+## Understanding Template Application
+
+### Merge Fields
+
+Some templates may include merge fields that dynamically insert data from the current record or related records. These will be resolved when the template is applied.
+
+
+
+### Related Records
+
+Depending on the template configuration, applying a template may also create or update related records. However, you may need to refresh the page to see these changes due to Salesforce limitations.
+
+
+
+## Troubleshooting
+
+### Template Not Visible
+
+If you can't see a template you expect:
+1. Check if it's filtered out by tags
+2. Ensure you have the necessary permissions
+3. Contact your Salesforce administrator
+
+### Fields Not Updating
+
+If fields aren't updating as expected:
+1. Verify that you selected the fields in the preview window
+2. Check your field-level security settings
+3. Consult your Salesforce administrator
+
+## Best Practices
+
+1. **Review Before Applying**: Always review the template contents before applying to ensure you're using the correct template.
+2. **Use Tags**: If available, use tags to filter templates and quickly find the ones relevant to your task.
+3. **Report Issues**: If you encounter any problems or inconsistencies with templates, report them to your Salesforce administrator.
+
+## Conclusion
+
+Applying Smart Record Templates can significantly streamline your data entry process and ensure consistency across records. By following this guide, you should be able to efficiently apply templates to your records in Smarteeva CAP.

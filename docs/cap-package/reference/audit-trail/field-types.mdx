@@ -1,0 +1,61 @@
+---
+sidebar_position: 3
+slug: /packages/cap/reference/audit-trail/field-types
+---
+
+import { Reference } from "/snippets/Reference/reference";
+
+# Field Types
+
+
+
+## Introduction
+
+Smarteeva's CAP package's Audit Trail functionality tracks changes made to various fields on Salesforce objects.  Different field types are handled differently within the Audit Trail.  This reference guide describes the supported field types and how their values are represented in the Audit Trail logs.
+
+## Supported Field Types and Representations
+
+### Text Fields
+
+Text fields store alphanumeric characters. Changes to text fields are captured in the Audit Trail by displaying the previous (Old Value) and current (New Value) text strings.
+
+### Number Fields
+
+Number fields store numeric values. Similar to text fields, changes to number fields are shown with the old and new numeric values.
+
+### Checkbox Fields
+
+Checkbox fields represent boolean (true/false) values. The Audit Trail reflects changes as transitions between checked (true) and unchecked (false) states or vice-versa.
+
+### Picklist Fields
+
+Picklist fields allow users to select a single value from a predefined list. Changes are displayed as the transition from the old picklist value to the new picklist value.  
+
+### Multi-Select Picklist Fields
+
+Multi-select picklists allow users to choose multiple values from a list. Changes are captured by showing the complete set of selected values before and after the change.
+
+### Lookup Relationship Fields
+
+Lookup relationships link a record to another record in Salesforce (e.g., a Case linked to an Account). Changes to lookup fields display the name of the related record before and after the change.  These changes can also be observed in the Child Entry Audit Trail if configured. 
+
+### Date and Date/Time Fields
+
+Date and Date/Time fields store date and time information.  The audit trail displays the previous and current date and/or time values.
+
+## Understanding Field Context
+
+The "Context" column in the Audit Trail table provides additional context or details about the field change. This context might vary depending on the specific field and the object it belongs to.
+
+## Example: Picklist Field Change
+
+Imagine the "Status" field on a Case record, a picklist field, is changed from "New" to "In Progress". The Audit Trail would display:
+
+* **Field Name:** Status
+* **Old Value:** New
+* **New Value:** In Progress
+
+
+##  Custom Fields
+
+Custom fields created in your Salesforce org are also supported, provided they are included in the Audit Trail configuration. 

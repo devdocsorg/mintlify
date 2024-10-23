@@ -1,0 +1,98 @@
+---
+sidebar_position: 50
+slug: /packages/cap/admin-guide/business-rules/disabling-rules-for-profile
+---
+
+import { Reference } from "/snippets/Reference/reference";
+import { Screenshot } from "/snippets/Screenshot/Screenshot";
+
+# Disabling Rules For Profile
+
+## Introduction
+
+The "Disabling Rules For Profile" feature allows administrators to create exceptions to business rules for specific user profiles. This guide explains how to configure these exceptions.
+
+## Prerequisites
+
+* System Administrator privileges.
+* Access to the Salesforce Setup.
+* Knowledge of Profile IDs you want to exclude.
+
+
+## Configuring Profile-Specific Rule Exceptions
+
+### 1) Accessing Custom Settings
+
+* In Salesforce Setup, navigate to **Custom Settings**.
+* Find and click on "Exclude Profiles for AT Validations".
+
+
+<Screenshot
+  disabled={true}
+  fn="TODO: salesforce/custom_settings_exclude_profiles.png"
+  alt="Custom Settings page showing Exclude Profiles for AT Validations"
+/>
+
+### 2) Managing Exclusion Settings
+
+* Click **Manage** next to the "Exclude Profiles for AT Validations" setting.
+* Click **Edit** to modify the settings.
+
+
+<Screenshot
+  disabled={true}
+  fn="TODO: salesforce/exclude_profiles_edit_page.png"
+  alt="Edit page for Exclude Profiles for AT Validations"
+/>
+
+### 3) Specifying Excluded Profiles
+
+* In the appropriate fields, enter the Profile IDs you want to exclude:
+* Child Record Lock Excluded Profiles
+* Lock Field Excluded Profiles
+* Required Field Excluded Profiles
+* Audit Trail Excluded Profiles
+* Smart Email Notification Excluded Profiles
+* Separate multiple Profile IDs with commas.
+
+
+### 4) Finding Profile IDs
+
+To find a Profile ID:
+
+1. Open the Developer Console.
+2. Run this SOQL query: `SELECT Id FROM Profile WHERE Name = 'System Administrator'`
+3. Copy the resulting ID.
+
+
+<Screenshot
+  disabled={true}
+  fn="TODO: salesforce/developer_console_profile_query.png"
+  alt="Developer Console showing SOQL query for Profile ID"
+/>
+
+### 5) Saving the Configuration
+
+* Click **Save** to apply the changes.
+
+
+## How It Works
+
+When a user with an excluded profile performs actions that would normally trigger business rules, those rules are bypassed for that user.
+
+
+## Considerations
+
+* Use this feature cautiously, as it can impact data integrity and compliance tracking.
+* Regularly review excluded profiles to ensure they are still necessary.
+* Document any profile exclusions for auditing purposes.
+
+
+## Troubleshooting
+
+### Rules Still Applying to Excluded Profiles
+
+* Verify the correct Profile ID is entered in the exclusion list.
+* Ensure the changes were saved successfully.
+* Check if the user is assigned to the correct profile.
+

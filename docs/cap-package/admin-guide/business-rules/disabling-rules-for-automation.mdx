@@ -1,0 +1,94 @@
+---
+sidebar_position: 60
+slug: /packages/cap/admin-guide/business-rules/disabling-rules-for-automation
+---
+
+import { Reference } from "/snippets/Reference/reference";
+import { Screenshot } from "/snippets/Screenshot/Screenshot";
+
+# Disabling Rules For Automation
+
+## Introduction
+
+The Business Rule Handler in Salesforce allows administrators to disable certain rules, which can be useful during automation processes such as data migration or integration. This guide explains how to configure these exceptions.
+
+
+## Prerequisites
+
+* System Administrator privileges.
+* Access to the Salesforce Setup.
+* Understanding of the Business Rule Handler.
+
+## Configuring Rule Disabling for Automation
+
+### 1) Accessing Custom Settings
+
+* In Salesforce Setup, navigate to **Custom Settings**.
+* Find and click on "Business Rule Handler".
+
+
+<Screenshot
+  disabled={true}
+  fn="TODO: salesforce/custom_settings_business_rule_handler.png"
+  alt="Custom Settings page showing Business Rule Handler"
+/>
+
+### 2) Managing Business Rule Settings
+
+* Click **Manage** next to the "Business Rule Handler" setting.
+* You'll see a list of rules for different objects (e.g., Complaint).
+
+
+<Screenshot
+  disabled={true}
+  fn="TODO: salesforce/business_rule_handler_manage_page.png"
+  alt="Manage page for Business Rule Handler"
+/>
+
+### 3) Disabling Specific Rules
+
+* Select the object you want to modify rules for (e.g., Complaint, Account).
+* For each object, you'll see a list of applicable rules.
+* To disable a rule, uncheck the "Is Active" checkbox next to the rule you want to disable.
+* For example, if you select the Complaint object, rules that can be disabled include:
+  * Complaint Required Field Name Validation
+  * Complaint Locked Field Validation
+  * Complaint Child Lock Validation
+  * Complaint Updated Field by Status Validation
+  * Complaint Audit
+* The available rules may vary depending on the selected object.
+
+
+<Screenshot
+  disabled={true}
+  fn="TODO: salesforce/business_rule_handler_disable_rules.png"
+  alt="Disabling specific rules in Business Rule Handler for Complaint object"
+/>
+
+### 4) Saving the Configuration
+
+* Click **Save** to apply the changes.
+
+
+## How It Works
+
+When rules are disabled, they won't be triggered during data operations or automation processes. This can improve performance during bulk data loading or migrations.
+
+
+## Considerations
+
+* Disabling rules affects all users and processes in the system.
+* The order of rule execution is predefined and managed by the package.
+* Changes made in the business rules handler affect all users of the system.
+
+
+## Best Practices
+
+Consider the following best practices when disabling rules for automation:
+
+* Document which rules were disabled, when, and why.
+* Re-enable the rules as soon as the automation process is complete to maintain data integrity and compliance.
+* Test the impact of disabling rules in a sandbox environment before applying changes to production.
+* Perform a data quality check after re-enabling rules to ensure data integrity.
+
+Remember to adapt these best practices to your specific organizational needs and compliance requirements.

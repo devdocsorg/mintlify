@@ -1,0 +1,54 @@
+---
+sidebar_position: 15
+slug: /packages/cap/admin-guide/mdc/enabling-mdc-for-a-public-group
+---
+
+# Enabling MDC for a Public Group
+
+This guide explains how to enable MDC reports for a specific group
+
+## Prerequisites
+
+- You must have the [CAP](/docs/packages/cap/overview) package [installed](/docs/get-started/installation#smarteeva-helps-with-installation).
+- You must have a public group created. See [Creating a review team in Public Groups](create-a-team-in-public-groups.mdx) for instructions.
+
+## Steps
+
+### 1) Navigate to Smart Config
+
+Log in to Salesforce and click on the App Launcher icon
+
+![Click on the App Launcher icon](/snippets/smarteeva-screenshots/launching-smart-config-01-click-on-app-launcher.jpg)
+
+In the App Launcher, search for and select **Smart Config**.
+
+![Search for and select Smart Config](/snippets/smarteeva-screenshots/launching-smart-config-02-type-in-smart-config-and-click.jpg)
+
+### 2) Access MDC Configuration
+
+- Click on **Technical Configuration** in the left-hand navigation menu.
+
+![Click on Technical Configuration](/snippets/smarteeva-screenshots/mdc-config-primary-02-click-on-mdc-configuration.jpg)
+
+- Select **MDC Configuration**.
+
+![Select MDC Configuration](/snippets/smarteeva-screenshots/mdc-config-primary-03-mdc-configuration-tab.jpg)
+
+### 4) Select Review Group(s)
+
+- In the **Select Review Group(s)** section, choose the public group(s) that should have access to review MDC reports.
+  - **Available Groups:** Lists all public groups in your Salesforce org.
+  - **Selected Groups:** The groups you've chosen to grant access to.
+  - **Gotcha:** This is a **global setting**, not specific to the current MDC configuration.
+
+![Select Group and Click Move](/snippets/smarteeva-screenshots/mdc-add-review-group-01-select-group-and-click-move.jpg)
+
+- Click the right arrow to move the selected group to the **Selected Groups** list.
+
+### 5) Save the Configuration
+
+- Click **Save** to apply the changes.
+
+![Click Save](/snippets/smarteeva-screenshots/mdc-add-review-group-02-click-save.jpg)
+
+Now, users in the selected group(s) will be able to access and review MDC reports.

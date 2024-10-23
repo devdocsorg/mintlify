@@ -1,0 +1,84 @@
+---
+sidebar_position: 10
+slug: /packages/cap/reference/smart-record-templates/merge-field-syntax
+---
+
+import { Reference } from "/snippets/Reference/reference";
+
+# Merge Field Syntax for Smart Record Templates
+
+
+
+## Introduction
+
+This guide explains merge field syntax in Smarteeva's CAP package for Smart Record Templates.
+
+## Basic Syntax
+
+```
+{!Object.Field}
+```
+
+Where:
+* `Object`: The API name of the Salesforce object
+* `Field`: The API name of the field
+
+
+
+## Context and Usage
+
+Merge fields are used within the context of the object for which the template is created.
+
+
+
+### Example
+
+For a Complaint template:
+* **Country of Incident:** `{!Complaint.Country_of_Incident__c}`
+
+
+
+## Important Considerations
+
+### API Names
+
+Use API names for both objects and fields, not labels.
+
+
+
+### Custom Fields
+
+Custom fields in Salesforce end with "__c". Always include this suffix for custom fields.
+
+
+
+### Performance Considerations
+
+Only select "Has Merge Field" for fields that actually contain merge fields. Checking this option for all fields can impact performance, especially in templates with many fields.
+
+
+
+## Template Application
+
+When applying a template, the system will automatically replace merge fields with the corresponding values from the record.
+
+
+
+## Limitations
+
+- The exact behavior and available fields may depend on your Salesforce org's configuration and any customizations made to the Smart Record Templates functionality.
+- Merge fields are primarily used for field-level data.
+
+
+
+## Troubleshooting
+
+If merge fields are not populating as expected, double-check the following:
+1. Correct API names are used for both objects and fields
+2. The "Has Merge Field" option is selected for the relevant fields in your template configuration
+3. The field you're trying to reference exists on the object for which the template is created
+
+
+           description="Importance of 'Has Merge Field' option and troubleshooting considerations" />
+
+For more complex issues, consult your Salesforce administrator or Smarteeva support.

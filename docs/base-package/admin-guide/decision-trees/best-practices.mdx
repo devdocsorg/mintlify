@@ -1,0 +1,180 @@
+---
+slug: /packages/base/admin-guide/decision-trees/best-practices-and-troubleshooting
+---
+
+# Best Practices and Troubleshooting for Decision Trees
+
+## Introduction
+
+Decision Trees in Smarteeva provide a powerful way to create dynamic questionnaires and forms within Salesforce. They enable administrators to guide users through a series of questions based on branching logic, capturing responses for analysis and workflow automation.
+
+## Understanding the Element Field
+
+### Purpose of the Element Field
+
+The Element field in Decision Tree questions acts as a unique identifier for each question within a module, similar to an API name.
+
+### Best Practices for Manually Editing the Element Field
+
+It should be automatically populated with a value when a question is created or edited, ensuring consistency and avoiding potential conflicts.
+However, there may be some instances where you need to manually edit it. In such cases:
+
+1. Ensure Uniqueness
+2. Use Consistent Naming
+3. Edit Elements Carefully
+4. Avoid Confusion with Question Text
+
+## Module Types and Limitations
+
+### Changing Module Types: Risks and Recommendations
+
+Changing a module's type after creation is technically possible but strongly discouraged due to:
+
+1. Configuration Conflicts
+2. Data Integrity Issues
+3. System Limitations
+
+#### Best Practice Recommendation
+
+Do not change the module type after creation. Create a new module if a different type is needed.
+
+### Future System Enhancements
+
+Validation rules to prevent changing module types after creation are planned.
+
+## Cloning Modules and Version Management
+
+### How to Clone Modules
+
+### 1) Navigate to the Decision Tree Builder
+Go to the list of existing modules.
+
+### 2) Select the Module to Clone
+Choose the module you wish to clone.
+
+### 3) Click on Clone
+Use the clone action associated with the module.
+
+### 4) Edit Module Details
+Change the Module Name to reflect the new version or purpose.
+
+### 5) Save the New Module
+Complete the cloning process by saving.
+
+### Managing Module Versions
+
+#### Activation and Deactivation of Modules
+
+1. Only One Active Version
+2. Manual Deactivation Required
+
+#### Best Practice Recommendations
+
+1. Use Clear Naming Conventions
+2. Maintain Consistent Key Values
+3. Regularly Deactivate Unused Versions
+
+## Customizing the Decision Tree Branding
+
+### Changing the Logo in Decision Tree Preview
+
+### Steps to Customize the Logo
+
+### 1) Access Custom Settings
+Navigate to Salesforce Setup and find Custom Settings.
+
+### 2) Edit Smarteeva Setup
+Click on Manage next to Smarteeva Setup.
+
+### 3) Set the Image Path
+Enter the URL of the desired image for your logo.
+
+### 4) Save the Changes
+Click Save to apply the changes.
+
+### 5) Refresh the Decision Tree
+Navigate back to your Decision Tree and refresh the page.
+
+### Important Considerations
+
+1. Default Logo Behavior
+2. Image Accessibility Requirements
+3. Optimal Image Dimensions
+
+## Limitations in Specific Module Types
+
+### Editing Responses in Chatbot Modules
+
+#### Limitations
+
+1. No Editing After Submission
+2. No 'Edit Response' Feature
+
+### Form Questions in Chatbot Modules
+
+#### Limitations
+
+1. Single Form Element Display
+2. Multiple Form Elements Not Supported
+
+#### Best Practice Recommendations
+
+1. Use Single-Element Forms
+2. Split Forms if Necessary
+
+## Navigation Behaviors in Decision Trees
+
+### Detailed Branching Navigation
+
+1. Flexible Navigation
+2. Dynamic Path Exploration
+3. Automatic Tab Transitions
+
+### Regular Branching Navigation
+
+1. Linear Navigation
+2. Parent-Child Structure
+3. No Tab Re-navigation
+
+### Best Practices for Using Tabs
+
+1. Use in Supported Module Types
+2. Organize Logical Sections
+3. Ensure Consistent Flow
+4. Avoid Overcomplicating Navigation
+
+## Known Issues and UI Bugs
+
+### Issues with Labels Displaying Incorrectly
+
+#### Workaround
+
+1. Be Aware of the UI Bug
+2. Report Persistent Issues
+
+### Validation Errors in Form Type Modules
+
+#### Reason for Limitation
+
+The system enforces a single-question rule in Form Module Types.
+
+#### Best Practice
+
+1. Design Single Question Forms
+2. Consider Alternative Module Types
+
+## Best Practices Summary
+
+1. Element Field Usage
+2. Avoid Changing Module Types
+3. Clone Modules Carefully
+4. Customize Branding Thoughtfully
+5. Understand Module Limitations
+6. Navigate with Care
+7. Monitor UI Issues
+
+## Conclusion
+
+By following these best practices and being mindful of the limitations and potential issues outlined in this article, administrators can create effective and user-friendly Decision Trees within Smarteeva. Proper configuration and management of Decision Trees not only enhance the end-user experience but also ensure data integrity and optimal system performance.
+
+For further assistance or to explore advanced features, consult the Smarteeva documentation or reach out to the support team.

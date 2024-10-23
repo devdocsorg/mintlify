@@ -1,0 +1,10 @@
+{
+    "label": "Audit Trail",
+     "position": 2,
+     "collapsed": true,
+     "link": {
+       "type": "generated-index",
+       "description": "Guides for configuring Audited Records/Fields for Version 1 and 2",
+       "slug": "/packages/cap/admin-guide/audit-trail"
+     }
+   }

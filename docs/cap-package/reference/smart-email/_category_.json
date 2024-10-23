@@ -1,0 +1,10 @@
+{
+  "label": "Smart Email Notifications",
+  "position": 0,
+  "collapsed": true,
+  "link": {
+    "type": "generated-index",
+    "description": "Reference material for Smart Email Notifications in the CAP package",
+    "slug": "/packages/cap/reference/smart-email"
+  }
+}

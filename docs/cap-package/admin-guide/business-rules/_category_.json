@@ -1,0 +1,10 @@
+{
+  "label": "Business Rules",
+  "position": 1,
+  "collapsed": true,
+  "link": {
+    "type": "generated-index",
+    "description": "Admin Guide material for Business Rules within the CAP package",
+    "slug": "/packages/cap/admin-guide/business-rules"
+  }
+}

@@ -1,0 +1,49 @@
+---
+sidebar_position: 1
+slug: /packages/cap/admin-guide/audit-trail/audit-trail-config
+---
+
+# Configuring Audited Records/Fields
+
+This guide explains how to configure the records and fields to be tracked on any object in Salesforce
+
+## Prerequisites
+
+- **Salesforce Administrator Access:** Ensure you have the necessary permissions to access and modify Flows and Custom Settings in Salesforce.
+- **Understanding of Salesforce Objects and Fields:** Familiarize yourself with the objects and fields you want to track using the audit trail.
+- **Smarteeva CAP Package Installed:** Make sure the Smarteeva CAP package is installed and active in your Salesforce org.
+
+## Steps
+
+### 1) Go to Smart Config
+
+- Navigate to the App Launcher.
+- Search for and click on **Smart Config**.
+
+![Go to Smart Config](/snippets/smarteeva-screenshots/audit-trails-common/audit-trails-01-01-go-to-smart-config.png)
+
+### 2) Go to Audit Trail Mapping
+
+- In the left sidebar under **Business Rule Configuration**, select **Audit Trail Admin**.
+
+![Go to Audit Trail Mapping](/snippets/smarteeva-screenshots/audit-trails-common/audit-trails-02-01-audit-trail-mapping.png)
+
+### 3) Select Object for Audit Trail
+
+- In the **Audit Trail Mapping** section, locate the object you want to configure. Click the **Edit** button next to the object name.
+
+![Select Object for Audit Trail](/snippets/smarteeva-screenshots/audit-trails-common/audit-trails-03-01-select-object-and-audit-trail-fields.png)
+
+### 4) Configure Audit Trail Fields
+
+- A new section will appear, displaying the available **Data Fields** and **Reference Fields** for the selected object.
+- **Select the fields you want to track** by clicking the "+" icon next to each field name.  You can select as many fields as needed.
+- Click **Save** to confirm your changes.
+
+![Configure Audit Trail Fields](/snippets/smarteeva-screenshots/audit-trails-common/audit-trails-03-02-select-object-and-audit-trail-fields.png)
+
+## Next Steps
+
+Configure tracking for the selected fields by following the steps in either:
+* [Configuring V2 Flow based tracking](/docs/packages/cap/admin-guide/audit-trail/audit-trail-setup-version-2) (recommended)
+* [Configuring V1 Apex based tracking](/docs/packages/cap/admin-guide/audit-trail/audit-trail-setup-version-1) (legacy)

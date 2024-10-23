@@ -1,0 +1,111 @@
+---
+sidebar_position: 0
+slug: /packages/cap/user-guide/mdc/making-mdc-report
+---
+
+import { Reference } from "/snippets/Reference/reference";
+import { Screenshot } from "/snippets/Screenshot/Screenshot";
+
+# Making an MDC report for a given group
+
+## Introduction
+
+Meaningful Data Change (MDC) Reports in Smarteeva's CAP package provide a powerful way to track and review changes to important data within your Salesforce org. These reports can be filtered and customized to display only the relevant changes for a specific MDC group, ensuring that users can efficiently review and acknowledge the changes relevant to their responsibilities.
+
+This guide will walk you through the process of generating an MDC report for a given group.
+
+
+## Prerequisites
+
+* Access to Smarteeva MDC Reports within your Salesforce environment.
+* Membership in the MDC group for which you want to generate the report. 
+
+
+
+## Generating the MDC Report
+
+### 1) Navigate to MDC Reports
+
+* In Salesforce, navigate to the **MDC Reports** tab.  
+
+<Screenshot
+  disabled={true}
+  fn="TODO: smarteeva/mdc_reports_tab.png"
+  alt="MDC Reports Tab"
+/>
+
+### 2) Set the Date Range
+
+* Specify the desired date range for your report using the **From** and **To** date pickers. By default, the report displays changes from the last 14 days. You can modify this to view a different time period. 
+
+<Screenshot
+  disabled={true}
+  fn="TODO: smarteeva/mdc_reports_date_range.png"
+  alt="Setting the Date Range"
+/>
+
+
+
+### 3) Select the MDC Group
+
+
+
+* In the **Select Group** dropdown, choose the MDC group for which you want to generate the report. Only groups that you are a member of will be available in this dropdown.
+
+<Screenshot
+  disabled={true}
+  fn="TODO: smarteeva/mdc_reports_select_group.png"
+  alt="Selecting the MDC Group"
+/>
+
+### 4) Choose the Record Types (Optional)
+
+* Select the types of records to include in the report:
+    * **All Records**: Displays both reviewed and non-reviewed records. 
+    * **Non-Reviewed Records**: Displays only records that haven't been reviewed.  
+    * **Reviewed Records**: Displays only records that have been reviewed. 
+
+<Screenshot
+  disabled={true}
+  fn="TODO: smarteeva/mdc_reports_record_types.png"
+  alt="Choosing Record Types"
+/>
+
+
+### 5) Generate the Report
+
+* Click **Generate Report** to generate the MDC report based on your selected criteria.
+
+<Screenshot
+  disabled={true}
+  fn="TODO: smarteeva/mdc_reports_generate_report_button.png"
+  alt="Generating the Report"
+/>
+
+
+## Understanding the Report Structure
+
+The generated MDC report displays the following information for each change:
+
+* **Date and Time:** When the change occurred.
+* **User:** Who made the change.
+* **Object:** The Salesforce object that was modified (e.g., Complaint, Investigation).  
+* **Record Name:**  The name or identifier of the specific record that was modified.
+* **Field Name:**  The specific field that was changed.
+* **Old Value:** The previous value of the field.
+* **New Value:**  The new value of the field.
+
+
+
+Child records related to the main object (e.g., Investigations related to a Complaint) are displayed hierarchically within the report. You can expand each parent record to view its associated child record changes. 
+
+
+## Reviewing Changes
+
+Once you have reviewed the changes in the report, you can mark them as reviewed to indicate that you have acknowledged them.
+
+
+## Next Steps
+
+* Review the [Reviewing A Changed Item](./reviewing-changed-item.mdx) guide to learn how to mark changes as reviewed.
+

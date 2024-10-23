@@ -1,0 +1,162 @@
+---
+slug: /packages/cap/admin-guide/smart-record-templates/configuring-related-record-templates
+---
+
+import { Reference } from "/snippets/Reference/reference";
+import { Screenshot } from "/snippets/Screenshot/Screenshot";
+
+# Configuring Related Record Templates
+
+## Introduction
+
+Related Record Templates in Smarteeva's Smart Record Templates feature allow you to automatically create related records when applying a template. This powerful functionality streamlines data entry processes and ensures consistency across related records. This guide will walk you through the process of configuring Related Record Templates, discussing their limitations, and explaining how to use them effectively.
+
+
+
+## Prerequisites
+
+Before configuring Related Record Templates, ensure that you have:
+
+- Created a main Smart Record Template for the object you are working with (e.g., Complaint).
+- Identified the related objects for which you want to create records automatically (e.g., Investigations).
+- Appropriate permissions to access and modify Smart Record Templates.
+
+## Configuring Related Record Templates
+
+### 1) Access the Main Template
+
+#### a) Navigate to Smart Record Templates Configuration
+
+1. From the App Launcher, search for and select **Smart Record Templates Config**.
+
+
+
+#### b) Select the Object and Template
+
+1. Choose the object for which you have created the main template (e.g., Complaint).
+2. Open the main template to which you want to add related record templates.
+
+
+
+### 2) Add a Related Record Template
+
+#### a) Access the Related Record Templates Tab
+
+1. In the main template configuration window, click on the **Related Record Templates** tab.
+2. Note: This tab appears only after saving the main template.
+
+<Screenshot
+  disabled={true}
+  fn="TODO: path/to/related_record_templates_tab.png"
+  alt="Related Record Templates tab"
+  annotations={[
+    { guided_action: "Click on the Related Record Templates tab" }
+  ]}
+/>
+
+
+
+#### b) Create a New Related Record Template
+
+1. Click on **New** or **Add New Template** within the Related Record Templates section.
+2. In the popup window, select the **Related Record List** (e.g., RelatedInvestigations).
+3. Note: Due to Salesforce limitations, the list might display API names instead of labels.
+
+<Screenshot
+  disabled={true}
+  fn="TODO: path/to/select_related_record_list.png"
+  alt="Selecting Related Record List"
+  annotations={[
+    { guided_action: "Choose the appropriate related list" }
+  ]}
+/>
+
+
+
+#### c) Configure Fields for the Related Record
+
+1. Click **Add New Field Listing** to add fields to the template.
+2. Select the fields you want to predefine in the related record (e.g., Investigation Title, Investigation Description).
+3. Enter values for each field.
+4. Example:
+- Investigation Title: "INV for application"
+- Investigation Description: "This is an application issue, just a generic message here."
+
+<Screenshot
+  disabled={true}
+  fn="TODO: path/to/configure_related_record_fields.png"
+  alt="Configuring Related Record Fields"
+  annotations={[
+    { guided_action: "Add and configure fields for the related record" }
+  ]}
+/>
+
+
+
+#### d) Save the Related Record Template
+
+1. Click **Save** to add the related record template to your main template.
+
+### 3) Managing Multiple Related Record Templates
+
+- Repeat the process to add multiple related record templates under the main template for each related list you wish to include.
+
+## Limitations
+
+### Merge Fields in Related Records
+
+- Merge fields are not supported in related record templates. You cannot use dynamic values that reference data from the main record in the fields of related records.
+- This limitation exists due to performance constraints and Salesforce governor limits. Processing merge fields in multiple related records can consume significant resources and potentially exceed Salesforce's limits.
+
+
+
+## Applying Templates with Related Records
+
+### 1) Navigate to the Record
+
+Open the record where you want to apply the template (e.g., a new or existing Complaint).
+
+### 2) Locate the Smart Record Templates Component
+
+Find the Smart Record Templates component on the record page.
+
+### 3) Select and Apply the Template
+
+1. Choose the template you wish to apply and click **View**.
+2. In the modal window, select the fields you want to populate on the main record.
+3. For related records:
+- Each related record template will be listed under **Related Record(s)**.
+- Check or uncheck fields to include or exclude them from creation.
+- To exclude a related record entirely, uncheck all fields under that related record.
+4. Click **Apply Template** to proceed.
+
+
+
+### 4) Confirm Template Application
+
+1. Review the warning message. Note that this message is customizable via the component's properties but cannot be completely disabled.
+2. Click **Confirm** to apply the template and create related records.
+
+
+
+### 5) View Created Related Records
+
+- Refresh the page to see newly created related records in the related lists. This step is necessary due to Salesforce limitations.
+- Navigate to the **Related** tab on the main record to view the list of created related records.
+- Open individual related records to view the pre-populated fields.
+
+
+
+## Best Practices and Tips
+
+1. Be mindful of performance: Avoid configuring too many related record templates with a large number of fields to prevent potential performance issues.
+2. Test templates thoroughly before deployment to ensure they work as expected and related records are created correctly.
+3. Use clear naming conventions for templates and related record templates to make them easily identifiable by users.
+4. Communicate limitations regarding merge fields to users to set proper expectations.
+5. Regularly review and update templates to ensure they remain relevant and effective.
+
+## Conclusion
+
+Configuring Related Record Templates in Smart Record Templates can significantly streamline data entry processes in Smarteeva. By following this guide and understanding the limitations, administrators can enhance user efficiency and maintain data consistency across records. Remember that while this functionality is powerful, it requires thoughtful setup and management to ensure optimal performance and user experience.
+
+For further assistance or advanced configurations, please refer to the Smarteeva documentation or contact support.

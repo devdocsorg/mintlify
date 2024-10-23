@@ -1,0 +1,41 @@
+---
+sidebar_position: 85
+---
+
+import Region from "/snippets/icons/earth.svg";
+import Extensibility from "/snippets/icons/plugin.svg";
+
+# Regions Supported
+
+<div className="docs-icon-heading">
+  <Region className="docs-icon" style={{ top: "-0.5rem" }} />
+  ## Supported Regions Overview
+</div>
+
+Smarteeva's out-of-the-box (OOTB) managed packages are designed to support configuration for three(plus one) key
+regulatory regions, ensuring compliance with respective medical device reporting requirements:
+
+| Region | Report Type                          | Authority           | Requirement                                                |
+| ------ | ------------------------------------ | ------------------- | ---------------------------------------------------------- |
+| USA    | Medical Device Reporting (MDR)       | FDA                 | Report adverse events and product issues                   |
+| EU     | Manufacturer Incident Report (MIR)   | Incident region NCA | Report serious incidents                                   |
+| EU     | Periodic Safety Update Report (PSUR) | Incident region NCA | Periodic (6m/12m) safety and performance reports           |
+| Canada | Canadian Vigilance Report (CVR)      | Health Canada       | Report adverse events and incidents                        |
+| UK     | MORE                                 | MHRA                | Report serious incidents (Post-Brexit adaptation from MIR) |
+
+<div className="docs-icon-heading">
+  <Extensibility className="docs-icon" style={{ top: "-0.5rem" }} />
+  ## Extensibility
+</div>
+
+Smarteeva can be extended to support additional regions such as Australia and Japan with custom code, allowing for
+further global compliance flexibility.
+
+### MORE System in the UK
+
+Following Brexit, the UK has initiated the development of its own reporting system:
+
+- **MORE System (Manufacturer’s Online Reporting Environment):** The UK's new Manufacturer's Online Reporting
+  Environment (MORE) system, effective from September 1, 2023, replaces the old email-based process. Managed by the
+  MHRA, it requires manufacturers to register and report incidents directly on the platform.
+- **Smarteeva's integration of the MORE system is in early-access**

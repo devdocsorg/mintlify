@@ -1,0 +1,483 @@
+[
+  [
+    "Summer'23 - 10.21",
+    [
+      {
+        "state": "Done",
+        "sprint_name": "Summer'23 - 10.21",
+        "issue_key": "BP-5",
+        "category": "New Feature",
+        "title": "Added event notification for decision tree completion",
+        "related_issues": [],
+        "description": "You can now leverage a new event that fires upon decision tree completion. This allows for building dynamic functionality in client orgs based on decision tree outcomes."
+      }
+    ]
+  ],
+  [
+    "Winter'24 - 10.3",
+    [
+      {
+        "state": "Done",
+        "sprint_name": "Winter'24 - 10.3",
+        "issue_key": "BP-27",
+        "category": "Fix",
+        "title": "Fixed an issue with Affiliate Rejection Rationale",
+        "related_issues": [],
+        "description": "The Affiliate Rejection Rationale now correctly requires a true statement instead of displaying #EsignatureApproval."
+      },
+      {
+        "state": "Done",
+        "sprint_name": "Winter'24 - 10.3",
+        "issue_key": "BP-7",
+        "category": "New Feature",
+        "title": "Added E-Signature Options for Secure Approvals",
+        "related_issues": [],
+        "description": "You can now choose how you want to authenticate for e-signatures, making approvals even more efficient and user-friendly. \n\n**Here's what's new:**\n\n*   **SSO Integration for Salesforce Users:**  Salesforce users can now e-sign documents directly within their workflow without additional login steps.\n*   **Username/Password Authentication for Portal Users:** Portal users can securely e-sign documents using their Salesforce username and password."
+      }
+    ]
+  ],
+  [
+    "Winter'24 - 10.31",
+    [
+      {
+        "state": "Done",
+        "sprint_name": "Winter'24 - 10.31",
+        "issue_key": "BP-13",
+        "category": "New Feature",
+        "title": "Added Authentication Support for Salesforce Experience Sites",
+        "related_issues": [],
+        "description": "You can now securely authenticate with Customer Portal, Partner Portal, and other Salesforce Experience sites."
+      }
+    ]
+  ],
+  [
+    "Spring'24 - 11.0",
+    [
+      {
+        "state": "Done",
+        "sprint_name": "Spring'24 - 11.0",
+        "issue_key": "BP-14",
+        "category": "Fix",
+        "title": "Completed Salesforce Security Review",
+        "related_issues": [],
+        "description": "The Salesforce security review was completed successfully."
+      },
+      {
+        "state": "Done",
+        "sprint_name": "Spring'24 - 11.0",
+        "issue_key": "BP-4",
+        "category": "Fix",
+        "title": "Fixed bugs in Decision Tree Builder UI",
+        "related_issues": [],
+        "description": "We have resolved several issues in the Decision Tree Builder user interface to provide a smoother and more efficient experience. These fixes include:\n\n-  The ability to delete modules is now working as expected.\n-  The issue with adding tag names and saving has been addressed. \n-  The error message that appeared when clicking the \"Preview\" button has been fixed.\n-  The UI now correctly displays multi-line questions.\n-  You can now find that the alignment and layout of elements on the Logic and Preview pages have been improved."
+      },
+      {
+        "state": "Done",
+        "sprint_name": "Spring'24 - 11.0",
+        "issue_key": "BP-3",
+        "category": "Fix",
+        "title": "Updated Business User UI for Decision Trees",
+        "related_issues": [
+          "BP-25"
+        ],
+        "description": "The Business User UI was updated to better support Decision Trees Functionality. This enhancement improves usability and efficiency for users working with Decision Trees."
+      },
+      {
+        "state": "Done",
+        "sprint_name": "Spring'24 - 11.0",
+        "issue_key": "BP-2",
+        "category": "Fix",
+        "title": "Fixed Regular Branching Issues",
+        "related_issues": [
+          "BP-25"
+        ],
+        "description": "Previously reported issues with regular branching have been resolved. This ensures smoother navigation and question flow within the system."
+      },
+      {
+        "state": "Done",
+        "sprint_name": "Spring'24 - 11.0",
+        "issue_key": "BP-26",
+        "category": "Improvement",
+        "title": "Improved eSignature Module to Support Both SSO and Salesforce Authentication",
+        "related_issues": [],
+        "description": "The eSignature module has been enhanced to provide more flexible authentication options. Users can now sign documents using either their SSO credentials or their Salesforce login, making the signing process more streamlined and user-friendly."
+      },
+      {
+        "state": "Done",
+        "sprint_name": "Spring'24 - 11.0",
+        "issue_key": "BP-15",
+        "category": "New Feature",
+        "title": "Added Form-Based Decision Trees",
+        "related_issues": [],
+        "description": "You can now create more engaging and interactive decision trees using the new form-based format. This new format allows you to ask questions with different input types, such as text fields and dropdown menus, providing a more streamlined and user-friendly experience."
+      },
+      {
+        "state": "Done",
+        "sprint_name": "Spring'24 - 11.0",
+        "issue_key": "BP-1",
+        "category": "New Feature",
+        "title": "Added Ad-Hoc Module Type for Creating On-the-Fly Questionnaires",
+        "related_issues": [],
+        "description": "You can now create and deploy questionnaires instantly with the new Ad-Hoc Module Type! This feature lets you design questionnaires from scratch or existing templates, providing the flexibility to gather information on the go. Choose from various question types, tailor the flow with branching logic, and effortlessly collect responses. Streamline your data collection processes and make informed decisions with this powerful new addition."
+      }
+    ]
+  ],
+  [
+    "Spring'24 - 11.1",
+    [
+      {
+        "state": "Done",
+        "sprint_name": "Spring'24 - 11.1",
+        "issue_key": "BP-41",
+        "category": "Fix",
+        "title": "Fixed error message for deactivated decision tree modules",
+        "related_issues": [],
+        "description": "Non-admin users will now see a clear error message when attempting to access decision trees linked to deactivated Content Modules. This message explains why the content is inaccessible, preventing confusion and improving user experience."
+      },
+      {
+        "state": "Done",
+        "sprint_name": "Spring'24 - 11.1",
+        "issue_key": "BP-40",
+        "category": "Fix",
+        "title": "Fixed Content Module Creation to Prevent Duplicate Key Values",
+        "related_issues": [],
+        "description": "We fixed an issue that allowed the creation of Content Modules with duplicate key values. The system now enforces the uniqueness of module key values, preventing potential conflicts. This ensures data integrity and a smoother user experience."
+      },
+      {
+        "state": "Done",
+        "sprint_name": "Spring'24 - 11.1",
+        "issue_key": "BP-34",
+        "category": "Fix",
+        "title": "Fixed Date Field Display in Feedback Forms",
+        "related_issues": [],
+        "description": "The CSS styling for the Date field in feedback forms was updated to ensure accurate date input and improve usability. Users can now seamlessly enter dates using the calendar interface or manually input them in the YYYY-MM-DD format."
+      },
+      {
+        "state": "Done",
+        "sprint_name": "Spring'24 - 11.1",
+        "issue_key": "BP-33",
+        "category": "Fix",
+        "title": "Fixed field order for Picklist type questions in form configuration",
+        "related_issues": [],
+        "description": "We've improved the usability of the form configuration for Picklist type questions. The \"Comma Separated Picklist Values\" field now appears after the \"Choice Text\" field, making it easier for you to configure your forms."
+      },
+      {
+        "state": "Done",
+        "sprint_name": "Spring'24 - 11.1",
+        "issue_key": "BP-31",
+        "category": "Fix",
+        "title": "Fixed Content Module Deactivation",
+        "related_issues": [],
+        "description": "Admin users can now deactivate Content Modules even if there are associated Events. This change provides more flexibility in managing content and aligns with diverse client requirements. Existing Events remain unaffected by this change."
+      },
+      {
+        "state": "Done",
+        "sprint_name": "Spring'24 - 11.1",
+        "issue_key": "BP-47",
+        "category": "Improvement",
+        "title": "Added Dynamic Control for Ad-Hoc Module Activation Screen",
+        "related_issues": [],
+        "description": "Administrators now have more control over the Ad-hoc module activation process. A new checkbox, \"Display Activation Screen?\", has been added to the Custom Metadata settings. \n\nBy checking this box, the activation screen will appear when a user clicks the activation button in the Ad-hoc module quick action. Unchecking the box bypasses the activation screen, directly activating the content module."
+      },
+      {
+        "state": "Done",
+        "sprint_name": "Spring'24 - 11.1",
+        "issue_key": "BP-43",
+        "category": "Improvement",
+        "title": "Improved adding question choices in forms",
+        "related_issues": [],
+        "description": "Adding choices to questions in forms is now more efficient. When you click the \"Add Choice\" button, the application automatically focuses on the newly added choice field, allowing you to start typing the choice text right away."
+      },
+      {
+        "state": "Done",
+        "sprint_name": "Spring'24 - 11.1",
+        "issue_key": "BP-42",
+        "category": "Improvement",
+        "title": "Improved content module creation workflow",
+        "related_issues": [],
+        "description": "Creating new content modules is now more efficient. After saving a new module, you will be automatically redirected to the module builder interface, ready to start building your content."
+      },
+      {
+        "state": "Done",
+        "sprint_name": "Spring'24 - 11.1",
+        "issue_key": "BP-39",
+        "category": "Improvement",
+        "title": "Improved Decision Tree Component to Display All ADHOC Events",
+        "related_issues": [],
+        "description": "The Decision Tree Component on record pages now displays all events created as part of ADHOC module creation when \"{SHOW_ALL_ADHOC}\" is specified in the Module Key field in the Lightning Page configuration.  \n\nWe also implemented the following improvements to enhance clarity and usability:\n\n- Replaced \"{SHOW_ALL_ADHOC}\" with the relevant \"{FIELDAPINAME}\" for consistency and accuracy.\n- Added a new column to the table that displays the content module name for each process, making it easier to identify the source of each event.\n- Sorted events by the last modified date in ascending order, so you can quickly see the most recent activity.\n\nThese changes provide you with a more comprehensive view of all ADHOC-related events, enabling more informed decision-making and improved record compliance."
+      },
+      {
+        "state": "Done",
+        "sprint_name": "Spring'24 - 11.1",
+        "issue_key": "BP-35",
+        "category": "Improvement",
+        "title": "Improved Consistency of Confirmation Buttons in Decision Tree Modules",
+        "related_issues": [],
+        "description": "The \"Yes\" and \"No\" buttons in all Decision Tree module confirmation boxes have been swapped to improve consistency. The \"Yes\" button is now always on the left, aligning with user expectations and improving the overall experience."
+      },
+      {
+        "state": "Done",
+        "sprint_name": "Spring'24 - 11.1",
+        "issue_key": "BP-46",
+        "category": "New Feature",
+        "title": "Added Form Decision Tree Type with File Upload Support",
+        "related_issues": [],
+        "description": "You can now create Decision Trees of a new type called \"Form\". This type simplifies data collection by allowing users to answer questions in a structured format, including the ability to upload files.\n\n**Key improvements include:**\n\n* **New \"Form\" Decision Tree Type:**  Create Decision Trees specifically for gathering information in a form-like structure.\n* **\"Upload File\" Question Choice:** Add questions that allow users to upload documents or files directly through the Decision Tree.\n* **Field Mapping for Data Capture:** For \"Form\" type Decision Trees, map question choices to specific fields on the associated object. This automatically populates the selected answers into the corresponding fields, streamlining data entry and ensuring consistency.\n\n**These enhancements simplify complex data collection processes and enhance the functionality of Decision Trees within the system.**"
+      },
+      {
+        "state": "Done",
+        "sprint_name": "Spring'24 - 11.1",
+        "issue_key": "BP-44",
+        "category": "New Feature",
+        "title": "Added a Save button for question choices",
+        "related_issues": [],
+        "description": "You now have greater control over adding and updating question choices in decision trees. A new \"Save\" button has been added to the question choice creation/update screen.  Changes will no longer be automatically saved, preventing any unintended modifications. Click the \"Save\" button to store your changes."
+      },
+      {
+        "state": "Done",
+        "sprint_name": "Spring'24 - 11.1",
+        "issue_key": "BP-37",
+        "category": "New Feature",
+        "title": "Added Refresh Button to List Views",
+        "related_issues": [],
+        "description": "You can now instantly refresh list views within the application! A new \"Refresh\" button has been added to all list view components, allowing you to view the most up-to-date information without leaving the page. Click the \"Refresh\" button to see any changes or updates to records in your lists."
+      },
+      {
+        "state": "Done",
+        "sprint_name": "Spring'24 - 11.1",
+        "issue_key": "BP-36",
+        "category": "New Feature",
+        "title": "Added Customizable Form and Email Sending to Adhoc Content Module",
+        "related_issues": [],
+        "description": "You can now send forms and emails directly from the Adhoc Content Module. Choose from three options: sending to parent records, all child records, or selected records.  Customize your message with lightning email templates, attachments, and specific recipients. Configuration options are available in the 'Smarteeva Setup'."
+      }
+    ]
+  ],
+  [
+    "Spring'24 - 11.2",
+    [
+      {
+        "state": "Done",
+        "sprint_name": "Spring'24 - 11.2",
+        "issue_key": "BP-54",
+        "category": "Fix",
+        "title": "Fixed Decision Tree Completion From Preview",
+        "related_issues": [],
+        "description": "Decision trees can now be successfully completed through the preview screen. This resolves an issue where the tree would not complete even after answering all questions."
+      },
+      {
+        "state": "Done",
+        "sprint_name": "Spring'24 - 11.2",
+        "issue_key": "BP-53",
+        "category": "Fix",
+        "title": "Fixed Content Module Preview Issue",
+        "related_issues": [],
+        "description": "The Content Module preview screen now correctly displays all questions and answers when accessed during editing, even if the Content Module is active. This fix ensures a consistent and reliable preview experience for all users."
+      },
+      {
+        "state": "Done",
+        "sprint_name": "Spring'24 - 11.2",
+        "issue_key": "BP-56",
+        "category": "New Feature",
+        "title": "Added a limit of one question per form in Decision Tree Admin",
+        "related_issues": [],
+        "description": "To ensure consistency, we have limited the number of questions allowed in a Form Type Content Module within Decision Tree Admin to one.  You will now see a validation error if you attempt to create more than one question."
+      }
+    ]
+  ],
+  [
+    "Spring'24 - 11.21",
+    [
+      {
+        "state": "Done",
+        "sprint_name": "Spring'24 - 11.21",
+        "issue_key": "BP-59",
+        "category": "Fix",
+        "title": "Fixed Decision Tree Submission in Japan",
+        "related_issues": [],
+        "description": "Users can now successfully submit the Japan decision tree. This fix ensures a smoother and more efficient experience when handling complaints related to Japan."
+      },
+      {
+        "state": "Done",
+        "sprint_name": "Spring'24 - 11.21",
+        "issue_key": "BP-57",
+        "category": "Fix",
+        "title": "Fixed Comment Requirement for ESignatures with SSO",
+        "related_issues": [],
+        "description": "We fixed an issue where comments were not required when using eSignatures with SSO. Comments are now mandatory, providing better tracking and accountability for approvals."
+      }
+    ]
+  ],
+  [
+    "Spring'24 - 11.22",
+    [
+      {
+        "state": "Done",
+        "sprint_name": "Spring'24 - 11.22",
+        "issue_key": "BP-60",
+        "category": "Fix",
+        "title": "Fixed Associated Object Name field availability in Decision Tree Builder",
+        "related_issues": [],
+        "description": "Admins can now reliably access the \"Associated Object Name\" field when creating new modules in the Decision Tree Builder. This fix ensures a smoother experience when configuring decision trees."
+      },
+      {
+        "state": "Done",
+        "sprint_name": "Spring'24 - 11.22",
+        "issue_key": "BP-58",
+        "category": "Fix",
+        "title": "Fixed data disappearing from Decision Tree UI",
+        "related_issues": [],
+        "description": "Previously, data in the Decision Tree UI would disappear after switching to the Delivery tab and returning to the Case tab within Global Claims. This issue has been resolved, and the Decision Tree UI will now consistently display data as expected."
+      },
+      {
+        "state": "Done",
+        "sprint_name": "Spring'24 - 11.22",
+        "issue_key": "BP-30",
+        "category": "Fix",
+        "title": "Fixed picklist selection issues in Checklist type Content Modules",
+        "related_issues": [],
+        "description": "Checklist type Content Modules with picklist questions are now working correctly. Previously, selecting a picklist option and saving could lead to duplicate entries and disappearing options, especially with two-value picklists. This issue has been fixed, ensuring that picklist values are displayed and saved correctly."
+      }
+    ]
+  ],
+  [
+    "Summer'24 - 12.0",
+    [
+      {
+        "state": "Progress",
+        "sprint_name": "Summer'24 - 12.0",
+        "issue_key": "BP-87",
+        "category": "Fix",
+        "title": "Fixing Decision Tree Loading Issue in Global Claims",
+        "related_issues": [],
+        "description": "We are currently addressing an issue where the Decision Tree in Global Claims may not load data correctly when multiple Global Claims tabs are open. This issue is being actively worked on, and a fix will be deployed soon. In the meantime, if you encounter this problem, you can refresh the page or refresh the Decision Tree component to load the data."
+      },
+      {
+        "state": "Done",
+        "sprint_name": "Summer'24 - 12.0",
+        "issue_key": "BP-83",
+        "category": "Fix",
+        "title": "Fixed Missing Notes Option in Checklist Module Forms",
+        "related_issues": [],
+        "description": "You can now use the \"Show Notes\" option for Question Choices in Checklist Modules configured as \"Form\" type. This fix ensures that notes are displayed correctly, enhancing the functionality of checklist forms."
+      },
+      {
+        "state": "Done",
+        "sprint_name": "Summer'24 - 12.0",
+        "issue_key": "BP-82",
+        "category": "Fix",
+        "title": "Fixed Checklist Display Issue",
+        "related_issues": [],
+        "description": "The Checklist component now correctly occupies the full width of the screen, ensuring better visibility and usability."
+      },
+      {
+        "state": "Done",
+        "sprint_name": "Summer'24 - 12.0",
+        "issue_key": "BP-81",
+        "category": "Fix",
+        "title": "Fixed an issue with incorrect module type display",
+        "related_issues": [],
+        "description": "We fixed an issue where the \"Edit Properties\" button for \"Form\" type Content Modules incorrectly displayed the Module Type as \"Regular Branching\". The module type now accurately shows as \"Form\"."
+      },
+      {
+        "state": "Progress",
+        "sprint_name": "Summer'24 - 12.0",
+        "issue_key": "BP-77",
+        "category": "Fix",
+        "title": "Fixing Inactive Template Content Modules Display in ADHOC",
+        "related_issues": [],
+        "description": "We are fixing an issue in the ADHOC screen where inactive Template Content Modules were being displayed. This could lead to errors when these inactive modules were used as templates. This fix will ensure only active and valid modules are available for use, improving the reliability and ease of creating ADHOC Content Modules."
+      },
+      {
+        "state": "Progress",
+        "sprint_name": "Summer'24 - 12.0",
+        "issue_key": "BP-72",
+        "category": "Fix",
+        "title": "Removing Edit Button from Chatbot Decision Tree",
+        "related_issues": [],
+        "description": "We are removing the extraneous \u201cEdit\u201d button that appears after answering a Chatbot Decision Tree to simplify your experience."
+      },
+      {
+        "state": "Progress",
+        "sprint_name": "Summer'24 - 12.0",
+        "issue_key": "BP-67",
+        "category": "Fix",
+        "title": "Fixing Content Module Display After Question Deletion",
+        "related_issues": [],
+        "description": "We are working to resolve an issue where deleting the only question in a Content Module would not clear the question content from the Center Panel. This fix will ensure that the Center Panel accurately reflects the state of your Content Modules."
+      },
+      {
+        "state": "Done",
+        "sprint_name": "Summer'24 - 12.0",
+        "issue_key": "BP-66",
+        "category": "Fix",
+        "title": "Fixed display of Key Value field for Form questions",
+        "related_issues": [],
+        "description": "We fixed a bug where the \"Key Value\" field was incorrectly displayed when creating a \"Form\" type question in the Admin screen for Content Modules. This ensures a cleaner and more accurate interface for configuring your forms."
+      },
+      {
+        "state": "Done",
+        "sprint_name": "Summer'24 - 12.0",
+        "issue_key": "BP-62",
+        "category": "Fix",
+        "title": "Fixed text field values being cleared in checklists",
+        "related_issues": [],
+        "description": "Previously, text field values in checklist forms were being cleared if the form failed validation during save. This issue has been fixed, and now text data entered into these fields will be retained even if validation fails."
+      },
+      {
+        "state": "Done",
+        "sprint_name": "Summer'24 - 12.0",
+        "issue_key": "BP-48",
+        "category": "Fix",
+        "title": "Fixed Decision Tree access control for enhanced security",
+        "related_issues": [],
+        "description": "A security vulnerability that allowed unauthorized access to the Decision Tree Feature has been fixed. Users will now need appropriate read permissions on associated objects to view the Decision Tree, ensuring data security and preventing unauthorized access."
+      },
+      {
+        "state": "Done",
+        "sprint_name": "Summer'24 - 12.0",
+        "issue_key": "BP-29",
+        "category": "Improvement",
+        "title": "Improved Mobile UI for Decision Trees",
+        "related_issues": [],
+        "description": "The mobile UI for decision trees was updated to provide a better experience for users on both V1 and V2 interfaces."
+      },
+      {
+        "state": "Done",
+        "sprint_name": "Summer'24 - 12.0",
+        "issue_key": "BP-52",
+        "category": "New Feature",
+        "title": "Added Automated Completion for Decision Tree Templates",
+        "related_issues": [],
+        "description": "This enhancement introduces automated completion for Decision Tree templates, increasing efficiency in complaint resolution. When a complaint meets the criteria for a specific Decision Tree template marked for automated completion, the system automatically completes the tree without requiring user confirmation. The complaint is populated with predefined answers from the template, expediting the resolution process."
+      },
+      {
+        "state": "Progress",
+        "sprint_name": "Summer'24 - 12.0",
+        "issue_key": "BP-51",
+        "category": "New Feature",
+        "title": "Adding Smart Intake to streamline complaint information gathering",
+        "related_issues": [],
+        "description": "We are developing a Smart Intake feature to make it easier and faster for you to provide all the necessary information when submitting complaints. This feature will use intelligent forms that adapt based on the criteria of your complaint, ensuring you are prompted for only the most relevant details. This will streamline the complaint process, reduce back-and-forth communication, and accelerate resolution times."
+      },
+      {
+        "state": "Progress",
+        "sprint_name": "Summer'24 - 12.0",
+        "issue_key": "BP-50",
+        "category": "New Feature",
+        "title": "Adding Smart Intake from Azure",
+        "related_issues": [],
+        "description": "We're developing a system to process email information more efficiently and accurately. By using dictionaries in Azure, the system will be able to automatically map email content to the appropriate fields, making complaint creation smoother and faster."
+      },
+      {
+        "state": "Progress",
+        "sprint_name": "Summer'24 - 12.0",
+        "issue_key": "BP-49",
+        "category": "New Feature",
+        "title": "Adding Smart Intake for Automated Complaint Creation",
+        "related_issues": [],
+        "description": "We're introducing a Smart Intake system to streamline and automate complaint handling. This system processes incoming emails to create complaints and sends the extracted information to Azure for efficient processing."
+      }
+    ]
+  ]
+]

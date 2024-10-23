@@ -1,0 +1,60 @@
+---
+sidebar_position: 11
+slug: /packages/cap/user-guide/audit-trail/child-entry-audit-trails
+---
+
+import { Reference } from "/snippets/Reference/reference";
+import { Screenshot } from "/snippets/Screenshot/Screenshot";
+
+# Child Entry Audit Trails
+
+## Introduction
+
+In Smarteeva's CAP package, the Audit Trail functionality extends to track changes not only on the main record you're viewing but also on related child records.  This is especially useful when dealing with hierarchical data structures in Salesforce, where changes to child records can significantly impact the parent. This guide explains what Child Entry Audit Trails are, how they relate to parent records, and how to view them.
+
+## What are Child Entry Audit Trails?
+
+Child Entry Audit Trails track changes made to child records related to a parent record.  These changes are specifically related to the *relationship* between the parent and child, not changes within the child record itself.  For example, if you add a Product to a Complaint, the Child Entry Audit Trail on the Complaint will log the addition of the Product, but it won't track changes *within* the Product record (like updating its description).  
+
+## How Child Records are Tracked
+
+For Smarteeva to track child records, the relationship between the parent and child objects must be configured in the Audit Trail Mapping. This configuration defines which child objects are tracked and which fields within the relationship are audited. This is typically managed by your Salesforce administrator.  
+
+## Viewing Child Entry Audit Trails
+
+### 1) Accessing the Child Entry Audit Trail Tab
+
+* Open the parent record (e.g., Complaint, Investigation).
+* Click the **Child Entry Audit Trail** tab. This tab is located near the standard **Audit Trail** tab.
+
+
+<Screenshot
+disabled = { true }
+fn = "TODO: salesforce/child_entry_audit_trail_tab.png"
+alt = "Child Entry Audit Trail tab"
+/>
+
+### 2) Interpreting the Audit Trail Entries
+
+Each entry in the Child Entry Audit Trail describes a change related to a child record:
+
+* **Reference Added/Removed:** Indicates whether a child record was added or removed from the parent.
+* **Child Object:** Shows the type of child object that was affected (e.g., Investigation, Product).  
+* **Record Name:** The name or ID of the child record. 
+* **Related Field:**  The field on the parent record that links to the child record (e.g., Related Investigations).
+* **Timestamp and User:** The date and time of the change and the user who made it.
+
+## Example
+
+Let's say a user adds an Investigation record to a Complaint. The Child Entry Audit Trail on the Complaint record will show an entry like this:
+
+```
++ Reference added on Investigation record with name 'InvestigationNo-0000016' on Related Complaint field. Performed on 05/17/2024, 12:10 PM and action performed by 'Jaskirat Singh' +
+```
+
+This indicates that an Investigation record (ID: InvestigationNo-0000016) was linked to the Complaint.  
+
+## Troubleshooting
+
+If the **Child Entry Audit Trail** tab shows an error message, it's likely due to a misconfiguration. Contact your Salesforce administrator to ensure child record tracking is properly set up for the relevant objects. 
+

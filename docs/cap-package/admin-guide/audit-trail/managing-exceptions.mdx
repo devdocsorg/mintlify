@@ -1,0 +1,78 @@
+---
+sidebar_position: 50
+slug: /packages/cap/admin-guide/audit-trail/managing-exceptions
+---
+
+import { Reference } from "/snippets/Reference/reference";
+import { Screenshot } from "/snippets/Screenshot/Screenshot";
+
+# Managing Audit Trail Exceptions
+
+## Introduction
+
+Smarteeva's CAP package provides a robust audit trail functionality.  While it's generally beneficial to prevent deletion of audited records to maintain data integrity, certain scenarios might require exceptions to this rule. This admin guide explains how to configure exceptions for specific objects, allowing record deletion even when audit trail tracking is enabled.
+
+## Accessing Audit Trail Exception Settings
+
+### 1) Navigate to Custom Settings
+
+* In Salesforce Setup, search for and select **Custom Settings**.
+
+
+### 2) Manage Audit Trail Config
+
+* Locate the **Audit Trail Config** custom setting and click **Manage**.
+
+
+### 3) Edit Exceptional Cases
+
+* Scroll down to the **Audit Trail Object Exceptional Cases** section and click **Manage**.
+
+
+<Screenshot
+  disabled={true}
+  fn="TODO: salesforce/audit_trail_exceptional_cases.png"
+  alt="Audit Trail Object Exceptional Cases Section"
+/>
+
+## Configuring Exceptions
+
+### 1) Add a New Exception
+
+* Click the **New** button to add a new exception rule.
+
+### 2) Specify Object API Name
+
+* In the **Object API Name** field, enter the API name of the object for which you want to create an exception. Use the full API name, including the namespace prefix (e.g. `smrtat__Smart_Investigation__c`).  Do *not* use the object label.
+
+
+### 3) Enable Deletion
+
+* Check the **Is Deletable** checkbox to allow deletion of records for the specified object, even if the audit trail is enabled.
+
+
+
+### 4) Save the Exception
+
+* Click **Save** to apply the exception rule.
+
+
+## Example
+
+To allow deletion of `Investigation` records, even if they are tracked by the audit trail, add a new exception with the following settings:
+
+* **Object API Name:** `smrtat__Smart_Investigation__c`
+* **Is Deletable:** Checked
+
+
+
+## Additional Considerations
+
+* **Security:**  Carefully consider the security and compliance implications before allowing deletion of audited records.
+* **Data Integrity:** Ensure that appropriate data backup and recovery procedures are in place.
+* **Alternative Approaches:** For less critical scenarios, consider archiving records instead of deleting them, if supported by your business processes.
+
+## Verifying the Exception
+
+After configuring the exception, test the deletion functionality for the specified object to ensure the exception is working as expected.  
+

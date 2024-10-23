@@ -1,0 +1,10 @@
+{
+  "label": "Meaningful Data Change Reports (MDC)",
+  "position": 1,
+  "collapsed": true,
+  "link": {
+    "type": "generated-index",
+    "description": "Guides for setting up Meaningful Data Change Reports (MDC)",
+    "slug": "/packages/cap/admin-guide/mdc"
+  }
+}

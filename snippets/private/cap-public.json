@@ -1,0 +1,573 @@
+[
+  [
+    "Summer'23 - 10.21",
+    [
+      {
+        "state": "Done",
+        "sprint_name": "Summer'23 - 10.21",
+        "issue_key": "CAP-125",
+        "category": "Fix",
+        "title": "Fixed MDC Report Controller Performance Issue",
+        "related_issues": [],
+        "description": "Improved the performance of the MDC Report Controller, particularly when working with large date ranges. This enhancement ensures faster and more efficient report generation."
+      },
+      {
+        "state": "Done",
+        "sprint_name": "Summer'23 - 10.21",
+        "issue_key": "CAP-52",
+        "category": "Fix",
+        "title": "Fixed MIR form validation for \"Other\" submitter role",
+        "related_issues": [],
+        "description": "The MIR form now correctly handles the \"Other\" submitter role. Section 1.3.3 (Authorized representative information) is no longer mandatory when \"Other\" is selected in section 1.3.1. This makes the form more user-friendly and prevents unnecessary roadblocks when submitting MIRs."
+      },
+      {
+        "state": "Done",
+        "sprint_name": "Summer'23 - 10.21",
+        "issue_key": "CAP-50",
+        "category": "Fix",
+        "title": "Fixed Audit Trail for Deleted Lookup Field References",
+        "related_issues": [],
+        "description": "The Audit Trail now correctly displays the previous values of lookup fields even if the referenced records have been deleted. This improvement ensures a complete audit history for your records, providing better visibility into data changes over time."
+      },
+      {
+        "state": "Done",
+        "sprint_name": "Summer'23 - 10.21",
+        "issue_key": "CAP-46",
+        "category": "Fix",
+        "title": "Fixed Tag Filtering in Smart Record Templates",
+        "related_issues": [],
+        "description": "The tag filtering functionality in Smart Record Templates has been fixed. Users can now accurately filter templates by multiple tags using the 'at least one' and 'all' options."
+      },
+      {
+        "state": "Done",
+        "sprint_name": "Summer'23 - 10.21",
+        "issue_key": "CAP-42",
+        "category": "Fix",
+        "title": "Fixed Quick Entry of Symptom Codes",
+        "related_issues": [],
+        "description": "The issue causing duplicate keywords when using the Quick Entry for Symptom Codes has been resolved. The system now correctly links and applies only the intended Symptom Code based on the selected category, preventing duplication and ensuring accurate categorization."
+      },
+      {
+        "state": "Done",
+        "sprint_name": "Summer'23 - 10.21",
+        "issue_key": "CAP-40",
+        "category": "Fix",
+        "title": "Fixed copying data in similar complaints",
+        "related_issues": [],
+        "description": "The issue preventing data from being copied correctly between similar complaints with different base conditions has been fixed. Users can now effectively copy data between similar complaints, streamlining the complaint management process."
+      },
+      {
+        "state": "Done",
+        "sprint_name": "Summer'23 - 10.21",
+        "issue_key": "CAP-34",
+        "category": "Fix",
+        "title": "Fixed Similar Complaints Value Disappearing During Edit",
+        "related_issues": [],
+        "description": "Previously, when editing a predefined filter in Similar Complaints, the value in the filter would disappear. This issue has been fixed, and the value will now persist when editing the filter."
+      },
+      {
+        "state": "Done",
+        "sprint_name": "Summer'23 - 10.21",
+        "issue_key": "CAP-33",
+        "category": "Fix",
+        "title": "Fixed Special Character Errors in MDR Fields",
+        "related_issues": [],
+        "description": "You can now use special characters like `<`, `>`, `?`, `!`, `@`, `(`, and `)` in the B5, B6, B7, and H10 fields of MDRs without encountering errors. This fix ensures smoother data entry and prevents issues caused by these characters."
+      },
+      {
+        "state": "Done",
+        "sprint_name": "Summer'23 - 10.21",
+        "issue_key": "CAP-51",
+        "category": "Improvement",
+        "title": "Improved Audit Trail Performance for Enhanced Efficiency",
+        "related_issues": [],
+        "description": "The Audit Trail now leverages smart execution capabilities, optimizing its performance and efficiency. This enhancement ensures a smoother experience, especially during bulk data operations. You can now enjoy faster data updates and a more responsive system while maintaining comprehensive audit trails of your valuable data."
+      },
+      {
+        "state": "Done",
+        "sprint_name": "Summer'23 - 10.21",
+        "issue_key": "CAP-36",
+        "category": "Improvement",
+        "title": "Improved Similar Complaints UI Design",
+        "related_issues": [],
+        "description": "The Similar Complaints feature now has a more user-friendly interface. You can now benefit from enhanced filtering options and the ability to compare multiple complaints side-by-side, making it easier to identify and manage similar issues."
+      }
+    ]
+  ],
+  [
+    "Summer'23 - 10.22",
+    [
+      {
+        "state": "Done",
+        "sprint_name": "Summer'23 - 10.22",
+        "issue_key": "CAP-53",
+        "category": "Fix",
+        "title": "Fixed Lookup Reference Record Audit Trail Display",
+        "related_issues": [],
+        "description": "Previously, the Audit Trail component in Dexcom was unable to display audit trail entries correctly if a reference field entry was present. This issue has been fixed, ensuring that all audit trail entries, including those with reference fields, are now displayed properly."
+      }
+    ]
+  ],
+  [
+    "Winter'24 - 10.3",
+    [
+      {
+        "state": "Done",
+        "sprint_name": "Winter'24 - 10.3",
+        "issue_key": "CAP-56",
+        "category": "Fix",
+        "title": "Fixed Formatting of Long Text and Rich Text in Smart Email Notifications",
+        "related_issues": [],
+        "description": "Smart Email Notifications now correctly preserve the formatting of long text and rich text areas, ensuring that important information is displayed clearly and readably."
+      },
+      {
+        "state": "Done",
+        "sprint_name": "Winter'24 - 10.3",
+        "issue_key": "CAP-60",
+        "category": "Improvement",
+        "title": "Improved Smart Email Notifications with OR Logic for Criteria",
+        "related_issues": [],
+        "description": "You can now use OR logic when setting criteria for Smart Email Notifications. This allows for more flexible and efficient notification setups, such as receiving alerts for new cases across multiple lines within a single notification."
+      },
+      {
+        "state": "Done",
+        "sprint_name": "Winter'24 - 10.3",
+        "issue_key": "CAP-57",
+        "category": "Improvement",
+        "title": "Improved Audit Trail Filtering",
+        "related_issues": [],
+        "description": "You can now filter the Audit Trail more easily using free text search. This enhancement allows you to quickly find specific entries by searching across all fields."
+      }
+    ]
+  ],
+  [
+    "Winter'24 - 10.31",
+    [
+      {
+        "state": "Done",
+        "sprint_name": "Winter'24 - 10.31",
+        "issue_key": "CAP-74",
+        "category": "Fix",
+        "title": "Fixed Smart Record Template Application for Complaints",
+        "related_issues": [],
+        "description": "Smart Record Templates will now be applied correctly to Complaint records, even when similar object names exist. This fix ensures that templates are applied to the intended objects, preventing potential errors or inconsistencies."
+      },
+      {
+        "state": "Done",
+        "sprint_name": "Winter'24 - 10.31",
+        "issue_key": "CAP-72",
+        "category": "Fix",
+        "title": "Fixed System Error When Deleting Child Records",
+        "related_issues": [],
+        "description": "We resolved an issue that caused a system error when deleting a child record from a parent record, such as deleting a Medical Information Request (MIR) from a Complaint. The audit trail will now accurately reflect both the addition and deletion of child records."
+      },
+      {
+        "state": "Done",
+        "sprint_name": "Winter'24 - 10.31",
+        "issue_key": "CAP-70",
+        "category": "Fix",
+        "title": "Fixed Audit Trail Handling for Objects with Long Names",
+        "related_issues": [],
+        "description": "The audit trail functionality has been improved to correctly handle custom objects with long names. Previously, audit trails might not have captured changes for such objects. This fix ensures that all object name lengths are supported, providing a more reliable and comprehensive audit history."
+      },
+      {
+        "state": "Done",
+        "sprint_name": "Winter'24 - 10.31",
+        "issue_key": "CAP-61",
+        "category": "Fix",
+        "title": "Fixed Attachment Removal Logging in Audit Trail",
+        "related_issues": [],
+        "description": "The audit trail now provides clearer information when attachments are removed. This improvement enhances transparency and allows for better tracking of changes made to complaints."
+      },
+      {
+        "state": "Done",
+        "sprint_name": "Winter'24 - 10.31",
+        "issue_key": "CAP-55",
+        "category": "Fix",
+        "title": "Fixed CVR Report \"Details of Incident\" Field Size",
+        "related_issues": [],
+        "description": "The \"Details of Incident\" field in the CVR report PDF has been resized to extend to the bottom of the available space. This change improves the visual consistency and clarity of the report."
+      },
+      {
+        "state": "Done",
+        "sprint_name": "Winter'24 - 10.31",
+        "issue_key": "CAP-81",
+        "category": "Improvement",
+        "title": "Improved error handling and audit trail capabilities",
+        "related_issues": [],
+        "description": "This update delivers a more reliable and informative experience by improving error handling and audit trail functionality. You'll benefit from clearer error messages and enhanced tracking within business rules and audit trails."
+      },
+      {
+        "state": "Done",
+        "sprint_name": "Winter'24 - 10.31",
+        "issue_key": "CAP-75",
+        "category": "Improvement",
+        "title": "Improved Error Handling in Flows",
+        "related_issues": [],
+        "description": "The handling of errors within system flows has been improved. This enhancement focuses on providing clearer error messages and a more user-friendly experience.  You will now encounter more understandable error notifications without being overwhelmed by unnecessary email alerts."
+      }
+    ]
+  ],
+  [
+    "Spring'24 - 11.0",
+    [
+      {
+        "state": "Done",
+        "sprint_name": "Spring'24 - 11.0",
+        "issue_key": "CAP-123",
+        "category": "Fix",
+        "title": "Fixed performance issue in Smart Email Notification",
+        "related_issues": [],
+        "description": "This release includes performance enhancements for Smart Email Notification, resulting in faster and more efficient email delivery."
+      },
+      {
+        "state": "Done",
+        "sprint_name": "Spring'24 - 11.0",
+        "issue_key": "CAP-122",
+        "category": "Fix",
+        "title": "Fixed Symptom and Cause Code Selection",
+        "related_issues": [],
+        "description": "Fixed an issue where selecting and deselecting Symptom and Cause Codes with the checkbox was not working as expected. Users can now reliably select and deselect codes using the checkbox or by clicking anywhere within the code's highlighted area."
+      },
+      {
+        "state": "Done",
+        "sprint_name": "Spring'24 - 11.0",
+        "issue_key": "CAP-109",
+        "category": "Fix",
+        "title": "Fixed Shadowing in MDC Reports for Improved Data Visibility",
+        "related_issues": [],
+        "description": "MDC Reports now correctly display child objects, such as Investigations and Chatter, associated with complaints. This enhancement provides a more comprehensive view of complaint data within MDC Reports."
+      },
+      {
+        "state": "Done",
+        "sprint_name": "Spring'24 - 11.0",
+        "issue_key": "CAP-108",
+        "category": "Fix",
+        "title": "Fixed data validation and formatting issues in forms",
+        "related_issues": [
+          "CAP-39"
+        ],
+        "description": "We fixed several issues that were causing errors and inconsistencies in forms. These fixes ensure data accuracy, improve form usability, and enhance the clarity of error messages."
+      },
+      {
+        "state": "Done",
+        "sprint_name": "Spring'24 - 11.0",
+        "issue_key": "CAP-103",
+        "category": "Fix",
+        "title": "Fixed text formatting issues in MIR Form PDF export",
+        "related_issues": [],
+        "description": "Previously, the MIR Form's text areas were not preserving formatting like line breaks and rich text styles when exported as a PDF. This issue has been fixed, and the MIR Form now correctly maintains its formatting in the exported PDF document."
+      },
+      {
+        "state": "Done",
+        "sprint_name": "Spring'24 - 11.0",
+        "issue_key": "CAP-101",
+        "category": "Fix",
+        "title": "Fixed Smart Email Criteria Filtering",
+        "related_issues": [],
+        "description": "Smart Email notifications now correctly filter records based on the defined criteria. This ensures that you will only receive notifications for relevant changes and updates, and not for unrelated products or events."
+      },
+      {
+        "state": "Done",
+        "sprint_name": "Spring'24 - 11.0",
+        "issue_key": "CAP-100",
+        "category": "Fix",
+        "title": "Fixed Supplemental MDR Creation Error",
+        "related_issues": [],
+        "description": "Users can now successfully create supplemental MDRs even if the 'Medical Device Problem Code' field is empty in the initial MDR."
+      },
+      {
+        "state": "Done",
+        "sprint_name": "Spring'24 - 11.0",
+        "issue_key": "CAP-99",
+        "category": "Fix",
+        "title": "Fixed Missing Chatter Messages in MDC Report",
+        "related_issues": [],
+        "description": "Previously, Chatter messages were not always appearing in the MDC Report, leading to potentially incomplete information in the report. This issue has been fixed, and Chatter messages are now correctly included in the MDC Report, ensuring that all relevant information is captured."
+      },
+      {
+        "state": "Done",
+        "sprint_name": "Spring'24 - 11.0",
+        "issue_key": "CAP-98",
+        "category": "Fix",
+        "title": "Fixed MDC Report Missing Attachments",
+        "related_issues": [],
+        "description": "Previously, attachments added to cases were not always appearing in the MDC report. This issue has been fixed, and all attachments should now be correctly included in the report."
+      },
+      {
+        "state": "Done",
+        "sprint_name": "Spring'24 - 11.0",
+        "issue_key": "CAP-97",
+        "category": "Fix",
+        "title": "Fixed Affiliate Rejection Rationale Display",
+        "related_issues": [],
+        "description": "The Affiliate Rejection Rationale now accurately reflects user input. The previous issue where `#EsignatureApproval` was automatically added has been fixed."
+      },
+      {
+        "state": "Done",
+        "sprint_name": "Spring'24 - 11.0",
+        "issue_key": "CAP-95",
+        "category": "Fix",
+        "title": "Fixed Special Character Truncation in Notifications",
+        "related_issues": [],
+        "description": "Previously, case descriptions containing special characters in Smart Notifications and hardcoded notifications were truncated. This issue has been fixed, and these descriptions will now be displayed completely, ensuring you receive all the necessary information."
+      },
+      {
+        "state": "Done",
+        "sprint_name": "Spring'24 - 11.0",
+        "issue_key": "CAP-93",
+        "category": "Fix",
+        "title": "Fixed Cursor Focus in Symptom and Cause Code Search",
+        "related_issues": [],
+        "description": "The search bar for Symptom and Cause Codes is now easier to use. When you open the search window, the text cursor will already be active in the search field. This means you can start typing your search immediately without having to click inside the field first."
+      },
+      {
+        "state": "Done",
+        "sprint_name": "Spring'24 - 11.0",
+        "issue_key": "CAP-43",
+        "category": "Fix",
+        "title": "Fixed Automatic MIR XML Generation",
+        "related_issues": [],
+        "description": "The system now automatically generates MIR XML files, eliminating the need for manual creation and ensuring data consistency between the XML and PDF files."
+      },
+      {
+        "state": "Done",
+        "sprint_name": "Spring'24 - 11.0",
+        "issue_key": "CAP-104",
+        "category": "Improvement",
+        "title": "Improved Symptom/Cause Code Selection",
+        "related_issues": [],
+        "description": "Users can now select symptom/cause codes by clicking anywhere on the code row in the 'Add New Symptom Codes' section, making it more user-friendly."
+      },
+      {
+        "state": "Done",
+        "sprint_name": "Spring'24 - 11.0",
+        "issue_key": "CAP-94",
+        "category": "Improvement",
+        "title": "Improved Symptom and Cause Code Searching",
+        "related_issues": [],
+        "description": "Users can now search for symptom and cause codes using multiple keywords or specific phrases. This makes it easier and faster to find the right codes, improving efficiency.\n\nWhen searching, entering multiple words will return results containing any of the words. Enclosing a phrase in double quotes will return results containing that exact phrase."
+      },
+      {
+        "state": "Done",
+        "sprint_name": "Spring'24 - 11.0",
+        "issue_key": "CAP-77",
+        "category": "Improvement",
+        "title": "Improved Score Component with new UI",
+        "related_issues": [],
+        "description": "The Score Component has been revamped with a new, user-friendly interface. You can now easily visualize scores using a clear and intuitive gauge chart. This improvement provides a more digestible understanding of the score and its implications within the established scoring system."
+      },
+      {
+        "state": "Done",
+        "sprint_name": "Spring'24 - 11.0",
+        "issue_key": "CAP-44",
+        "category": "Improvement",
+        "title": "Improved MDC Report Child Entry Display and Performance",
+        "related_issues": [],
+        "description": "We've made some important improvements to the MDC Report to enhance its accuracy, performance, and usability:\n\n- **Improved Child Entry Display:** Child entries are now correctly displayed under their respective parent records, making it easier to view related information.\n- **Faster Report Generation:** We've optimized the report loading time, so you can access the information you need more quickly.\n- **Accurate Audit Trails:** The order of audit trails has been fixed, ensuring that entries are displayed in the correct chronological order.\n- **Enhanced Reliability:** We've resolved various bugs and issues to ensure that the report is accurate and reliable.\n\nThese enhancements provide a more efficient and user-friendly experience when tracking changes made to records."
+      },
+      {
+        "state": "Done",
+        "sprint_name": "Spring'24 - 11.0",
+        "issue_key": "CAP-102",
+        "category": "New Feature",
+        "title": "Added Advanced Filtering to Smart Email Notifications",
+        "related_issues": [],
+        "description": "You can now set up Smart Email Notifications with greater precision using AND/OR logic for multiple criteria. This allows you to define exactly when notifications should be sent based on various conditions being met in a Complaint record. For example, you can now create a notification that triggers only when the 'Category' is 'Technical Issue' AND the 'Country of Incident' is 'United States'."
+      },
+      {
+        "state": "Done",
+        "sprint_name": "Spring'24 - 11.0",
+        "issue_key": "CAP-79",
+        "category": "New Feature",
+        "title": "Added Case Status Duration Visualization",
+        "related_issues": [],
+        "description": "A new component is now available that displays a bar graph of how long cases have spent in each status. This visualization provides a clear and concise overview of case status durations, aiding in identifying bottlenecks and improving case management."
+      },
+      {
+        "state": "Done",
+        "sprint_name": "Spring'24 - 11.0",
+        "issue_key": "CAP-78",
+        "category": "New Feature",
+        "title": "Added visual indicator for Complaint Reportability",
+        "related_issues": [],
+        "description": "You can now quickly identify whether a complaint is reportable directly from the Complaints list view. A new visual indicator, represented by a red or green icon, now appears in the \"Reportable Flag\" column, providing a clear and immediate understanding of the complaint's reportability status."
+      }
+    ]
+  ],
+  [
+    "Spring'24 - 11.1",
+    [
+      {
+        "state": "Done",
+        "sprint_name": "Spring'24 - 11.1",
+        "issue_key": "CAP-106",
+        "category": "Fix",
+        "title": "Investigated Field Type Change Limitations in MIR",
+        "related_issues": [],
+        "description": "The team investigated a problem where field types in MIR could not be changed directly. This limitation was confirmed after consulting with Salesforce. While a specific workaround was identified for the reported field issue, a deeper analysis of other fields is recommended to ensure compliance with MIR specifications and to identify any potential data migration needs."
+      },
+      {
+        "state": "Todo",
+        "sprint_name": "Spring'24 - 11.1",
+        "issue_key": "BP-32",
+        "category": "Fix",
+        "title": "Fixing Smart Record Template Configuration",
+        "related_issues": [],
+        "description": "We are working to fix a configuration issue with Smart Record Templates. This issue affects the usability of the 'select all fields' and 'exclude' options, requiring users to click slightly off-center to interact with them. This fix will improve the experience of using Smart Record Templates."
+      }
+    ]
+  ],
+  [
+    "Spring'24 - 11.2",
+    [
+      {
+        "state": "Done",
+        "sprint_name": "Spring'24 - 11.2",
+        "issue_key": "CAP-118",
+        "category": "Fix",
+        "title": "Fixed Comment Field Length Issue in MIR Form",
+        "related_issues": [],
+        "description": "Buddy writers for Dexcom can now enter more detailed comments into the MIR form. The \"Comments\" field was previously limited to 255 characters, but has been expanded to allow for up to 15,000 characters."
+      },
+      {
+        "state": "Done",
+        "sprint_name": "Spring'24 - 11.2",
+        "issue_key": "CAP-105",
+        "category": "Fix",
+        "title": "Fixed MORE Integration in SmartVAL",
+        "related_issues": [],
+        "description": "The integration with MORE was encountering issues due to a format mismatch in the MIR XML. This has been addressed, and submissions to MORE are now functioning correctly."
+      },
+      {
+        "state": "Done",
+        "sprint_name": "Spring'24 - 11.2",
+        "issue_key": "CAP-76",
+        "category": "Fix",
+        "title": "Fixed Similar Records functionality for enhanced support across all objects",
+        "related_issues": [],
+        "description": "Users now have access to improved \"Similar Records\" functionality across all objects. This enhancement provides a more consistent and reliable experience when identifying and managing similar records within the system."
+      },
+      {
+        "state": "Done",
+        "sprint_name": "Spring'24 - 11.2",
+        "issue_key": "CAP-58",
+        "category": "Fix",
+        "title": "Fixed Root Cause of Problem field now correctly displays formatted text in CVR PDF",
+        "related_issues": [],
+        "description": "The 'Root Cause of Problem' field in the CVR PDF now correctly displays formatted text, making it easier to read and understand the reported issue."
+      }
+    ]
+  ],
+  [
+    "Spring'24 - 11.21",
+    [
+      {
+        "state": "Done",
+        "sprint_name": "Spring'24 - 11.21",
+        "issue_key": "CAP-136",
+        "category": "Fix",
+        "title": "Fixed HTML Character Rendering in MIR PDF",
+        "related_issues": [
+          "CAP-131"
+        ],
+        "description": "HTML characters now display correctly in MIR PDFs, addressing an issue where they were not rendering properly in some sections. This ensures clear and accurate representation of information in generated PDFs."
+      }
+    ]
+  ],
+  [
+    "Summer'24 - 12.0",
+    [
+      {
+        "state": "Todo",
+        "sprint_name": "Summer'24 - 12.0",
+        "issue_key": "CAP-140",
+        "category": "Fix",
+        "title": "Fixes UI Issues in Scoring Component",
+        "related_issues": [],
+        "description": "This addresses UI issues in the scoring component to ensure accurate and clear display of scores and related information."
+      },
+      {
+        "state": "Todo",
+        "sprint_name": "Summer'24 - 12.0",
+        "issue_key": "CAP-137",
+        "category": "Fix",
+        "title": "Addresses Issue with Character Conversion in MIR Forms",
+        "related_issues": [],
+        "description": "We are working on addressing an issue where the characters '>' and '<' are being converted to '> <' in MIR forms. This will ensure that these characters are correctly represented in the generated MIR PDFs."
+      },
+      {
+        "state": "Progress",
+        "sprint_name": "Summer'24 - 12.0",
+        "issue_key": "CAP-124",
+        "category": "Fix",
+        "title": "Improving configuration screen input",
+        "related_issues": [],
+        "description": "We are working to improve the configuration screen by addressing an issue with the rich text area input. This change will make it easier for you to configure the system."
+      },
+      {
+        "state": "Progress",
+        "sprint_name": "Summer'24 - 12.0",
+        "issue_key": "CAP-121",
+        "category": "Fix",
+        "title": "Fixing Audit Trail Component Loading Issue",
+        "related_issues": [],
+        "description": "We are addressing an issue where the Audit Trail component fails to load if a record and its audit trail were created by a user who has been deactivated. This fix will ensure that audit trails are always accessible, regardless of the originating user's status."
+      },
+      {
+        "state": "Todo",
+        "sprint_name": "Summer'24 - 12.0",
+        "issue_key": "CAP-96",
+        "category": "Fix",
+        "title": "Investigating \"In Progress\" Timestamp Discrepancy",
+        "related_issues": [],
+        "description": "We are actively investigating a discrepancy between the displayed \"In Progress\" timestamp and the actual time recorded in the Audit Trail and SFDC reporting. This discrepancy may affect the accuracy of time tracking for certain tasks. We are working to identify the root cause and will provide updates as they become available."
+      },
+      {
+        "state": "Progress",
+        "sprint_name": "Summer'24 - 12.0",
+        "issue_key": "CAP-45",
+        "category": "Fix",
+        "title": "Fixing Risk Assessment Field Tracking in Meaningful Data Change Report",
+        "related_issues": [],
+        "description": "We are improving the tracking of changes made to the 'Risk Assessment' field within Complaints. This fix ensures that all updates to this field are accurately recorded and viewable in the Meaningful Data Change report. This enhancement improves data integrity and provides a more comprehensive audit trail for better tracking and analysis of risk-related modifications."
+      },
+      {
+        "state": "Progress",
+        "sprint_name": "Summer'24 - 12.0",
+        "issue_key": "CAP-49",
+        "category": "Improvement",
+        "title": "Improving Decision Tree Migration",
+        "related_issues": [],
+        "description": "We are improving the process of migrating Decision Trees to ensure a smoother and more reliable experience. This update introduces a new method for identifying existing Decision Trees during migration, reducing the risk of issues caused by changing Salesforce Record IDs."
+      },
+      {
+        "state": "Todo",
+        "sprint_name": "Summer'24 - 12.0",
+        "issue_key": "CAP-135",
+        "category": "New Feature",
+        "title": "Adds the ability to delete linked organizations in the Migration Tool Config",
+        "related_issues": [],
+        "description": "This new feature allows users to delete linked organizations within the Migration Tool Config, providing greater control and flexibility over their organizational structure during migrations."
+      },
+      {
+        "state": "Todo",
+        "sprint_name": "Summer'24 - 12.0",
+        "issue_key": "CAP-129",
+        "category": "New Feature",
+        "title": "Adds functionality to generate MIR XML",
+        "related_issues": [],
+        "description": "This update adds a new feature that allows users to generate an XML file from a VF page. This XML file will then be automatically attached to the corresponding MIR record. This simplifies the process of accessing and sharing important data related to MIRs."
+      },
+      {
+        "state": "Progress",
+        "sprint_name": "Summer'24 - 12.0",
+        "issue_key": "CAP-80",
+        "category": "New Feature",
+        "title": "Adding Create Template Button for Faster Template Generation",
+        "related_issues": [],
+        "description": "We're adding a new \"Make template\" button that allows you to quickly create templates from existing records.  This will simplify and speed up the process of creating new templates."
+      }
+    ]
+  ]
+]

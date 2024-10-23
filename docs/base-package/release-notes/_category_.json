@@ -1,0 +1,10 @@
+{
+  "label": "Release Notes",
+  "position": 10,
+  "collapsed": true,
+  "link": {
+    "type": "generated-index",
+    "description": "Release notes for the BASE package (BP)",
+    "slug": "/packages/base/release-notes"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "label": "Get Started",
+  "position": 0,
+  "collapsed": false,
+  "link": {
+    "type": "generated-index",
+    "title": "Get Started with Smarteeva",
+    "description": "Learn how to get started with Smarteeva, including installation, configuration, and initial setup.",
+    "slug": "/get-started"
+  }
+}

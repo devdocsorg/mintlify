@@ -1,0 +1,373 @@
+---
+slug: /packages/base/user-guide/decision-trees/ad-hoc-decision-trees
+toc_min_heading_level: 2
+toc_max_heading_level: 4
+---
+
+# Ad Hoc Decision Trees
+
+## Introduction
+
+In the Smarteeva platform, Ad Hoc Decision Trees empower regular users—not just administrators—to create custom decision trees on the fly. This functionality is particularly useful when users need to capture additional information or feedback that isn't covered by standard forms or pre-configured decision trees. By enabling Ad Hoc Decision Trees, organizations can enhance flexibility in data collection, streamline workflows, and improve responsiveness to unique scenarios.
+
+This article provides a comprehensive guide on how to enable and configure Ad Hoc Decision Trees in Smarteeva. It covers the setup process, allowable module types, differences between admin and user interfaces, activation procedures, and best practices for email distribution.
+
+
+## Understanding Ad Hoc Decision Trees
+
+Ad Hoc Decision Trees allow regular users to create custom decision trees directly from record pages without needing admin privileges. This feature is ideal for situations where users need to gather specific information that isn't covered by existing forms or decision trees.
+
+### Use Cases
+
+* Capturing additional customer feedback after a service call.
+* Logging information from unique scenarios that arise unexpectedly.
+* Collecting data for internal processes that require user-specific forms.
+
+By empowering users to create their own decision trees, organizations can enhance data collection flexibility and improve responsiveness to dynamic business needs.
+
+
+## Enabling Ad Hoc Decision Trees
+
+### Prerequisites
+
+Before enabling Ad Hoc Decision Trees, ensure the following:
+
+* Decision Tree Version 2 is enabled in your Smarteeva instance.
+* You have administrative access to configure custom settings and Lightning components.
+
+### Configuring Smarteeva Setup
+
+#### 1) Navigate to Smarteeva Setup
+
+* In Salesforce Setup, enter `Custom Settings` in the Quick Find box.
+* Select **Smarteeva Setup**.
+
+#### 2) Enable Module Types Allowed for Ad Hoc Feature
+
+* Find the field **Module Types Allowed for Ad-hoc Feature**.
+* Specify the module types you want to allow for ad hoc creation, separated by semicolons (`;`).
+* Example: `Form;Regular Branching`
+* If the field is left empty, both `Form` and `Regular Branching` module types are allowed by default.
+
+**Note**: Only `Form` and `Regular Branching` module types are currently supported for Ad Hoc Decision Trees.
+
+#### 3) Enable Decision Tree Version 2
+
+* Ensure that **Decision Tree V2** is enabled in your settings.
+
+#### 4) Save Changes
+
+* Click **Save** to apply your configuration.
+
+
+## Setting Up the Ad Hoc Decision Tree Button
+
+To allow users to access Ad Hoc Decision Trees from object record pages, you need to add a custom button or action.
+
+### Creating a Lightning Action
+
+#### 1) Navigate to Object Manager
+
+* In Salesforce Setup, enter `Object Manager` in the Quick Find box.
+* Select the object you want to add the Ad Hoc Decision Tree button to (e.g., `Account`).
+
+#### 2) Go to Buttons, Links, and Actions
+
+* In the object's management settings, select **Buttons, Links, and Actions**.
+
+#### 3) Create a New Action
+
+* Click **New Action**.
+* Configure the action as follows:
+    * **Action Type**: `Lightning Component`
+    * **Lightning Component**: `c:SMRT_AdhocDecisionTreeContainer`
+    * **Height**: `500` (recommended for optimal display)
+    * **Label**: Enter the button label (e.g., `Ad Hoc Decision Tree`)
+* Click **Save**.
+
+
+### Adding the Button to the Object Page Layout
+
+#### 1) Open Lightning App Builder
+
+* Navigate to the object record page.
+* Click the **Setup** gear icon and select **Edit Page**.
+
+#### 2) Add the Action to the Page Layout
+
+* In the Lightning App Builder, locate the **Highlights Panel** or the desired section.
+* Click on the **Highlights Panel** and then **Add Action**.
+* Find and select your newly created action (e.g., `Ad Hoc Decision Tree`).
+* Save and activate the page as necessary.
+
+#### 3) Verify Visibility
+
+* Ensure that the action is visible to the intended user profiles.
+* Adjust component visibility settings if required.
+
+**Note**: The Ad Hoc Decision Tree button needs to be added to each object where you want this feature available. This setup is customer-specific and cannot be predefined in the managed package.
+
+
+## Creating Ad Hoc Decision Trees
+
+Regular users can create Ad Hoc Decision Trees from the record page by clicking the **Ad Hoc Decision Tree** button.
+
+### From Scratch
+
+#### 1) Access Ad Hoc Decision Tree
+
+* On the object record page, click the **Ad Hoc Decision Tree** button.
+
+#### 2) Create a New Module
+
+* In the Ad Hoc Decision Tree interface, click **Create New**.
+* Enter the **Module Name** and select the **Module Type** (only allowed types will be available).
+* Click **Create New**.
+
+#### 3) Add Questions
+
+* Use the **Form Builder** to add questions to your decision tree.
+* For each question:
+    * Enter the **Question Text**.
+    * Choose the **Question Type** (`Branching`, `Choice`, etc.).
+    * Link to a field if necessary using **Field to be Linked to**.
+    * Save each question.
+
+#### 4) Activate the Module
+
+* After configuring your decision tree, click **Activate**.
+* Optionally, you can proceed to send the form via email.
+
+
+### Cloning Existing Templates
+
+#### 1) Access Ad Hoc Decision Tree
+
+* On the object record page, click the **Ad Hoc Decision Tree** button.
+
+#### 2) Select an Existing Template
+
+* In the Ad Hoc Decision Tree interface, under **Clone Existing**, select a template from the dropdown.
+* Only templates associated with the object and allowed module types will be available.
+
+#### 3) Clone the Module
+
+* Click **Clone**.
+* The cloned module will inherit the configuration from the template.
+
+#### 4) Modify as Needed
+
+* Adjust questions or logic in the cloned module if necessary.
+
+#### 5) Activate the Module
+
+* Click **Activate** to make the decision tree available.
+
+
+### Constraints
+
+* Users can only create **one Ad Hoc Module per template per record**.
+* Attempting to create another from the same template on the same record will result in an error.
+
+
+## Module Types Allowed for Ad Hoc Feature
+
+In **Smarteeva Setup**, the **Module Types Allowed for Ad-hoc Feature** field determines which module types users can create:
+
+### Supported Module Types
+
+* `Form`
+* `Regular Branching`
+
+Specify the module types separated by semicolons (`;`). For example:
+
+```
+Form;Regular Branching
+```
+
+If left empty, both `Form` and `Regular Branching` are allowed by default.
+
+**Note**: Only the module types specified here will be available for users to create in the Ad Hoc interface.
+
+
+## User Interface Differences
+
+### Admin vs. Regular User Interface
+
+#### Admin Interface
+
+* Full access to all fields and configurations.
+* Can create templates and standard decision trees.
+* Has additional fields like **Question Subtext** and **Element**.
+
+#### Regular User Interface (Ad Hoc)
+
+* Simplified UI for ease of use.
+* Only essential fields are presented to reduce complexity.
+* Cannot access advanced fields like **Question Subtext** and **Element**.
+* Can link questions to object fields they have access to.
+
+
+### Field Availability and Restrictions
+
+#### Question Types
+
+* Users can create **Branching** and **Choice** type questions.
+* When creating **Choice** questions, a **Parent Branching Question** must exist.
+
+#### Field Linking
+
+* Users can link questions to any fields they have access to.
+* No additional restrictions beyond Salesforce field-level security.
+
+#### Logic and End Decision Tree
+
+* Users can configure logic rules and specify when the decision tree should end based on responses.
+
+
+## Activating Ad Hoc Decision Trees
+
+### Using the Activation Screen
+
+When activating an Ad Hoc Decision Tree, users may be presented with an activation screen, depending on configuration.
+
+### Options on the Activation Screen
+
+* **Send Form for Parent Record**: Creates an event for the current record.
+* **Send Form for All Child Records**: Creates events for all child records (e.g., all Contacts related to an Account).
+* **Send Form for Selected Records**: Allows selection of specific child records to create events for.
+
+
+### Configuring Ad Hoc Decision Tree Configuration
+
+To enable the activation screen and child record selection:
+
+#### 1) Navigate to Ad-Hoc Decision Tree Configuration
+
+* In Salesforce Setup, enter `Custom Metadata Types` in the Quick Find box.
+* Select **Ad-Hoc Decision Tree Configuration**.
+
+#### 2) Create a New Configuration
+
+* Click **New**.
+* Fill out the required fields:
+    * **Label**: Name your configuration.
+    * **Parent Object**: The object where the Ad Hoc Decision Tree is used (e.g., `Account`).
+    * **Child Object**: The related object for child records (e.g., `Contact`).
+    * **Foreign Key Field API Name**: The field linking child records to the parent (e.g., `AccountId`).
+    * **Display Activation Screen**: Check this box to enable the activation screen.
+* Save the configuration.
+
+#### 3) Adjust as Needed
+
+* Set **Active** to enable the configuration.
+* Specify any additional fields or criteria for child record selection.
+
+**Note**: The activation screen allows users to select recipients and send emails directly upon activation.
+
+
+## Sending Decision Trees via Email
+
+### Setting Up Email Templates
+
+#### 1) Create an Email Template
+
+* In Salesforce, navigate to **Email Templates**.
+* Click **New Email Template**.
+* Choose **Folder**:
+    * **Private Email Templates**: Accessible only to the creator.
+    * **Public Email Templates**: Accessible to all users.
+* Fill out the necessary fields:
+    * **Email Template Name**
+    * **Subject**
+    * **HTML Value**: Compose the body of the email.
+* Optionally, specify the **Related Entity Type** for merge fields.
+* Save the template.
+
+
+### Specifying Recipients
+
+When activating and choosing to send emails:
+
+### Available Recipients
+
+* Users associated with the record (e.g., Record Owner, Created By, Last Modified By).
+* Contacts with an email address on the record.
+
+### Adding Additional Recipients
+
+* Manually enter email addresses in the provided field, separated by semicolons (`;`).
+
+
+### Configuring the Email Link
+
+#### 1) Set the Link to Use in Emails
+
+* In **Smarteeva Setup**, find the **Link to Use in Emails** field.
+* Enter the URL that recipients will use to access the decision tree.
+* Example: `https://yourdomain.my.salesforce.com/apex/TroubleshootingUserApp`
+* This URL is appended with parameters to direct recipients to the correct decision tree.
+
+#### 2) Ensure Accessibility
+
+* The URL should point to a page accessible to recipients.
+* For external users or guest users, additional configurations may be required (not covered in this article).
+
+
+## Best Practices
+
+### Permissions and Access Control
+
+#### Field Access
+
+* Users can link questions to any fields they have access to in Salesforce.
+* Ensure users have appropriate field-level security settings.
+
+#### Component Visibility
+
+* Control who can see and use the Ad Hoc Decision Tree button through Salesforce profiles and permissions.
+
+
+### Using Templates Effectively
+
+#### Creating Templates
+
+* Admins can create template modules for users to clone.
+* Templates should be associated with the appropriate object.
+
+#### Cloning Restrictions
+
+* Users can only clone a template once per record.
+* Encourage users to create from scratch if additional decision trees are needed on the same record.
+
+
+### Utilizing the Activation Screen
+
+#### Display Activation Screen
+
+* Enabling the activation screen provides flexibility in selecting recipients and sending emails immediately.
+
+#### Ad-Hoc Decision Tree Configuration
+
+* Ensure configurations are set up for objects where child record selection is desired.
+
+#### Email Link Configuration
+
+* Always set the **Link to Use in Emails** to direct recipients to the correct decision tree.
+* Verify that the link works and is accessible by recipients.
+
+
+## Conclusion
+
+Ad Hoc Decision Trees in Smarteeva provide a powerful tool for regular users to create custom forms and decision trees as needed. By following the steps outlined in this guide, organizations can enable this feature, configure it appropriately, and empower users to enhance data collection and responsiveness.
+
+
+### Key Takeaways
+
+* **Empower users**: Allow regular users to create decision trees without admin intervention.
+* **Flexibility in data collection**: Capture additional information not covered by standard forms.
+* **Configure thoughtfully**: Use Smarteeva Setup and Ad-Hoc Decision Tree Configuration to align with organizational needs.
+* **Ensure accessibility**: Set up email templates and links correctly to facilitate seamless user experiences.
+
+
+By implementing these practices, organizations can leverage Ad Hoc Decision Trees to improve workflows, data quality, and overall efficiency in their Salesforce environment.

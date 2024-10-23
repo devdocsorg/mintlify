@@ -1,0 +1,85 @@
+---
+sidebar_position: 3
+slug: /packages/cap/reference/smart-email/available-variables
+---
+
+import { Reference } from "/snippets/Reference/reference";
+
+# Available Variables for Smart Email Notifications
+
+## Introduction
+
+This reference guide lists the available variables you can use within custom email templates for Smart Email Notifications in Smarteeva's CAP package. These variables allow you to dynamically insert data into your email content, making notifications more informative and relevant.
+
+## Recipient Variables
+
+These variables provide information about the recipient of the email notification.
+
+### Recipient.FullName
+
+The recipient's full name.
+
+
+
+### Recipient.Email
+
+The recipient's email address.
+
+### Recipient.Title
+
+The recipient's job title.  
+
+### Recipient.Department
+
+The recipient's department. 
+
+
+### Recipient.CompanyName
+
+The recipient's company name. 
+
+
+## Related Record Variables
+
+These variables provide information about the Salesforce record that triggered the email notification.  The `RelatedTo` object represents this record.  The available fields depend on the object being monitored.  Refer to the Object's API reference for a list of all accessible fields.
+
+
+### RelatedTo.Name
+
+The name of the related record. 
+
+### RelatedTo.Description
+
+The description of the related record (if applicable).   
+
+### RelatedTo.\*
+
+Other fields of the related object can be accessed using their respective API names (e.g., `RelatedTo.CreatedDate`, `RelatedTo.OwnerId`). 
+
+
+## System Variables
+
+These variables provide information about the Smart Email Notification service itself.
+
+### Service_Name
+
+The name of the email notification service. 
+
+### Unsubscribe_URL
+
+The URL for unsubscribing from the notification. 
+
+
+## Example
+
+```html
+Hello {!Recipient.FullName},
+
+You are receiving this email because the {!RelatedTo.Name} record was updated.
+
+The new description is: {!RelatedTo.Description__c}.
+
+This notification was sent by the {!Service_Name} service.
+
+Click here to unsubscribe: {!Unsubscribe_URL}
+```

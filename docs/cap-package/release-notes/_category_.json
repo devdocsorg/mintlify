@@ -1,0 +1,10 @@
+{
+  "label": "Release Notes",
+  "position": 10,
+  "collapsed": true,
+  "link": {
+    "type": "generated-index",
+    "description": "Release notes for the Complaints and Adverse Events Reporting Package (CAP)",
+    "slug": "/packages/cap/release-notes"
+  }
+}

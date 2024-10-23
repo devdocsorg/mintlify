@@ -1,0 +1,126 @@
+---
+slug: /packages/cap/admin-guide/smart-record-templates/creating-templates
+---
+
+import { Reference } from "/snippets/Reference/reference";
+import { Screenshot } from "/snippets/Screenshot/Screenshot";
+
+# Creating Smart Record Templates
+
+## Introduction
+
+Smart Record Templates streamline data entry and ensure data consistency. This guide explains how to create and configure them, including defining field values (static and dynamic), using merge fields, adding tags, configuring related record templates, and understanding performance considerations.
+
+## Prerequisites
+
+* System Administrator privileges.
+* Access to the Smart Config app. 
+* Understanding of [Merge Field Syntax](../../reference/smart-record-templates/merge-field-syntax.mdx).
+
+## Creating a New Template
+
+### 1) Accessing Smart Record Templates
+
+* From the App Launcher, select **Smart Record Templates Config**. 
+
+### 2) Selecting the Target Object
+
+* Choose the object (e.g., Complaint). 
+
+### 3) Starting a New Template
+
+* Click **New**. 
+
+<Screenshot
+  disabled={true}
+  fn="TODO: salesforce/smart_record_templates_new.png"
+  alt="New Smart Record Template button"
+/>
+
+### 4) Defining the Template Name
+
+
+
+* Enter a descriptive name (e.g., "Template for Sensors").
+
+<Screenshot
+  disabled={true}
+  fn="TODO: salesforce/smart_record_templates_name.png"
+  alt="Entering the template name"
+/>
+
+## Configuring the Template
+
+### 1) Template Field Configuration
+
+This tab defines fields and their values.
+
+#### Adding Fields
+
+
+* Click **Add New Entry (+)**.
+* Select the field from the dropdown.
+* Enter the value (static or dynamic using merge fields).
+
+<Screenshot
+  disabled={true}
+  fn="TODO: salesforce/smart_record_templates_add_field.png"
+  alt="Adding fields to the template"
+/>
+
+#### Using Merge Fields
+
+* Check **Has Merge Field** if using merge fields. Then use the **Insert Merge Field** dropdown. 
+* Combine static text and merge fields (e.g., "Complaint regarding `{!Complaint.Product__r.Name}`").
+* See [Merge Field Syntax](../../reference/smart-record-templates/merge-field-syntax.mdx).  
+
+<Screenshot
+  disabled={true}
+  fn="TODO: salesforce/smart_record_templates_merge_field.png"
+  alt="Using merge fields in a template"
+/>
+
+#### Performance Considerations
+
+Only check **Has Merge Field** if the field uses merge fields. Unnecessary parsing impacts performance. 
+
+### 2) Template Tags
+
+
+
+This tab categorizes templates.
+
+* Click **Add Tag**.
+* Enter comma-separated tags (case-insensitive). Example: "hardware, sensor, critical".
+
+<Screenshot
+  disabled={true}
+  fn="TODO: salesforce/smart_record_templates_tags.png"
+  alt="Adding tags to the template"
+/>
+
+### 3) Related Record Templates
+
+Create templates for automatically created related records. See [Configuring Related Record Templates](./configuring-related-records-templates.mdx). 
+
+### 4) Saving the Template
+
+
+* Click **Save**.
+
+## Verifying the Template
+
+* Navigate to the record page with the Smart Record Templates component.
+* Ensure the new template is listed and filtered correctly by tags.
+* Apply the template to a new record to verify field population. 
+
+## Advanced Concepts
+
+### Automating Template Application
+
+Templates can be applied automatically based on record criteria using Apex triggers. This automation is covered in [Automating Template Application](./automating-template-application.mdx). 
+
+### Customizing the Template Creation UI
+
+
+The Smart Record Template creation form can be customized. See the guide on [Customizing the Template Creation Form](./customizing-template-creation-form.mdx) for advanced instructions.
